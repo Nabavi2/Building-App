@@ -44,6 +44,7 @@ export default {
     ...others,
   },
   dark: {
+<<<<<<< HEAD
     primary,
     text: grays.white,
     background: grays.gray900,
@@ -51,5 +52,15 @@ export default {
     tabIconDefault: "#ccc",
     ...grays,
     white: grays.gray900,
+=======
+    // primary,
+    // text: grays.white,
+    // background: grays.gray900,
+    // tint: primary,
+    // tabIconDefault: "#ccc",
+    // ...purples,
+    // ...grays,
+    // white: grays.gray900,
+>>>>>>> 93c0c7b5b6c56fe70b637f513487960ba13a1caf
   },
 };
