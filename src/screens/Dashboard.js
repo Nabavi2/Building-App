@@ -11,6 +11,7 @@ import Layout from "../constants/Layout";
 const size = Layout.window;
 
 const Dashboard = (props) => {
+  const Bage = (color, text) => <View></View>;
   return (
     <SafeAreaView style={GlobalStyles.container}>
       <TabSection />
