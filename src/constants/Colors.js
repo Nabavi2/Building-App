@@ -49,7 +49,6 @@ export default {
     background: grays.gray900,
     tint: primary,
     tabIconDefault: "#ccc",
-    ...purples,
     ...grays,
     white: grays.gray900,
   },
