@@ -25,7 +25,7 @@ const AppNavigation = (props) => {
             headerShadowVisible: false,
             headerTitleStyle: {
               fontSize: 16,
-              fontWeight: "bold",
+              // fontWeight: "bold",
             },
             headerStyle: {
               height: 90,
@@ -40,8 +40,9 @@ const AppNavigation = (props) => {
                   justifyContent: "center",
                   alignItems: "center",
                   backgroundColor: Colors.light.white,
-                  borderRadius: 2,
+                  borderRadius: 5,
                   padding: 2,
+                  marginLeft: 2.5,
                 }}
               >
                 <Entypo name="menu" size={30} color="black" />
