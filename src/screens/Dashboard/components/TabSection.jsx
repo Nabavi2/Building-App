@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, StyleSheet, Pressable, Text } from "react-native";
-import Colors from "../constants/Colors";
-import Layout from "../constants/Layout";
+import Colors from "../../../constants/Colors";
+import Layout from "../../../constants/Layout";
 
 const size = Layout.window;
 
@@ -49,13 +49,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: "center",
-    width: size.width * 0.8,
+    width: size.width * 0.92,
     height: size.height * 0.05,
     backgroundColor: Colors.light.white,
     borderRadius: (size.height * 0.05) / 6,
   },
   tabItem: {
-    width: size.width * 0.36,
+    width: size.width * 0.42,
     height: size.height * 0.037,
     justifyContent: "center",
     alignItems: "center",
