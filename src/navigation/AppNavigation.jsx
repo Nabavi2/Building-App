@@ -13,7 +13,7 @@ import IconContainer from "../components/IconContainer";
 
 import LoginScreen from "../screens/LoginScreen";
 import HomeScreen from "../screens/HomeScreen";
-import BuildingScreen from "../screens/BuildingScreen";
+import BuildingScreen from "../screens/buildingoverview";
 
 const height = Layout.window.height;
 const Stack = createNativeStackNavigator();
