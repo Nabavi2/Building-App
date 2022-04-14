@@ -1,13 +1,13 @@
 import { Image, View, Text, ScrollView } from "react-native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import { BottomTabNavigator } from './BottomTabNavigator';
-import { useNavigation } from "@react-navigation/native";
+import { BottomTabNavigator } from "./BottomTabNavigator";
+// import { useNavigation } from "@react-navigation/native";
 
 import Colors from "../constants/Colors";
 
 const DrawerNavigator = createDrawerNavigator();
 const AppDrawerNavigator = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   return (
     <DrawerNavigator.Navigator
       drawerContent={(props) => {
@@ -41,9 +41,9 @@ const AppDrawerNavigator = () => {
                   alignItems: "center",
                   justifyContent: "center",
                 }}
-                onPress={ () => {
+                onPress={() => {
                   // setIsLoading(false);
-                  console.log("lasdjflasjdfladjflaf")
+                  console.log("lasdjflasjdfladjflaf");
                 }}
               ></TouchableOpacity>
             </SafeAreaView>
