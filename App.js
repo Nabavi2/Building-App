@@ -5,7 +5,6 @@ import AppNavigation from "./src/navigation/AppNavigation";
 
 import Colors from "./src/constants/Colors";
 import GlobalStyles from "./src/constants/GlobalStyles";
-import LoginScreen1 from "./src/screens/LoginScreen1";
 
 export default function App() {
   return (

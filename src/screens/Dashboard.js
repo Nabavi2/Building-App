@@ -1,8 +1,7 @@
 import React from "react";
-import { Avatar, Box, Column, FlatList, Row, Text } from "native-base";
+import { Avatar, Box, Column, FlatList, Row, Text, ZStack } from "native-base";
 import { StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { ProgressChart } from "react-native-chart-kit";
 
 import CustomButton from "../components/CustomButton";
 import TabSection from "../components/TabSection";
@@ -10,6 +9,7 @@ import Colors from "../constants/Colors";
 import GlobalStyles from "../constants/GlobalStyles";
 import Layout from "../constants/Layout";
 import DashboardListItem from "../components/DashboardListItem";
+import { PieChart, ProgressChart } from "react-native-chart-kit";
 
 const size = Layout.window;
 
@@ -22,11 +22,50 @@ const Dashboard = (props) => {
       </Text>
     </Row>
   );
-  const data = [0.4, 0.6, 0.8];
+
+  const data = [
+    {
+      name: "Seoul",
+      population: 14,
+      color: Colors.light.red,
+      legendFontColor: Colors.light.red,
+      legendFontSize: 15,
+    },
+    {
+      name: "Toronto",
+      population: 15,
+      color: Colors.light.orange,
+      legendFontColor: "#7F7F7F",
+      legendFontSize: 15,
+    },
+    {
+      name: "Beijing",
+      population: 20,
+      color: Colors.light.primary,
+      legendFontColor: "#7F7F7F",
+      legendFontSize: 15,
+    },
+    {
+      name: "New York",
+      population: 45,
+      color: "#707070",
+      legendFontColor: "#7F7F7F",
+      legendFontSize: 15,
+    },
+  ];
+  const chartConfig = {
+    backgroundColor: Colors.light.background,
+
+    color: (opacity = 1) => `rgba(26, 255, 146, ${opacity})`,
+    strokeWidth: 2, // optional, default 3
+    barPercentage: 0.5,
+    useShadowColorFromDataset: false, // optional
+  };
+
   return (
     <SafeAreaView style={GlobalStyles.container}>
       <TabSection />
-      <Row style={styles.graphSection}>
+      <Row style={styles.graphSection} bg="blue">
         <Column style={styles.bagesContainer}>
           <Column mb={7}>
             <Bage color={Colors.light.red} text="Overdued" />
@@ -37,21 +76,36 @@ const Dashboard = (props) => {
 
           <CustomButton title="Building list" />
         </Column>
-        <ProgressChart
-          data={data}
-          width={"45%"}
-          height={"100%"}
-          chartConfig={{
-            backgroundColor: "#e26a00",
-            backgroundGradientFrom: "#fb8c00",
-            backgroundGradientTo: "#ffa726",
-            decimalPlaces: 2, // optional, defaults to 2dp
-            color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-            style: {
-              borderRadius: 16,
-            },
-          }}
-        />
+        <ZStack alignItems={"center"} justifyContent={"center"}>
+          <PieChart
+            data={data}
+            width={size.width * 0.5}
+            height={size.height * 0.3}
+            chartConfig={chartConfig}
+            accessor={"population"}
+            backgroundColor={"transparent"}
+            paddingLeft={"15"}
+            center={[0, 0]}
+            absolute
+            hasLegend={false}
+            paddingLeft={(size.width * 0.123).toString()}
+          />
+          <Box
+            w={size.width * 0.33}
+            h={size.height * 0.19}
+            borderRadius={(size.width * 0.33) / 2}
+            bg={Colors.light.background}
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Text fontSize={24} color={Colors.light.text}>
+              298
+            </Text>
+            <Text fontSize={12} color={Colors.light.subText}>
+              Total Buildings
+            </Text>
+          </Box>
+        </ZStack>
       </Row>
       <Row w={"100%"} pl={5}>
         <Text fontSize={17} fontWeight="bold" color={Colors.light.text}>
