@@ -7,6 +7,7 @@ import { Entypo, EvilIcons } from "expo-vector-icons";
 import Colors from "../../constants/Colors";
 import CustomButton from "../../components/CustomButton";
 import Layout from "../../constants/Layout";
+import Displayed from "./conponents/Displayed";
 
 const size = Layout.window;
 
@@ -81,6 +82,9 @@ function BuildingOverViewScreen(props) {
           Size={size.width * 0.28}
         />
       </Row>
+      <Column>
+        <Displayed />
+      </Column>
     </SafeAreaView>
   );
 }

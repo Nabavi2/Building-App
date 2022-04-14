@@ -38,27 +38,7 @@ import { FontAwesome5 } from "expo-vector-icons";
 function LoginScreen() {
   const [isLoading, setIsLoading] = useState(false);
 
-  // const authHandler = async (email, password) => {
-  //   setIsLoading(true);
-  //   let action;
-  //   if (isSignup) {
-  //     try {
-  //       navigation.navigate("Home");
-  //       setIsLoading(false);
-  //     } catch (error) {
-  //       setIsLoading(false);
-  //       alert(error.message);
-  //     }
-  //   } else {
-  //     try {
-  //       navigation.navigate("Home");
-  //       setIsLoading(false);
-  //     } catch (error) {
-  //       setIsLoading(false);
-  //       alert(error.message);
-  //     }
-  //   }
-  // };
+  
   const validationSchema = Yup.object().shape({
     email: Yup.string()
       .required("Email is Required")
@@ -137,7 +117,6 @@ function LoginScreen() {
                       style={styles.input}
                       keyboardType="default"
                       onBlur={handleBlur("server")}
-                      // onFocus={handlePasswordFocused}
                       value={values.email}
                       onChangeText={handleChange("server")}
                     />
@@ -168,7 +147,6 @@ function LoginScreen() {
                       secureTextEntry={true}
                       keyboardType="default"
                       onBlur={handleBlur("password")}
-                      // onFocus={handlePasswordFocused}
                       textContentType="password"
                       value={password}
                       onChangeText={handleChange("password")}
@@ -200,7 +178,6 @@ function LoginScreen() {
                       secureTextEntry={true}
                       keyboardType="default"
                       onBlur={handleBlur("server")}
-                      // onFocus={handlePasswordFocused}
                       textContentType="password"
                       value={values.server}
                       onChangeText={handleChange("server")}
