@@ -34,7 +34,8 @@ export default {
     text: grays.gray900,
     subText: grays.gray500,
     background: grays.gray200,
-    backgroundModal: grays.gray100,
+    ModalBg: grays.gray100,
+    bageBg: "#d8d8d8",
     tint: primary,
     tabIconDefault: "#afb2b5",
     ...greens,
@@ -44,15 +45,6 @@ export default {
     ...others,
   },
   dark: {
-<<<<<<< HEAD
-    primary,
-    text: grays.white,
-    background: grays.gray900,
-    tint: primary,
-    tabIconDefault: "#ccc",
-    ...grays,
-    white: grays.gray900,
-=======
     // primary,
     // text: grays.white,
     // background: grays.gray900,
@@ -61,6 +53,5 @@ export default {
     // ...purples,
     // ...grays,
     // white: grays.gray900,
->>>>>>> 93c0c7b5b6c56fe70b637f513487960ba13a1caf
   },
 };
