@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, StyleSheet, Pressable, Text } from "react-native";
-import Colors from "../constants/Colors";
-import Layout from "../constants/Layout";
+import Colors from "../../../constants/Colors";
+import Layout from "../../../constants/Layout";
 
 const size = Layout.window;
 

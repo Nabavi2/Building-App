@@ -4,11 +4,12 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import Dashboard from "../screens/Dashboard";
-import Layout from "../constants/Layout";
 import Colors from "../constants/Colors";
 import { Entypo, Ionicons } from "expo-vector-icons";
-import { View } from "native-base";
-import BuildingInspection from "../screens/BuildingInspection";
+import { Column, View } from "native-base";
+import BuildingInspection from "../screens/BuildingInspection/inex";
+import Layout from "../constants/Layout";
+import IconContainer from "../components/IconContainer";
 
 const Stack = createNativeStackNavigator();
 const height = Layout.window.height;
@@ -32,22 +33,10 @@ const AppNavigation = (props) => {
               height: 90,
               backgroundColor: Colors.light.background,
             },
-
             headerLeft: () => (
-              <View
-                style={{
-                  width: 39,
-                  height: 39,
-                  justifyContent: "center",
-                  alignItems: "center",
-                  backgroundColor: Colors.light.white,
-                  borderRadius: 5,
-                  padding: 2,
-                  marginLeft: 2.5,
-                }}
-              >
+              <IconContainer>
                 <Entypo name="menu" size={30} color="black" />
-              </View>
+              </IconContainer>
             ),
           }}
         />
@@ -66,6 +55,11 @@ const AppNavigation = (props) => {
               backgroundColor: Colors.light.primary,
               height: 90,
             },
+            headerLeft: () => (
+              <IconContainer>
+                <Ionicons name="md-arrow-back" size={27} color="black" />
+              </IconContainer>
+            ),
           }}
         />
       </Stack.Navigator>

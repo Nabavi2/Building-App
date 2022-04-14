@@ -16,8 +16,8 @@ import {
 import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
-import Colors from "../constants/Colors";
-import GlobalStyles from "../constants/GlobalStyles";
+import Colors from "../../constants/Colors";
+import GlobalStyles from "../../constants/GlobalStyles";
 
 function LoginScreen() {
   const [isSignup, setIsSignup] = useState(false);

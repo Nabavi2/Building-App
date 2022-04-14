@@ -3,13 +3,13 @@ import { Avatar, Box, Column, FlatList, Row, Text, ZStack } from "native-base";
 import { StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-import CustomButton from "../components/CustomButton";
-import TabSection from "../components/TabSection";
-import Colors from "../constants/Colors";
-import GlobalStyles from "../constants/GlobalStyles";
-import Layout from "../constants/Layout";
-import DashboardListItem from "../components/DashboardListItem";
+import CustomButton from "../../components/CustomButton";
+import TabSection from "./components/TabSection";
+import DashboardListItem from "./components/DashboardListItem";
 import { PieChart, ProgressChart } from "react-native-chart-kit";
+import Colors from "../../constants/Colors";
+import Layout from "../../constants/Layout";
+import GlobalStyles from "../../constants/GlobalStyles";
 
 const size = Layout.window;
 
@@ -65,8 +65,8 @@ const Dashboard = (props) => {
   return (
     <SafeAreaView style={GlobalStyles.container}>
       <TabSection />
-      <Row style={styles.graphSection} bg="blue">
-        <Column style={styles.bagesContainer}>
+      <Row width={size.width} h={size.height * 0.28} p={25} my={20} bg="blue">
+        <Column w="45%" h="100%" justifyContent="center">
           <Column mb={7}>
             <Bage color={Colors.light.red} text="Overdued" />
             <Bage color={Colors.light.orange} text="Comming soon" />
@@ -195,23 +195,5 @@ const Dashboard = (props) => {
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  graphSection: {
-    width: size.width,
-    height: size.height * 0.28,
-    padding: 25,
-    marginVertical: 20,
-  },
-  bagesContainer: {
-    width: "45%",
-    height: "100%",
-    justifyContent: "center",
-  },
-  buildingButton: {
-    backgroundColor: Colors.light.primary,
-    width: size.height,
-  },
-});
 
 export default Dashboard;

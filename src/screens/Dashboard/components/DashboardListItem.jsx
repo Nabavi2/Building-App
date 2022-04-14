@@ -1,8 +1,8 @@
 import { Feather, FontAwesome5 } from "expo-vector-icons";
 import { Column, Row, Text } from "native-base";
 import React from "react";
-import Colors from "../constants/Colors";
-import Layout from "../constants/Layout";
+import Colors from "../../../constants/Colors";
+import Layout from "../../../constants/Layout";
 
 const height = Layout.window.height;
 
