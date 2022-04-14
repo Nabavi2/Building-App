@@ -7,8 +7,6 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import AppDrawerNavigator from "./DrawerNavigator";
 import Dashboard from "../screens/Dashboard";
 import Colors from "../constants/Colors";
-import { Entypo, Ionicons } from "expo-vector-icons";
-import { Column, View } from "native-base";
 import BuildingInspection from "../screens/BuildingInspection/inex";
 import Layout from "../constants/Layout";
 import IconContainer from "../components/IconContainer";
