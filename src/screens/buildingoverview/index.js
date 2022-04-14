@@ -1,6 +1,6 @@
 import React from "react";
 import { SafeAreaView, StyleSheet, TextInput } from "react-native";
-import { Row, Column, Box } from "native-base";
+import { Row, Column, Box, Switch, ScrollView } from "native-base";
 import { SearchBar } from "react-native-elements";
 import { Entypo, EvilIcons } from "expo-vector-icons";
 
@@ -8,6 +8,8 @@ import Colors from "../../constants/Colors";
 import CustomButton from "../../components/CustomButton";
 import Layout from "../../constants/Layout";
 import Displayed from "./conponents/Displayed";
+import Ontime from "./conponents/Ontime";
+import Soon from "./conponents/Soon";
 
 const size = Layout.window;
 
@@ -82,9 +84,35 @@ function BuildingOverViewScreen(props) {
           Size={size.width * 0.28}
         />
       </Row>
-      <Column>
+      <Row
+        style={{
+          height: 60,
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
+        <Box _text={{ marginLeft: 5, marginTop: 3, fontSize: 18 }}>
+          Showing all buildings (124)
+        </Box>
+        <Column style={{ justifyContent: "space-around", marginRight: 10 }}>
+          <Switch color="black" width={12} />
+          <Switch />
+        </Column>
+      </Row>
+      <ScrollView>
         <Displayed />
-      </Column>
+        <Soon />
+        <Ontime />
+        <Displayed />
+        <Soon />
+        <Ontime />
+        <Displayed />
+        <Soon />
+        <Ontime />
+        <Displayed />
+        <Soon />
+        <Ontime />
+      </ScrollView>
     </SafeAreaView>
   );
 }

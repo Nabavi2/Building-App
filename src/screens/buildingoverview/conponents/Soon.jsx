@@ -1,65 +1,158 @@
+// import React from "react";
+// import { View, Text, Column, VStack } from "react-native";
+// import { Entypo } from "expo-vector-icons";
+
+// import Colors from "../../../constants/Colors";
+
+// function Desplayed(props) {
+//   return (
+//     <Card style={styles.card}>
+//       <Row style={{ justifyContent: "space-between", alignItems: "center" }}>
+//         <Row
+//           style={{
+//             flexDirection: "row",
+//             justifyContent: "center",
+//             alignItems: "center",
+//           }}
+//         >
+//           <Box>
+//             <Ionicons name="reload" size={24} color={Colors.light.white} />{" "}
+//           </Box>
+//           <Column>
+//             <Box
+//               _text={{
+//                 fontSize: 20,
+//                 fontWeight: "medium",
+//                 color: Colors.white,
+//                 ml: 10,
+//               }}
+//             >
+//               KFC
+//             </Box>
+//             <Box
+//               _text={{
+//                 fontSize: 12,
+//                 fontWeight: "medium",
+//                 color: Colors.light0,
+//                 ml: 10,
+//               }}
+//             >
+//               jun 26
+//             </Box>
+//           </Column>
+//         </Row>
+//         <Column>
+//           <Entypo
+//             name="dots-three-vertical"
+//             size={24}
+//             color={Colors.light.black}
+//           />
+//           <Box
+//             _text={{
+//               fontSize: 12,
+//               fontWeight: "medium",
+//               color: Colors.light0,
+//               ml: 10,
+//             }}
+//           >
+//             jun 26
+//           </Box>
+//         </Column>
+//       </Row>
+//     </Card>
+//   );
+// }
+
+// const styles = StyleSheet.create({
+//   card: {
+//     alignSelf: "center",
+//     width: Dimensions.get("window").width * 0.89,
+//     height: Dimensions.get("window").height * 0.12,
+//     margin: 10,
+//     backgroundColor: Colors.light.white,
+//     borderRadius: 20,
+//   },
+// });
+// export default Desplayed;
+
 import React from "react";
-import { View, Text, Column, VStack } from "react-native";
-import { Entypo } from "expo-vector-icons";
+import { StyleSheet, Dimensions } from "react-native";
+import { View, Text, Column, Card, Row, Box } from "native-base";
+import { Entypo, Ionicons } from "expo-vector-icons";
 
 import Colors from "../../../constants/Colors";
+import Layout from "../../../constants/Layout";
 
-function Desplayed(props) {
+const size = Layout.window;
+
+function Soon(props) {
   return (
-    <Card style={styles.card}>
+    <Row style={styles.card}>
       <Row style={{ justifyContent: "space-between", alignItems: "center" }}>
-        <Row
+        {/* <View
           style={{
-            flexDirection: "row",
-            justifyContent: "center",
+            width: 30,
+            height: 30,
+            borderRadius: 25,
+            backgroundColor: Colors.light.orange,
+            marginLeft: 5,
             alignItems: "center",
+            justifyContent: "center",
           }}
         >
-          <Box>
-            <Ionicons name="reload" size={24} color={Colors.light.white} />{" "}
+          </View> */}
+        {/* <Ionicons name="reload-outline" size={34} color="black" /> */}
+
+        <Column style={{ marginRight: size.width * 0.15 }}>
+          <Box
+            _text={{
+              fontSize: 14,
+              fontWeight: "medium",
+              color: Colors.white,
+              ml: 2,
+              mb: 3,
+            }}
+          >
+            asldfalsdjfl 19,23
           </Box>
-          <Column>
-            <Box
-              _text={{
-                fontSize: 20,
-                fontWeight: "medium",
-                color: Colors.white,
-                ml: 10,
-              }}
-            >
-              KFC
-            </Box>
-            <Box
-              _text={{
-                fontSize: 12,
-                fontWeight: "medium",
-                color: Colors.light0,
-                ml: 10,
-              }}
-            >
-              jun 26
-            </Box>
-          </Column>
-        </Row>
-        <Column>
+          <Box
+            _text={{
+              fontSize: 12,
+              fontWeight: "medium",
+              color: Colors.light0,
+              ml: 2,
+            }}
+          >
+            jun 26
+          </Box>
+        </Column>
+
+        <Column
+          style={{
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
           <Entypo
-            name="dots-three-vertical"
+            name="dots-three-horizontal"
             size={24}
             color={Colors.light.black}
+            style={{ marginLeft: size.width * 0.23, marginBottom: 10 }}
           />
           <Box
             _text={{
               fontSize: 12,
               fontWeight: "medium",
               color: Colors.light0,
-              ml: 10,
+              ml: size.width * 0.21,
+              mt: 1,
             }}
           >
             jun 26
           </Box>
         </Column>
       </Row>
-    </Card>
+    </Row>
   );
 }
 
@@ -67,10 +160,10 @@ const styles = StyleSheet.create({
   card: {
     alignSelf: "center",
     width: Dimensions.get("window").width * 0.89,
-    height: Dimensions.get("window").height * 0.12,
+    height: Dimensions.get("window").height * 0.09,
     margin: 10,
     backgroundColor: Colors.light.white,
-    borderRadius: 20,
+    borderRadius: 10,
   },
 });
-export default Desplayed;
+export default Soon;
