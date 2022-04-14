@@ -10,8 +10,8 @@ function CustomBadge({ children, size = "small" }) {
       justifyContent="center"
       alignItems="center"
       bg="#d8d8d8"
-      w={size == "small" ? width * 0.068 : width * 0.094}
-      h={size == "small" ? height * 0.038 : height * 0.056}
+      w={size == "small" ? width * 0.068 : width * 0.09}
+      h={size == "small" ? height * 0.038 : height * 0.052}
       borderRadius="full"
     >
       {children}
