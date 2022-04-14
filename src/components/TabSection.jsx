@@ -7,22 +7,23 @@ const size = Layout.window;
 
 function TabSection(props) {
   const [isSelected, setIsSelected] = useState(true);
-  const TabItem = (props) => {
+
+  const TabItem = ({ title, onPress, isSelected }) => {
     return (
       <Pressable
-        onPress={props.onPress}
+        onPress={onPress}
         style={{
           ...styles.tabItem,
-          backgroundColor: props.isSelected ? "#3a3e3d" : Colors.light.white,
+          backgroundColor: isSelected ? "#3a3e3d" : Colors.light.white,
         }}
       >
         <Text
           style={{
             ...styles.text,
-            color: props.isSelected ? Colors.light.white : Colors.light.text,
+            color: isSelected ? Colors.light.white : Colors.light.text,
           }}
         >
-          {props.title}
+          {title}
         </Text>
       </Pressable>
     );
