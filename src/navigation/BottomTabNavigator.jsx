@@ -1,10 +1,12 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { useNavigation } from "@react-navigation/native";
 
-const bottomTab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator();
 
 export function BottomTabNavigator() {
+  const navigation = useNavigation();
   return (
-    <BottomTab.Navigator
+    <Tab.Navigator
       initialRouteName="homeScreen"
       screenOptions={{
         tabBarActiveTintColor: "#eee",
@@ -13,7 +15,7 @@ export function BottomTabNavigator() {
         headerStyle: { backgroundColor: Colors.light.background },
       }}
     >
-      <BottomTab.Screen
+      <Tab.Screen
         name="homeScreen"
         component={TopTabNavigator}
         options={() => ({
@@ -36,7 +38,7 @@ export function BottomTabNavigator() {
           headerShown: false,
         })}
       />
-      <BottomTab.Screen
+      <Tab.Screen
         name="buildingScreen"
         component={BuildingScreen}
         options={() => ({
@@ -61,7 +63,7 @@ export function BottomTabNavigator() {
           headerShown: false,
         })}
       />
-      <BottomTab.Screen
+      <Tab.Screen
         name="dashboard"
         component={Dashboard}
         options={() => ({
@@ -84,7 +86,7 @@ export function BottomTabNavigator() {
           headerShown: false,
         })}
       />
-      <BottomTab.Screen
+      <Tab.Screen
         name="dashboard"
         component={Dashboard}
         options={() => ({
@@ -107,6 +109,6 @@ export function BottomTabNavigator() {
           headerShown: false,
         })}
       />
-    </BottomTab.Navigator>
+    </Tab.Navigator>
   );
 }

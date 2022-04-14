@@ -13,7 +13,7 @@ import Layout from "../constants/Layout";
 
 const height = Layout.window.height;
 const Stack = createNativeStackNavigator();
-const navigation = useNavigation();
+// const navigation = useNavigation();
 
 const AppNavigation = (props) => {
   return (

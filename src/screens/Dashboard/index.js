@@ -1,12 +1,11 @@
 import React from "react";
 import { Avatar, Box, Column, FlatList, Row, Text, ZStack } from "native-base";
-import { StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import CustomButton from "../../components/CustomButton";
 import TabSection from "./components/TabSection";
 import DashboardListItem from "./components/DashboardListItem";
-import { PieChart, ProgressChart } from "react-native-chart-kit";
+import { PieChart } from "react-native-chart-kit";
 import Colors from "../../constants/Colors";
 import Layout from "../../constants/Layout";
 import GlobalStyles from "../../constants/GlobalStyles";
