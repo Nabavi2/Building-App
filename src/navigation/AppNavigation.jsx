@@ -1,21 +1,15 @@
 import React from "react";
-import { View } from "react-native";
 import { Entypo, Ionicons } from "expo-vector-icons";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import AppDrawerNavigator from "./DrawerNavigator";
+import BuildingInspection from "../screens/BuildingInspection";
 import Dashboard from "../screens/Dashboard";
-import Colors from "../constants/Colors";
-import { Entypo, Ionicons } from "expo-vector-icons";
-import { Column, View } from "native-base";
-import BuildingInspection from "../screens/BuildingInspection/inex";
-import Layout from "../constants/Layout";
+import LoginScreen from "../screens/Login";
 import IconContainer from "../components/IconContainer";
-
-import LoginScreen from "../screens/LoginScreen";
-import HomeScreen from "../screens/HomeScreen";
-import BuildingScreen from "../screens/BuildingScreen";
+import Colors from "../constants/Colors";
+import Layout from "../constants/Layout";
 
 const height = Layout.window.height;
 const Stack = createNativeStackNavigator();

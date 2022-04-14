@@ -1,234 +1,315 @@
-import React, { useState } from "react";
-import * as Yup from "yup";
-import { Formik } from "formik";
-import {
-  Alert,
-  TextInput,
-  StyleSheet,
-  View,
-  Image,
-  ActivityIndicator,
-  TouchableOpacity,
-  ScrollView,
-  Dimensions,
-  Text,
-} from "react-native";
-import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
-import { useNavigation } from "@react-navigation/native";
+// import * as Yup from "yup";
+// import { Formik } from "formik";
+// import { useState } from "react";
+// import {
+//   Alert,
+//   TextInput,
+//   StyleSheet,
+//   View,
+//   Image,
+//   ActivityIndicator,
+//   TouchableOpacity,
+//   Dimensions,
+//   Text,
+//   SafeAreaView,
+// } from "react-native";
+// import { ScrollView, Box, TextArea, TextField, Input, Row } from "native-base";
 
-import Colors from "../../constants/Colors";
-import GlobalStyles from "../../constants/GlobalStyles";
+// import {
+//   MaterialCommunityIcons,
+//   MaterialIcons,
+//   Entypo,
+// } from "@expo/vector-icons";
+// import { useNavigation } from "@react-navigation/native";
 
-function LoginScreen() {
-  const [isSignup, setIsSignup] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const [isEmailFocused, setIsEmailFocused] = useState(false);
-  const [isPasswordFocused, setIsPasswordFocused] = useState(false);
+// import Colors from "../constants/Colors";
+// import GlobalStyles from "../constants/GlobalStyles";
 
-  const handlePasswordFocused = () => {
-    setIsPasswordFocused(true);
-  };
-  const handleEmailFocused = () => {
-    setIsEmailFocused(true);
-  };
-  const validationSchema = Yup.object().shape({
-    email: Yup.string()
-      .required("Email is Required")
-      .email('Invalid email format, your email must have "@" and ".com"')
-      .label("Email"),
-    password: Yup.string()
-      .trim()
-      .min(6, `your password should be at least ${6} character`)
-      .required("Please Enter your password"),
-    server: Yup.string()
-      .trim()
-      .required("Server connection error, please try again "),
-  });
+// function LoginScreen() {
+//   const [isLoading, setIsLoading] = useState(false);
 
-  return (
-    <ScrollView style={{ backgroundColor: "#000" }}>
-      <View style={styles.screen}>
-        <Image
-          style={{
-            width: "75%",
-            height: 100,
-            marginTop: "17%",
-            marginBottom: "10%",
-          }}
-          source={require("../../assets/logo.jpg")}
-        />
-        <Text style={{ color: "#FFF", fontSize: 20, marginBottom: "15%" }}>
-          Please login to your account
-        </Text>
-        <Formik
-          validationSchema={validationSchema}
-          initialValues={{ email: "", password: "", server: "" }}
-          validateOnMount={true}
-        >
-          {({
-            values,
-            errors,
-            handleBlur,
-            touched,
-            handleChange,
-            submitForm,
-          }) => {
-            const { email, password } = values;
-            return (
-              <>
-                <View style={styles.cart}>
-                  <View style={styles.container}>
-                    <Text style={{ color: Colors.primary }}>Password</Text>
-                    <View style={{ flexDirection: "row" }}>
-                      <MaterialIcons
-                        style={{
-                          paddingTop: 10,
-                          paddingBottom: 10,
-                          marginRight: 10,
-                        }}
-                        name="email"
-                        size={28}
-                        color="#FFF"
-                      />
-                      <TextInput
-                        style={[styles.input]}
-                        onFocus={handleEmailFocused}
-                        keyboardType="email-address"
-                        onBlur={handleBlur("email")}
-                        value={email}
-                        onChangeText={handleChange("email")}
-                      />
-                    </View>
-                    {errors ? (
-                      <Text
-                        style={{
-                          color: "red",
-                          width: "70%",
-                          paddingHorizontal: 10,
-                        }}
-                      >
-                        {touched.email && errors.email}
-                      </Text>
-                    ) : null}
-                    <Text style={{ color: Colors.primary }}>Password</Text>
-                    <View style={{ flexDirection: "row" }}>
-                      <MaterialCommunityIcons
-                        style={{
-                          paddingTop: 10,
-                          paddingBottom: 10,
-                          marginRight: 10,
-                        }}
-                        name="lock"
-                        size={28}
-                        color="#FFF"
-                      />
-                      <TextInput
-                        style={styles.input}
-                        secureTextEntry={true}
-                        keyboardType="default"
-                        onBlur={handleBlur("password")}
-                        onFocus={handlePasswordFocused}
-                        textContentType="password"
-                        value={password}
-                        onChangeText={handleChange("password")}
-                      />
-                    </View>
-                    {errors ? (
-                      <Text style={{ color: "red" }}>
-                        {touched.password && errors.password}
-                      </Text>
-                    ) : null}
-                    (
-                    <>
-                      <Text style={{ color: Colors.primary }}>Server</Text>
-                      <View style={{ flexDirection: "row" }}>
-                        <MaterialCommunityIcons
-                          style={{
-                            paddingTop: 10,
-                            paddingBottom: 10,
-                            marginRight: 10,
-                          }}
-                          name="lock"
-                          size={28}
-                          color="#000"
-                        />
-                        <TextInput
-                          style={styles.input}
-                          placeholder="http/"
-                          placeholderTextColor={Colors.secondary}
-                          secureTextEntry={true}
-                          keyboardType="default"
-                          onBlur={handleBlur("server")}
-                          onFocus={handlePasswordFocused}
-                          value={values.server}
-                          onChangeText={handleChange("server")}
-                        />
-                      </View>
-                      {errors ? (
-                        <Text style={{ color: "red" }}>
-                          {touched.server && errors.server}
-                        </Text>
-                      ) : null}
-                    </>
-                    )
-                    <TouchableOpacity
-                      style={styles.button}
-                      onPress={submitForm.bind(values)}
-                    >
-                      <Text style={{ color: Colors.light.text }}>Login</Text>
-                    </TouchableOpacity>
-                  </View>
-                </View>
-              </>
-            );
-          }}
-        </Formik>
-      </View>
-    </ScrollView>
-  );
-}
+//   // const authHandler = async (email, password) => {
+//   //   setIsLoading(true);
+//   //   let action;
+//   //   if (isSignup) {
+//   //     try {
+//   //       navigation.navigate("Home");
+//   //       setIsLoading(false);
+//   //     } catch (error) {
+//   //       setIsLoading(false);
+//   //       alert(error.message);
+//   //     }
+//   //   } else {
+//   //     try {
+//   //       navigation.navigate("Home");
+//   //       setIsLoading(false);
+//   //     } catch (error) {
+//   //       setIsLoading(false);
+//   //       alert(error.message);
+//   //     }
+//   //   }
+//   // };
+//   const validationSchema = Yup.object().shape({
+//     email: Yup.string()
+//       .required("Email is Required")
+//       .email("Invalid email format")
+//       .label("Email"),
+//     password: Yup.string()
+//       .trim()
+//       .min(6, `your password should be at least ${6} character`)
+//       .required("Please Enter your password"),
+//     server: isSignup
+//       ? Yup.string().trim().required("Server connection error")
+//       : Yup.string(),
+//   });
 
-const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  container: {
-    flexDirection: "column",
-    width: "98%",
-    height: 250,
-    borderRadius: 25,
-    marginTop: 15,
-    alignItems: "center",
-    justifyContent: "center",
-    marginBottom: 50,
-  },
-  input: {
-    flexDirection: "row",
-    backgroundColor: Colors.light.primary,
-    width: "80%",
-    height: 40,
-    borderBottomWidth: 1,
-    color: Colors.light.primary,
-  },
-  button: {
-    backgroundColor: Colors.light.green400,
-    width: "90%",
-    height: 40,
-    borderRadius: 25,
-    marginBottom: 10,
-    marginTop: 7,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  cart: {
-    backgroundColor: Colors.light.background,
-    width: "85%",
-    height: Dimensions.get("screen").height * 0.46,
-    borderRadius: 15,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
-export default LoginScreen;
+//   const navigation = useNavigation();
+//   if (isLoading) {
+//     return (
+//       <View
+//         style={{
+//           flex: 1,
+//           justifyContent: "center",
+//           alignItems: "center",
+//           backgroundColor: "black",
+//         }}
+//       >
+//         <ActivityIndicator size="large" color={Colors.secondary} />
+//       </View>
+//     );
+//   }
+
+//   return (
+//     <SafeAreaView style={{ flex: 1, ba: Colors.light.background }}>
+//       <View style={styles.screen}>
+//         <Image
+//           style={{
+//             width: "25%",
+//             height: 100,
+//             marginTop: "17%",
+//             marginBottom: "10%",
+//           }}
+//           source={require("../../assets/logo.jpg")}
+//         />
+
+//         <Text
+//           style={{
+//             color: Colors.light.gray900,
+//             fontSize: 20,
+//             marginBottom: "25%",
+//             alignSelf: "center",
+//             marginHorizontal: 50,
+//           }}
+//         >
+//           Please login to your account{" "}
+//         </Text>
+//         <Formik
+//           validationSchema={validationSchema}
+//           initialValues={{ email: "", password: "", server: "" }}
+//           onSubmit={(values) => {
+//             navigation.navigate("dashboard");
+//           }}
+//           validateOnMount={true}
+//         >
+//           {({
+//             values,
+//             errors,
+//             handleBlur,
+//             touched,
+//             handleChange,
+//             submitForm,
+//           }) => {
+//             const { email, password } = values;
+//             return (
+//               <>
+//                 <SafeAreaView style={styles.container}>
+//                   <Box _text={styles.inputTitle}>Email</Box>
+//                   <View style={styles.inputView}>
+//                     <TextInput
+//                       style={[
+//                         styles.input,
+//                         {
+//                           borderColor: isPasswordFocused
+//                             ? Colors.secondary
+//                             : Colors.primary,
+//                         },
+//                       ]}
+//                       keyboardType="default"
+//                       onBlur={handleBlur("server")}
+//                       onFocus={handlePasswordFocused}
+//                       value={values.server}
+//                       onChangeText={handleChange("server")}
+//                     />
+//                     <MaterialIcons
+//                       style={{
+//                         paddingTop: 10,
+//                         paddingBottom: 10,
+//                         marginRight: 10,
+//                       }}
+//                       name="email"
+//                       size={28}
+//                       color={Colors.primary}
+//                     />
+//                   </View>
+//                   {errors ? (
+//                     <Text
+//                       style={{
+//                         color: "red",
+//                         width: "70%",
+//                         paddingHorizontal: 10,
+//                       }}
+//                     >
+//                       {touched.email && errors.email}
+//                     </Text>
+//                   ) : null}
+//                   <Box _text={styles.inputTitle} style={{ marginLeft: 17 }}>
+//                     Password
+//                   </Box>
+//                   <View style={styles.inputView}>
+//                     <TextInput
+//                       style={[
+//                         styles.input,
+//                         {
+//                           borderColor: isPasswordFocused
+//                             ? Colors.secondary
+//                             : Colors.primary,
+//                         },
+//                       ]}
+//                       secureTextEntry={true}
+//                       keyboardType="default"
+//                       onBlur={handleBlur("password")}
+//                       onFocus={handlePasswordFocused}
+//                       textContentType="password"
+//                       value={password}
+//                       onChangeText={handleChange("password")}
+//                     />
+//                     <MaterialCommunityIcons
+//                       style={{
+//                         paddingTop: 10,
+//                         paddingBottom: 10,
+//                         marginRight: 10,
+//                       }}
+//                       name="lock"
+//                       size={28}
+//                       color={Colors.primary}
+//                     />
+//                   </View>
+//                   {errors ? (
+//                     <Text style={{ color: "red" }}>
+//                       {" "}
+//                       {touched.password && errors.password}{" "}
+//                     </Text>
+//                   ) : null}
+//                   <Box _text={styles.inputTitle}>Server</Box>
+//                   <View
+//                     style={[
+//                       styles.inputView,
+//                       { marginBottom: 25, marginTop: 10, padding: 3.5 },
+//                     ]}
+//                   >
+//                     <TextInput
+//                       style={[
+//                         styles.input,
+//                         {
+//                           borderColor: isPasswordFocused
+//                             ? Colors.secondary
+//                             : Colors.primary,
+//                         },
+//                       ]}
+//                       placeholder="http://"
+//                       placeholderTextColor={Colors.light.gray500}
+//                       secureTextEntry={true}
+//                       keyboardType="default"
+//                       onBlur={handleBlur("server")}
+//                       onFocus={handlePasswordFocused}
+//                       textContentType="password"
+//                       value={values.server}
+//                       onChangeText={handleChange("server")}
+//                     />
+//                     <Entypo
+//                       name="menu"
+//                       size={28}
+//                       color="black"
+//                       style={{ marginTop: 6 }}
+//                     />
+//                   </View>
+//                   {errors && (
+//                     <Text style={{ color: "red" }}>
+//                       {touched.server && errors.server}
+//                     </Text>
+//                   )}
+
+//                   <TouchableOpacity
+//                     style={styles.button}
+//                     onPress={submitForm.bind(values)}
+//                   >
+//                     <Text
+//                       style={{
+//                         color: Colors.light.white,
+//                         fontWeight: "bold",
+//                         marginLeft: 10,
+//                       }}
+//                     >
+//                       Login
+//                     </Text>
+//                   </TouchableOpacity>
+//                 </SafeAreaView>
+//               </>
+//             );
+//           }}
+//         </Formik>
+//       </View>
+//     </SafeAreaView>
+//   );
+// }
+
+// const styles = StyleSheet.create({
+//   screen: {
+//     flex: 1,
+//     alignItems: "center",
+//     justifyContent: "center",
+//     backgroundColor: Colors.light.background,
+//   },
+//   container: {
+//     flexDirection: "column",
+//     width: "98%",
+//     height: 250,
+//     borderRadius: 25,
+//     marginTop: 15,
+//     alignItems: "center",
+//     justifyContent: "center",
+//     marginBottom: 50,
+//     backgroundColor: Colors.light.background,
+//   },
+//   inputView: {
+//     width: "90%",
+//     flexDirection: "row",
+//     backgroundColor: Colors.light.white,
+//     borderRadius: 10,
+//     justifyContent: "center",
+//   },
+//   input: {
+//     width: "80%",
+//     backgroundColor: Colors.light.white,
+//     height: 45,
+//     color: "#FFF",
+//   },
+//   inputTitle: {
+//     marginRight: "75%",
+//     fontSize: 18,
+//     fontWeight: "bold",
+//   },
+//   button: {
+//     backgroundColor: Colors.light.primary,
+//     width: "90%",
+//     height: 50,
+//     borderRadius: 10,
+//     marginBottom: 10,
+//     marginTop: 12,
+//     alignItems: "center",
+//     justifyContent: "center",
+//     shadowColor: Colors.light.gray500,
+//     shadowOffset: { height: 15, width: 10 },
+//   },
+// });
+// export default LoginScreen;

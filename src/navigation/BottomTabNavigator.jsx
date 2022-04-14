@@ -1,6 +1,7 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 const bottomTab = createBottomTabNavigator();
+
 export function BottomTabNavigator() {
   return (
     <BottomTab.Navigator

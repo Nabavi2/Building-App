@@ -1,10 +1,10 @@
 import { MaterialCommunityIcons } from "expo-vector-icons";
 import { Box, Column, Row, Text } from "native-base";
 import React from "react";
-import CustomBadge from "../../components/CustomBadge";
-import ListTileContainer from "../../components/ListTileContainer";
-import Colors from "../../constants/Colors";
-import Layout from "../../constants/Layout";
+import CustomBadge from "../../../components/CustomBadge";
+import ListTileContainer from "../../../components/ListTileContainer";
+import Colors from "../../../constants/Colors";
+import Layout from "../../../constants/Layout";
 
 const { height } = Layout.window;
 

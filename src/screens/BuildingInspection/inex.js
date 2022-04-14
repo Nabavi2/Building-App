@@ -7,7 +7,7 @@ import Colors from "../../constants/Colors";
 import GlobalStyles from "../../constants/GlobalStyles";
 import CustomBadge from "../../components/CustomBadge";
 import CustomFilterIcon from "../../components/CustomFilterIcon";
-import BIListItem from "./BIListItem";
+import BIListItem from "./components/BIListItem";
 
 function BuildingInspection(props) {
   return (
