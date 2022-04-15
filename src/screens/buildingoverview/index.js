@@ -1,6 +1,12 @@
-import React from "react";
-import { SafeAreaView, StyleSheet, TextInput } from "react-native";
-import { Row, Column, Box, Switch, ScrollView } from "native-base";
+import React, { useState } from "react";
+import {
+  SafeAreaView,
+  StyleSheet,
+  TextInput,
+  Dimensions,
+  TouchableHighlight,
+} from "react-native";
+import { Row, Column, Box, Switch, ScrollView, Pressable } from "native-base";
 import { SearchBar } from "react-native-elements";
 import { Entypo, EvilIcons } from "expo-vector-icons";
 
@@ -14,9 +20,46 @@ import Soon from "./conponents/Soon";
 const size = Layout.window;
 
 function BuildingOverViewScreen(props) {
+  const [showModal, setShowModal] = useState(false);
+
+  const openMenu = () => {
+    return (
+      <Box w="90%" alignItems="center">
+        <Menu
+          w="190"
+          trigger={(triggerProps) => {
+            return (
+              <Pressable
+                accessibilityLabel="More options menu"
+                {...triggerProps}
+              >
+                <HamburgerIcon />
+              </Pressable>
+            );
+          }}
+        >
+          <Menu.Item>Arial</Menu.Item>
+          <Menu.Item>Nunito Sans</Menu.Item>
+          <Menu.Item>Roboto</Menu.Item>
+          <Menu.Item>Poppins</Menu.Item>
+          <Menu.Item>SF Pro</Menu.Item>
+          <Menu.Item>Helvetica</Menu.Item>
+          <Menu.Item isDisabled>Sofia</Menu.Item>
+          <Menu.Item>Cookie</Menu.Item>
+        </Menu>
+      </Box>
+    );
+  };
   return (
     <SafeAreaView>
-      <Row justifyContent="space-between" marginBottom={20} alignItems="center">
+      <Row
+        justifyContent="space-between"
+        marginBottom={20}
+        alignItems="center"
+        width={size.width * 0.98}
+        alignSelf="center"
+        mt={5}
+      >
         <Entypo
           name="menu"
           size={24}
@@ -25,22 +68,24 @@ function BuildingOverViewScreen(props) {
         />
         <Box
           _text={{
-            fontSize: 30,
+            fontSize: 23,
             color: Colors.white,
             marginLeft: 10,
             marginTop: 5,
             fontWeight: "bold",
           }}
         >
-          Statistics
+          Gebäudeübersicht
         </Box>
         <Box style={styles.iconView}>
-          <Entypo
-            name="dots-three-vertical"
-            size={24}
-            color={Colors.light.gray900}
-            style={{ marginTop: 20 }}
-          />
+          <TouchableHighlight onPress={() => <openMenu />}>
+            <Entypo
+              name="dots-three-vertical"
+              size={24}
+              color={Colors.light.gray900}
+              style={{ marginTop: 5 }}
+            />
+          </TouchableHighlight>
         </Box>
       </Row>
       <Row style={styles.inputView}>
@@ -60,12 +105,12 @@ function BuildingOverViewScreen(props) {
       </Row>
       <Row
         style={{
-          paddingLeft: 19,
+          paddingLeft: 17,
           marginTop: 25,
           alignItems: "center",
           justifyContent: "space-between",
-          // alignSelf: "center",
-          paddingRight: 19,
+          // paddingRight: 19,
+          width: size.width * 0.97,
         }}
       >
         <CustomButton
@@ -89,15 +134,30 @@ function BuildingOverViewScreen(props) {
           height: 60,
           alignItems: "center",
           justifyContent: "space-between",
+          width: Dimensions.get("window").width * 0.98,
         }}
       >
         <Box _text={{ marginLeft: 5, marginTop: 3, fontSize: 18 }}>
           Showing all buildings (124)
         </Box>
-        <Column style={{ justifyContent: "space-around", marginRight: 10 }}>
-          <Switch color="black" width={12} />
-          <Switch />
-        </Column>
+        <TouchableHighlight
+          underlayColor={Colors.light.bageBg}
+          under
+          style={{
+            paddingHorizontal: 5,
+            paddingVertical: 1,
+            borderRadius: 4,
+          }}
+          onPress={() => setShowModal(!showModal)}
+        >
+          {/* <CustomFilterIcon /> */}
+          <Box>adsfasfd</Box>
+        </TouchableHighlight>
+        <Pressable
+          onPress={() => {
+            <Image />;
+          }}
+        ></Pressable>
       </Row>
       <ScrollView>
         <Displayed />
@@ -118,12 +178,14 @@ function BuildingOverViewScreen(props) {
 }
 const styles = StyleSheet.create({
   iconView: {
-    width: 60,
-    height: 60,
-    backgroundColor: Colors.primary,
-    borderRadius: 20,
+    width: 45,
+    height: 50,
+    backgroundColor: Colors.light.white,
+    borderRadius: 18,
     alignItems: "center",
     justifyContent: "center",
+    marginTop: 16,
+    marginRight: 8,
   },
   input: {
     width: "80%",
@@ -132,7 +194,7 @@ const styles = StyleSheet.create({
     color: "#FFF",
   },
   inputView: {
-    width: "90%",
+    width: Dimensions.get("window").width * 0.93,
     flexDirection: "row",
     backgroundColor: Colors.light.white,
     borderRadius: 10,

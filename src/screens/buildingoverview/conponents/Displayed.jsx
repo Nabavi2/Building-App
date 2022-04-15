@@ -11,14 +11,20 @@ const size = Layout.window;
 function Desplayed(props) {
   return (
     <Row style={styles.card}>
-      <Row style={{ justifyContent: "space-between", alignItems: "center" }}>
+      <Row
+        style={{
+          justifyContent: "space-between",
+          alignItems: "center",
+          width: size.width * 0.91,
+        }}
+      >
         <Entypo
           name="circle-with-cross"
-          size={34}
+          size={29}
           color={Colors.light.red}
-          style={{ marginLeft: 5 }}
+          style={{ marginLeft: 10 }}
         />
-        <Column style={{ marginRight: size.width * 0.15 }}>
+        <Column style={{ marginRight: size.width * 0.2 }}>
           <Box
             _text={{
               fontSize: 14,
@@ -74,7 +80,7 @@ function Desplayed(props) {
 const styles = StyleSheet.create({
   card: {
     alignSelf: "center",
-    width: Dimensions.get("window").width * 0.89,
+    width: Dimensions.get("window").width * 0.93,
     height: Dimensions.get("window").height * 0.09,
     margin: 10,
     backgroundColor: Colors.light.white,

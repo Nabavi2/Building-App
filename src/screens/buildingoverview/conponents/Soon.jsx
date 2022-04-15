@@ -76,9 +76,9 @@
 // export default Desplayed;
 
 import React from "react";
-import { StyleSheet, Dimensions } from "react-native";
+import { StyleSheet, Dimensions, Image } from "react-native";
 import { View, Text, Column, Card, Row, Box } from "native-base";
-import { Entypo, Ionicons } from "expo-vector-icons";
+import { Entypo, Ionicons, MaterialCommunityIcons } from "expo-vector-icons";
 
 import Colors from "../../../constants/Colors";
 import Layout from "../../../constants/Layout";
@@ -88,22 +88,35 @@ const size = Layout.window;
 function Soon(props) {
   return (
     <Row style={styles.card}>
-      <Row style={{ justifyContent: "space-between", alignItems: "center" }}>
-        {/* <View
+      <Row
+        style={{
+          justifyContent: "space-between",
+          alignItems: "center",
+          width: size.width * 0.91,
+        }}
+      >
+        {/* <Image
+          source={require("../../../../assets/2.png")}
+          style={{ width: 26, height: 26, borderRadius: 13, marginLeft: 10 }}
+        /> */}
+        <Box
           style={{
-            width: 30,
-            height: 30,
-            borderRadius: 25,
+            width: 26,
+            height: 26,
+            borderRadius: 20,
+            marginLeft: 10,
             backgroundColor: Colors.light.orange,
-            marginLeft: 5,
             alignItems: "center",
             justifyContent: "center",
           }}
         >
-          </View> */}
-        {/* <Ionicons name="reload-outline" size={34} color="black" /> */}
-
-        <Column style={{ marginRight: size.width * 0.15 }}>
+          <MaterialCommunityIcons
+            name="reload"
+            size={22}
+            color={Colors.light.white}
+          />
+        </Box>
+        <Column style={{ marginRight: size.width * 0.2 }}>
           <Box
             _text={{
               fontSize: 14,
@@ -159,7 +172,7 @@ function Soon(props) {
 const styles = StyleSheet.create({
   card: {
     alignSelf: "center",
-    width: Dimensions.get("window").width * 0.89,
+    width: Dimensions.get("window").width * 0.93,
     height: Dimensions.get("window").height * 0.09,
     margin: 10,
     backgroundColor: Colors.light.white,

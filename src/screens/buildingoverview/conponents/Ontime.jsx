@@ -79,20 +79,26 @@ const size = Layout.window;
 function Ontime(props) {
   return (
     <Row style={styles.card}>
-      <Row style={{ justifyContent: "space-between", alignItems: "center" }}>
+      <Row
+        style={{
+          justifyContent: "space-between",
+          alignItems: "center",
+          width: size.width * 0.91,
+        }}
+      >
         <FontAwesome
           name="check-circle"
-          size={34}
+          size={30}
           color={Colors.light.primary}
-          style={{ marginLeft: 5 }}
+          style={{ marginLeft: 10 }}
         />
-        <Column style={{ marginRight: size.width * 0.15 }}>
+        <Column style={{ marginRight: size.width * 0.2 }}>
           <Box
             _text={{
               fontSize: 14,
               fontWeight: "medium",
               color: Colors.white,
-              ml: 2,
+              // ml: 2,
               mb: 3,
             }}
           >
@@ -142,8 +148,8 @@ function Ontime(props) {
 const styles = StyleSheet.create({
   card: {
     alignSelf: "center",
-    width: Dimensions.get("window").width * 0.89,
-    height: Dimensions.get("window").height * 0.09,
+    width: size.width * 0.93,
+    height: size.height * 0.09,
     margin: 10,
     backgroundColor: Colors.light.white,
     borderRadius: 10,

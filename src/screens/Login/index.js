@@ -38,7 +38,6 @@ import { FontAwesome5 } from "expo-vector-icons";
 function LoginScreen() {
   const [isLoading, setIsLoading] = useState(false);
 
-  
   const validationSchema = Yup.object().shape({
     email: Yup.string()
       .required("Email is Required")
@@ -116,9 +115,9 @@ function LoginScreen() {
                     <TextInput
                       style={styles.input}
                       keyboardType="default"
-                      onBlur={handleBlur("server")}
+                      onBlur={handleBlur("email")}
                       value={values.email}
-                      onChangeText={handleChange("server")}
+                      onChangeText={handleChange("email")}
                     />
                     <MaterialCommunityIcons
                       name="email-outline"
