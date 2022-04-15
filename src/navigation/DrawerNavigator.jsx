@@ -147,7 +147,7 @@ const AppDrawerNavigator = () => {
       }}
     >
       <DrawerNavigator.Screen
-        name="Moveiw"
+        name="Gebäude"
         component={BottomTabNavigator}
         options={{
           title: "Gebäude",

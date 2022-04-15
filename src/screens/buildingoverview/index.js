@@ -96,7 +96,6 @@ function BuildingOverViewScreen(props) {
           title="29 Displayed"
           color={Colors.light.red}
           Size={size.width * 0.28}
-          onPress={() => {}}
         />
         <CustomButton
           title="18 Soon"

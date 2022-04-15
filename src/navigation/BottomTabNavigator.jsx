@@ -36,11 +36,11 @@ export function BottomTabNavigator() {
         component={Dashboard}
         options={() => ({
           title: "Dashboard Screen",
-          tabBarIcon: ({ color }) => (
+          tabBarIcon: ({ focused }) => (
             <FontAwesome5
               name={Platform.OS === "android" ? "building" : "building"}
               size={23}
-              color={focused ? Colors.light.white : Colors.light.black}
+              color={focused ? Colors.light.primary : Colors.light.black}
             />
           ),
           headerRight: () => (
@@ -59,11 +59,11 @@ export function BottomTabNavigator() {
         component={BuildingOverViewScreen}
         options={() => ({
           title: "building",
-          tabBarIcon: ({ color }) => (
+          tabBarIcon: ({ focused }) => (
             <MaterialCommunityIcons
               name="home-outline"
               size={24}
-              color={focused ? Colors.light.white : Colors.light.black}
+              color={focused ? Colors.light.primary : Colors.light.black}
               style={{ marginLeft: 5 }}
             />
           ),
@@ -83,11 +83,11 @@ export function BottomTabNavigator() {
         component={BuildingInspection}
         options={() => ({
           title: "Dash ",
-          tabBarIcon: ({ color }) => (
+          tabBarIcon: ({ focused }) => (
             <Foundation
               name="page-edit"
               size={24}
-              color={focused ? Colors.light.white : Colors.light.black}
+              color={focused ? Colors.light.primary : Colors.light.black}
               style={{ marginLeft: 5 }}
             />
           ),
@@ -107,17 +107,13 @@ export function BottomTabNavigator() {
         component={MapScreen}
         options={() => ({
           title: "Home",
-          tabBarIcon: ({ color }) => (
+          tabBarIcon: ({ focused }) => (
             <FontAwesome5
               name="map-marked"
               size={24}
-              color={focused ? Colors.light.white : Colors.light.black}
+              color={focused ? Colors.light.primary : Colors.light.black}
               style={{ marginLeft: 5 }}
             />
-            // <Image
-            //   style={{ width: 10, height: 10 }}
-            //   source={require("../../assets/map.png")}
-            // />
           ),
           headerRight: () => (
             <Pressable
@@ -135,12 +131,17 @@ export function BottomTabNavigator() {
         component={HomeScreen}
         options={() => ({
           title: "Home",
-          tabBarIcon: ({ color }) => (
-            <FontAwesome5
-              name="map-marked"
+          tabBarIcon: ({ focused }) => (
+            // <FontAwesome5
+            //   name="map-marked"
+            //   size={24}
+            //   color={focused ? Colors.light.white : Colors.light.black}
+            //   style={{ marginLeft: 5 }}
+            // />
+            <MaterialCommunityIcons
+              name="google-maps"
               size={24}
               color={focused ? Colors.light.white : Colors.light.black}
-              style={{ marginLeft: 5 }}
             />
           ),
           headerRight: () => (
