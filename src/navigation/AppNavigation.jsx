@@ -8,6 +8,7 @@ import BuildingInspection from "../screens/BuildingInspection";
 import Dashboard from "../screens/Dashboard";
 import LoginScreen from "../screens/Login";
 import IconContainer from "../components/IconContainer";
+import BuildingOverViewScreen from "../screens/buildingoverview";
 import Colors from "../constants/Colors";
 import Layout from "../constants/Layout";
 
@@ -76,6 +77,16 @@ const AppNavigation = (props) => {
         <Stack.Screen
           name="loginScreen"
           component={LoginScreen}
+          options={{
+            title: "Global overview",
+            headerTitleAlign: "center",
+            headerShadowVisible: false,
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="buildingoverview"
+          component={BuildingOverViewScreen}
           options={{
             title: "Global overview",
             headerTitleAlign: "center",

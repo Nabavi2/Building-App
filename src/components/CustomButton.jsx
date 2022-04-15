@@ -6,9 +6,12 @@ import Colors from "../constants/Colors";
 
 const size = Layout.window;
 
-function CustomButton({ title, onPress }) {
+function CustomButton({ title, onPress, color, Size }) {
   return (
-    <Button onPress={onPress} style={styles.container}>
+    <Button
+      onPress={onPress}
+      style={[styles.container, { backgroundColor: color, width: Size }]}
+    >
       <Text style={styles.text}>{title}</Text>
     </Button>
   );

@@ -28,37 +28,16 @@ import {
   MaterialCommunityIcons,
   MaterialIcons,
   Entypo,
+  Ionicons,
 } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
 import Colors from "../../constants/Colors";
 import { FontAwesome5 } from "expo-vector-icons";
-// import GlobalStyles from "../constants/GlobalStyles";
 
 function LoginScreen() {
   const [isLoading, setIsLoading] = useState(false);
 
-  // const authHandler = async (email, password) => {
-  //   setIsLoading(true);
-  //   let action;
-  //   if (isSignup) {
-  //     try {
-  //       navigation.navigate("Home");
-  //       setIsLoading(false);
-  //     } catch (error) {
-  //       setIsLoading(false);
-  //       alert(error.message);
-  //     }
-  //   } else {
-  //     try {
-  //       navigation.navigate("Home");
-  //       setIsLoading(false);
-  //     } catch (error) {
-  //       setIsLoading(false);
-  //       alert(error.message);
-  //     }
-  //   }
-  // };
   const validationSchema = Yup.object().shape({
     email: Yup.string()
       .required("Email is Required")
@@ -68,11 +47,7 @@ function LoginScreen() {
       .trim()
       .min(6, `your password should be at least ${6} character`)
       .required("Please Enter your password"),
-    server:
-      //  isSignup
-      // ? Yup.string().trim().required("Server connection error")
-      // :
-      Yup.string(),
+    server: Yup.string().trim().required("Server connection error"),
   });
 
   const navigation = useNavigation();
@@ -92,13 +67,13 @@ function LoginScreen() {
   }
 
   return (
-    <SafeAreaView style={{ flex: 1, ba: Colors.light.background }}>
+    <ScrollView style={{ flex: 1, ba: Colors.light.background }}>
       <View style={styles.screen}>
         <Image
           style={{
             width: "25%",
             height: 100,
-            marginTop: "17%",
+            marginTop: "24%",
             marginBottom: "10%",
           }}
           source={require("../../../assets/logo.jpg")}
@@ -108,12 +83,12 @@ function LoginScreen() {
           style={{
             color: Colors.light.gray900,
             fontSize: 20,
-            marginBottom: "25%",
+            marginBottom: "15%",
             alignSelf: "center",
-            marginHorizontal: 50,
+            marginHorizontal: 40,
           }}
         >
-          Please login to your account{" "}
+          Please, login to your account{" "}
         </Text>
         <Formik
           validationSchema={validationSchema}
@@ -134,33 +109,21 @@ function LoginScreen() {
             const { email, password } = values;
             return (
               <>
-                <SafeAreaView style={styles.container}>
+                <View style={styles.container}>
                   <Box _text={styles.inputTitle}>Email</Box>
                   <View style={styles.inputView}>
                     <TextInput
-                      style={[
-                        styles.input,
-                        {
-                          // borderColor: isPasswordFocused
-                          //   ? Colors.light.red
-                          //   : Colors.light.primary,
-                        },
-                      ]}
+                      style={styles.input}
                       keyboardType="default"
-                      onBlur={handleBlur("server")}
-                      // onFocus={handlePasswordFocused}
-                      value={values.server}
-                      onChangeText={handleChange("server")}
+                      onBlur={handleBlur("email")}
+                      value={values.email}
+                      onChangeText={handleChange("email")}
                     />
-                    <MaterialIcons
-                      style={{
-                        paddingTop: 10,
-                        paddingBottom: 10,
-                        marginRight: 10,
-                      }}
-                      name="email"
-                      size={28}
-                      color={Colors.light.primary}
+                    <MaterialCommunityIcons
+                      name="email-outline"
+                      size={24}
+                      color="black"
+                      style={{ margin: 10 }}
                     />
                   </View>
                   {errors ? (
@@ -179,31 +142,19 @@ function LoginScreen() {
                   </Box>
                   <View style={styles.inputView}>
                     <TextInput
-                      style={[
-                        styles.input,
-                        {
-                          // borderColor: isPasswordFocused
-                          //   ? Colors.light.red
-                          //   : Colors.light.primary,
-                        },
-                      ]}
+                      style={styles.input}
                       secureTextEntry={true}
                       keyboardType="default"
                       onBlur={handleBlur("password")}
-                      // onFocus={handlePasswordFocused}
                       textContentType="password"
                       value={password}
                       onChangeText={handleChange("password")}
                     />
-                    <MaterialCommunityIcons
-                      style={{
-                        paddingTop: 10,
-                        paddingBottom: 10,
-                        marginRight: 10,
-                      }}
-                      name="lock"
-                      size={28}
-                      color={Colors.light.primary}
+                    <Ionicons
+                      name="ios-lock-closed-outline"
+                      size={24}
+                      color="black"
+                      style={{ margin: 8 }}
                     />
                   </View>
                   {errors ? (
@@ -220,54 +171,34 @@ function LoginScreen() {
                     ]}
                   >
                     <TextInput
-                      style={[
-                        styles.input,
-                        {
-                          // borderColor: isPasswordFocused
-                          //   ? Colors.light.red
-                          //   : Colors.light.primary,
-                        },
-                      ]}
+                      style={styles.input}
                       placeholder="http://"
                       placeholderTextColor={Colors.light.gray500}
                       secureTextEntry={true}
                       keyboardType="default"
                       onBlur={handleBlur("server")}
-                      // onFocus={handlePasswordFocused}
                       textContentType="password"
                       value={values.server}
                       onChangeText={handleChange("server")}
                     />
-                    <FontAwesome5 name="server" size={24} color="black" />
+                    <MaterialCommunityIcons
+                      name="server"
+                      size={24}
+                      color="black"
+                      style={{ margin: 9 }}
+                    />
                   </View>
                   {errors && (
                     <Text style={{ color: "red" }}>
                       {touched.server && errors.server}
                     </Text>
                   )}
-                  <Button
-                    onPress={
-                      () => {
-                        console.log("heelelelele");
-                        const navigation = useNavigation();
-                        navigation.navigate("dashboard");
-                      }
-                      // submitForm.bind(values)
-                    }
-                  >
-                    go
-                  </Button>
-
-                  <Pressable
+                  <TouchableOpacity
                     style={styles.button}
-                    onPress={
-                      () => {
-                        console.log("heelelelele");
-                        const navigation = useNavigation();
-                        navigation.navigate("dashboard");
-                      }
-                      // submitForm.bind(values)
-                    }
+                    onPress={() => {
+                      const navigation = useNavigation();
+                      navigation.navigate("dashboard");
+                    }}
                   >
                     <Text
                       style={{
@@ -278,14 +209,14 @@ function LoginScreen() {
                     >
                       Login
                     </Text>
-                  </Pressable>
-                </SafeAreaView>
+                  </TouchableOpacity>
+                </View>
               </>
             );
           }}
         </Formik>
       </View>
-    </SafeAreaView>
+    </ScrollView>
   );
 }
 
@@ -299,12 +230,11 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "column",
     width: "98%",
-    height: 250,
     borderRadius: 25,
     marginTop: 15,
     alignItems: "center",
     justifyContent: "center",
-    marginBottom: 50,
+    marginBottom: 100,
     backgroundColor: Colors.light.background,
   },
   inputView: {
@@ -334,8 +264,15 @@ const styles = StyleSheet.create({
     marginTop: 12,
     alignItems: "center",
     justifyContent: "center",
-    shadowColor: Colors.light.gray500,
-    shadowOffset: { height: 15, width: 10 },
+    elevation: 10,
+  },
+  cart: {
+    backgroundColor: Colors.light.background,
+    width: "100%",
+    height: Dimensions.get("screen").height * 0.6,
+    borderRadius: 15,
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
 export default LoginScreen;

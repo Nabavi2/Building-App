@@ -4,7 +4,7 @@ import { View, Text } from "react-native";
 function EditScreen(props) {
   return (
     <View>
-      <Text>alsdjflajf;aljsdfl</Text>
+      <Text>alsdjflajf;aljsfsfdadfadfadsfsdfdsfsdfl</Text>
     </View>
   );
 }
