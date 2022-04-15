@@ -1,6 +1,26 @@
-import React from "react";
-import { Ionicons, MaterialIcons, SimpleLineIcons } from "expo-vector-icons";
-import { Box, Column, FlatList, Image, Row, Text } from "native-base";
+import React, { useState } from "react";
+import { Modal, TouchableHighlight } from "react-native";
+import {
+  Entypo,
+  Ionicons,
+  MaterialIcons,
+  Octicons,
+  SimpleLineIcons,
+} from "expo-vector-icons";
+import {
+  Box,
+  Center,
+  CheckIcon,
+  Column,
+  FlatList,
+  Image,
+  Row,
+  Select,
+  Switch,
+  Text,
+  TextArea,
+  ZStack,
+} from "native-base";
 
 import IconContainer from "../../components/IconContainer";
 import Colors from "../../constants/Colors";
@@ -8,8 +28,24 @@ import GlobalStyles from "../../constants/GlobalStyles";
 import CustomBadge from "../../components/CustomBadge";
 import CustomFilterIcon from "../../components/CustomFilterIcon";
 import BIListItem from "./components/BIListItem";
+import Layout from "../../constants/Layout";
+import { Dimensions } from "react-native";
+import GradeBage from "../../components/GradeBage";
+import CustomButton from "../../components/CustomButton";
+import Slider from "@react-native-community/slider";
+import CustomModal from "../../components/CustomModal";
+import FilterButton from "../../components/FilterButton";
+import SettingFilter from "./components/SettingFilter";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { NavigationContainer } from "@react-navigation/native";
 
 function BuildingInspection(props) {
+  const [showAddBuildingModal, setShowAddBuildingModal] = useState(false);
+  const [showFilterModal, setShowFilterModal] = useState(false);
+
+  const [value, setValue] = useState(0);
+  const Stack = createNativeStackNavigator();
+
   return (
     <Column
       style={{
@@ -18,6 +54,80 @@ function BuildingInspection(props) {
         justifyContent: "flex-end",
       }}
     >
+      {/* Adding Building list Item */}
+      <CustomModal
+        onRequestClose={() => setShowAddBuildingModal(false)}
+        visible={showAddBuildingModal}
+      >
+        <Column pl={"2%"}>
+          <Text color={Colors.light.primary} fontWeight="bold" fontSize={18}>
+            SELECT ZUSTAND
+          </Text>
+          <Box bg={Colors.light.primary} h={1} w={"10"} borderRadius="sm" />
+        </Column>
+        {/* Bages and text area */}
+        <Column my={8}>
+          <Row justifyContent={"space-between"} w={"60%"}>
+            <GradeBage isSelected={true} grade="A" />
+            <GradeBage isSelected={false} grade="b" />
+            <GradeBage isSelected={false} grade="c" />
+            <GradeBage isSelected={false} grade="d" />
+          </Row>
+          <TextArea
+            mt={5}
+            bg="white"
+            color={Colors.light.subText}
+            placeholder={
+              "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley"
+            }
+          />
+        </Column>
+        {/* Anteil */}
+        <Row justifyContent={"space-between"} mb={8}>
+          <Text fontSize={14} fontWeight={"bold"} color={Colors.light.subText}>
+            Anteil
+          </Text>
+          <CustomBadge size="small">
+            <Text fontSize={13} fontWeight="bold" color={Colors.light.subText}>
+              {value.toFixed(0)}
+            </Text>
+          </CustomBadge>
+        </Row>
+
+        <Slider
+          style={{
+            marginLeft: -10,
+            marginBottom: 15,
+          }}
+          onValueChange={(value) => setValue(value)}
+          minimumValue={0}
+          maximumValue={100}
+          thumbTintColor={Colors.light.primary}
+          minimumTrackTintColor={Colors.light.primary}
+          maximumTrackTintColor="#fff"
+        />
+
+        <Row justifyContent={"flex-end"} mt={2}>
+          <CustomButton title="SAVE" onPress={() => console.log("Pressed")} />
+        </Row>
+      </CustomModal>
+      {/* Filtering the building lists */}
+      <CustomModal
+        onRequestClose={() => setShowFilterModal(false)}
+        visible={showFilterModal}
+      >
+        <Column pl={"2%"}>
+          <Text color={Colors.light.primary} fontWeight="bold" fontSize={18}>
+            Gebäudeprüfung FILTERS
+          </Text>
+          <Box bg={Colors.light.primary} h={1} w={"10"} borderRadius="sm" />
+        </Column>
+
+        {/* <Stack.Navigator initialRouteName="filter">
+          <Stack.Screen name="filter" component={SettingFilter} />
+        </Stack.Navigator> */}
+        <SettingFilter />
+      </CustomModal>
       <Column
         w={"100%"}
         h={"97%"}
@@ -51,7 +161,7 @@ function BuildingInspection(props) {
               </Text>
             </Column>
           </Row>
-          <IconContainer>
+          <IconContainer onPress={() => setShowAddBuildingModal(true)}>
             <SimpleLineIcons name="options-vertical" size={20} color="black" />
           </IconContainer>
         </Row>
@@ -135,7 +245,7 @@ function BuildingInspection(props) {
               Notes
             </Text>
           </Row>
-          <CustomFilterIcon />
+          <FilterButton onPress={() => setShowFilterModal()} />
         </Row>
         <FlatList
           data={[

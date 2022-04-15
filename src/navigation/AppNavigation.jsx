@@ -20,7 +20,7 @@ const Stack = createNativeStackNavigator();
 const AppNavigation = (props) => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="dashboard">
+      <Stack.Navigator initialRouteName="buildingInspection">
         <Stack.Screen
           name="dashboard"
           component={AppDrawerNavigator}
@@ -68,11 +68,19 @@ const AppNavigation = (props) => {
               backgroundColor: Colors.light.primary,
               height: 90,
             },
-            headerLeft: () => (
-              <IconContainer>
-                <Ionicons name="md-arrow-back" size={27} color="black" />
-              </IconContainer>
-            ),
+            headerLeft: () => {
+              const navi = useNavigation();
+              return (
+                <IconContainer
+                  onPress={() => {
+                    console.log("pressed");
+                    navi.navigate("dashboard");
+                  }}
+                >
+                  <Ionicons name="md-arrow-back" size={27} color="black" />
+                </IconContainer>
+              );
+            },
           }}
         />
         <Stack.Screen
