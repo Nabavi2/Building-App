@@ -8,7 +8,7 @@ import Layout from "../../../constants/Layout";
 
 const size = Layout.window;
 
-function Desplayed(props) {
+function Desplayed({ type, icon, title, subTitle, icon2, borg }) {
   return (
     <Row style={styles.card}>
       <Row

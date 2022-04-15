@@ -5,9 +5,10 @@ import {
   TextInput,
   Dimensions,
   TouchableHighlight,
+  FlatList,
+  Pressable,
 } from "react-native";
-import { Row, Column, Box, Switch, ScrollView, Pressable } from "native-base";
-import { SearchBar } from "react-native-elements";
+import { Row, Box } from "native-base";
 import { Entypo, EvilIcons } from "expo-vector-icons";
 
 import Colors from "../../constants/Colors";
@@ -159,8 +160,15 @@ function BuildingOverViewScreen(props) {
           }}
         ></Pressable>
       </Row>
-      <ScrollView>
-        <Displayed />
+
+      <FlatList
+        keyExtractor={kay.id}
+        data={kay}
+        renderItem={() => {
+          return <Displayed />;
+        }}
+      />
+      {/* <Displayed />
         <Soon />
         <Ontime />
         <Displayed />
@@ -172,7 +180,7 @@ function BuildingOverViewScreen(props) {
         <Displayed />
         <Soon />
         <Ontime />
-      </ScrollView>
+      </ScrollView> */}
     </SafeAreaView>
   );
 }
