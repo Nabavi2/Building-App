@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Modal, TouchableHighlight } from "react-native";
 import {
+  Entypo,
   Ionicons,
   MaterialIcons,
   Octicons,
@@ -9,11 +10,13 @@ import {
 import {
   Box,
   Center,
+  CheckIcon,
   Column,
   FlatList,
   Image,
-  Pressable,
   Row,
+  Select,
+  Switch,
   Text,
   TextArea,
   ZStack,
@@ -32,11 +35,17 @@ import CustomButton from "../../components/CustomButton";
 import Slider from "@react-native-community/slider";
 import CustomModal from "../../components/CustomModal";
 import FilterButton from "../../components/FilterButton";
+import SettingFilter from "./components/SettingFilter";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { NavigationContainer } from "@react-navigation/native";
 
 function BuildingInspection(props) {
-  const [showModal, setShowModal] = useState(false);
+  const [showAddBuildingModal, setShowAddBuildingModal] = useState(false);
+  const [showFilterModal, setShowFilterModal] = useState(false);
+
   const [value, setValue] = useState(0);
-  const size = Layout.window;
+  const Stack = createNativeStackNavigator();
+
   return (
     <Column
       style={{
@@ -45,9 +54,10 @@ function BuildingInspection(props) {
         justifyContent: "flex-end",
       }}
     >
+      {/* Adding Building list Item */}
       <CustomModal
-        onRequestClose={() => setShowModal(false)}
-        visible={showModal}
+        onRequestClose={() => setShowAddBuildingModal(false)}
+        visible={showAddBuildingModal}
       >
         <Column pl={"2%"}>
           <Text color={Colors.light.primary} fontWeight="bold" fontSize={18}>
@@ -101,6 +111,23 @@ function BuildingInspection(props) {
           <CustomButton title="SAVE" onPress={() => console.log("Pressed")} />
         </Row>
       </CustomModal>
+      {/* Filtering the building lists */}
+      <CustomModal
+        onRequestClose={() => setShowFilterModal(false)}
+        visible={showFilterModal}
+      >
+        <Column pl={"2%"}>
+          <Text color={Colors.light.primary} fontWeight="bold" fontSize={18}>
+            Gebäudeprüfung FILTERS
+          </Text>
+          <Box bg={Colors.light.primary} h={1} w={"10"} borderRadius="sm" />
+        </Column>
+
+        {/* <Stack.Navigator initialRouteName="filter">
+          <Stack.Screen name="filter" component={SettingFilter} />
+        </Stack.Navigator> */}
+        <SettingFilter />
+      </CustomModal>
       <Column
         w={"100%"}
         h={"97%"}
@@ -134,7 +161,7 @@ function BuildingInspection(props) {
               </Text>
             </Column>
           </Row>
-          <IconContainer onPress={() => setShowModal(true)}>
+          <IconContainer onPress={() => setShowAddBuildingModal(true)}>
             <SimpleLineIcons name="options-vertical" size={20} color="black" />
           </IconContainer>
         </Row>
@@ -218,7 +245,7 @@ function BuildingInspection(props) {
               Notes
             </Text>
           </Row>
-          <FilterButton />
+          <FilterButton onPress={() => setShowFilterModal()} />
         </Row>
         <FlatList
           data={[

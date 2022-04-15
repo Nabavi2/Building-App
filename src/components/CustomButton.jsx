@@ -6,11 +6,11 @@ import Colors from "../constants/Colors";
 
 const size = Layout.window;
 
-function CustomButton({ title, onPress, color, Size }) {
+function CustomButton({ title, onPress, color = Colors.light.primary, size }) {
   return (
     <Button
       onPress={onPress}
-      style={[styles.container, { backgroundColor: color, width: Size }]}
+      style={[styles.container, { backgroundColor: color }]}
     >
       <Text style={styles.text}>{title}</Text>
     </Button>
@@ -19,7 +19,7 @@ function CustomButton({ title, onPress, color, Size }) {
 
 const styles = StyleSheet.create({
   container: {
-    width: size.width * 0.34,
+    width: size.width * 0.3,
     height: size.height * 0.047,
     backgroundColor: Colors.light.primary,
   },
