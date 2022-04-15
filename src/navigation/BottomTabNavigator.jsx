@@ -2,13 +2,18 @@ import React from "react";
 import { Pressable } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { useNavigation } from "@react-navigation/native";
-import { Ionicons, MaterialIcons } from "expo-vector-icons";
+import {
+  MaterialCommunityIcons,
+  Foundation,
+  FontAwesome5,
+} from "expo-vector-icons";
 
 import Colors from "../constants/Colors";
 import BuildingInspection from "../screens/BuildingInspection";
 import Dashboard from "../screens/Dashboard";
 import BuildingOverViewScreen from "../screens/buildingoverview";
 import HomeScreen from "../screens/HomeScreen";
+import MapScreen from "../screens/map";
 const bottomTabNavigator = createBottomTabNavigator();
 
 export function BottomTabNavigator() {
@@ -32,10 +37,10 @@ export function BottomTabNavigator() {
         options={() => ({
           title: "Dashboard Screen",
           tabBarIcon: ({ color }) => (
-            <Ionicons
-              name={Platform.OS === "android" ? "home" : "ios-home"}
-              color={color}
-              size={24}
+            <FontAwesome5
+              name={Platform.OS === "android" ? "building" : "building"}
+              size={23}
+              color={focused ? Colors.light.white : Colors.light.black}
             />
           ),
           headerRight: () => (
@@ -55,12 +60,11 @@ export function BottomTabNavigator() {
         options={() => ({
           title: "building",
           tabBarIcon: ({ color }) => (
-            <MaterialIcons
-              name={
-                Platform.OS === "android" ? "video-library" : "video-library"
-              }
-              color={color}
+            <MaterialCommunityIcons
+              name="home-outline"
               size={24}
+              color={focused ? Colors.light.white : Colors.light.black}
+              style={{ marginLeft: 5 }}
             />
           ),
           headerRight: () => (
@@ -80,10 +84,11 @@ export function BottomTabNavigator() {
         options={() => ({
           title: "Dash ",
           tabBarIcon: ({ color }) => (
-            <Ionicons
-              name={Platform.OS === "android" ? "search" : "ios-search"}
+            <Foundation
+              name="page-edit"
               size={24}
-              color={color}
+              color={focused ? Colors.light.white : Colors.light.black}
+              style={{ marginLeft: 5 }}
             />
           ),
           headerRight: () => (
@@ -98,15 +103,44 @@ export function BottomTabNavigator() {
         })}
       />
       <bottomTabNavigator.Screen
+        name="mapScreen"
+        component={MapScreen}
+        options={() => ({
+          title: "Home",
+          tabBarIcon: ({ color }) => (
+            <FontAwesome5
+              name="map-marked"
+              size={24}
+              color={focused ? Colors.light.white : Colors.light.black}
+              style={{ marginLeft: 5 }}
+            />
+            // <Image
+            //   style={{ width: 10, height: 10 }}
+            //   source={require("../../assets/map.png")}
+            // />
+          ),
+          headerRight: () => (
+            <Pressable
+              onPress={() => navigation.navigate("mapScreen")}
+              style={({ pressed }) => ({
+                opacity: pressed ? 0.5 : 1,
+              })}
+            ></Pressable>
+          ),
+          headerShown: false,
+        })}
+      />
+      <bottomTabNavigator.Screen
         name="homeScreen"
         component={HomeScreen}
         options={() => ({
           title: "Home",
           tabBarIcon: ({ color }) => (
-            <Ionicons
-              name={Platform.OS === "android" ? "download" : "ios-download"}
-              color={color}
+            <FontAwesome5
+              name="map-marked"
               size={24}
+              color={focused ? Colors.light.white : Colors.light.black}
+              style={{ marginLeft: 5 }}
             />
           ),
           headerRight: () => (

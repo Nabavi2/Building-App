@@ -26,34 +26,6 @@ const navigation = useNavigation();
 function BuildingOverViewScreen(props) {
   const [showModal, setShowModal] = useState(false);
 
-  const openMenu = () => {
-    return (
-      <Box w="90%" alignItems="center">
-        <Menu
-          w="190"
-          trigger={(triggerProps) => {
-            return (
-              <Pressable
-                accessibilityLabel="More options menu"
-                {...triggerProps}
-              >
-                <HamburgerIcon />
-              </Pressable>
-            );
-          }}
-        >
-          <Menu.Item>Arial</Menu.Item>
-          <Menu.Item>Nunito Sans</Menu.Item>
-          <Menu.Item>Roboto</Menu.Item>
-          <Menu.Item>Poppins</Menu.Item>
-          <Menu.Item>SF Pro</Menu.Item>
-          <Menu.Item>Helvetica</Menu.Item>
-          <Menu.Item isDisabled>Sofia</Menu.Item>
-          <Menu.Item>Cookie</Menu.Item>
-        </Menu>
-      </Box>
-    );
-  };
   return (
     <SafeAreaView>
       <Row
@@ -64,7 +36,7 @@ function BuildingOverViewScreen(props) {
         alignSelf="center"
         mt={5}
       >
-        <Pressable onPressIn={() => navigation.toggleDrawer()}>
+        <Pressable>
           <Entypo
             name="menu"
             size={24}
@@ -85,7 +57,7 @@ function BuildingOverViewScreen(props) {
           Gebäudeübersicht
         </Box>
         <Box style={styles.iconView}>
-          <TouchableHighlight onPress={() => <openMenu />}>
+          <TouchableHighlight>
             <Entypo
               name="dots-three-vertical"
               size={24}
