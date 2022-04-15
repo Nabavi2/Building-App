@@ -8,17 +8,20 @@ import {
   FlatList,
   Pressable,
 } from "react-native";
-import { Row, Box } from "native-base";
+import { Row, Box, ScrollView } from "native-base";
 import { Entypo, EvilIcons } from "expo-vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 import Colors from "../../constants/Colors";
 import CustomButton from "../../components/CustomButton";
 import Layout from "../../constants/Layout";
-import Displayed from "./conponents/Displayed";
-import Ontime from "./conponents/Ontime";
+import OverViewComponent from "./conponents/OverViewComponent";
+import CustomFilterIcon from "../../components/CustomFilterIcon";
 import Soon from "./conponents/Soon";
+import Ontime from "./conponents/Ontime";
 
 const size = Layout.window;
+const navigation = useNavigation();
 
 function BuildingOverViewScreen(props) {
   const [showModal, setShowModal] = useState(false);
@@ -61,12 +64,15 @@ function BuildingOverViewScreen(props) {
         alignSelf="center"
         mt={5}
       >
-        <Entypo
-          name="menu"
-          size={24}
-          color="black"
-          style={{ marginLeft: 10, marginTop: 20 }}
-        />
+        <Pressable onPressIn={() => navigation.toggleDrawer()}>
+          <Entypo
+            name="menu"
+            size={24}
+            color="black"
+            style={{ marginLeft: 10, marginTop: 20 }}
+          />
+        </Pressable>
+
         <Box
           _text={{
             fontSize: 23,
@@ -118,6 +124,7 @@ function BuildingOverViewScreen(props) {
           title="29 Displayed"
           color={Colors.light.red}
           Size={size.width * 0.28}
+          onPress={() => {}}
         />
         <CustomButton
           title="18 Soon"
@@ -148,11 +155,11 @@ function BuildingOverViewScreen(props) {
             paddingHorizontal: 5,
             paddingVertical: 1,
             borderRadius: 4,
+            marginLeft: 90,
           }}
           onPress={() => setShowModal(!showModal)}
         >
-          {/* <CustomFilterIcon /> */}
-          <Box>adsfasfd</Box>
+          <CustomFilterIcon />
         </TouchableHighlight>
         <Pressable
           onPress={() => {
@@ -160,27 +167,98 @@ function BuildingOverViewScreen(props) {
           }}
         ></Pressable>
       </Row>
+      <ScrollView>
+        <Soon />
+        <Ontime />
+        <Soon />
+        <Ontime />
+        <Soon />
+        <Soon />
+        <Ontime />
+        <Soon />
+        <Ontime />
+        <Soon />
+        <FlatList
+          data={[
+            {
+              id: "1",
+              type: "displayed",
+              title: "Am Schawrzenberg 19, 21, 23",
+              subTitle: "VE. 130-300",
+              borg: "Würzburg",
+            },
+            {
+              id: "2",
+              type: "soon",
+              title: "Am Schawrzenberg 19, 21, 23",
+              subTitle: "VE. 130-300",
+              borg: "Würzburg",
+            },
+            {
+              id: "3",
+              type: "ontime",
+              title: "Am Schawrzenberg 19, 21, 23",
+              subTitle: "VE. 130-300",
+              borg: "Würzburg",
+            },
+            {
+              id: "4",
+              type: "displayed",
+              title: "Am Schawrzenberg 19, 21, 23",
+              subTitle: "VE. 130-300",
+              borg: "Würzburg",
+            },
+            {
+              id: "5",
+              type: "ontime",
+              title: "Am Schawrzenberg 19, 21, 23",
+              subTitle: "VE. 130-300",
+              borg: "Würzburg",
+            },
+            {
+              id: "6",
+              type: "soon",
+              title: "Am Schawrzenberg 19, 21, 23",
+              subTitle: "VE. 130-300",
+              borg: "Würzburg",
+            },
+            {
+              id: "7",
+              type: "soon",
+              title: "Am Schawrzenberg 19, 21, 23",
+              subTitle: "VE. 130-300",
+              borg: "Würzburg",
+            },
+            {
+              id: "8",
+              type: "soon",
+              title: "Am Schawrzenberg 19, 21, 23",
+              subTitle: "VE. 130-300",
+              borg: "Würzburg",
+            },
+          ]}
+          keyExtractor={(item, id) => id}
+          renderItem={({ item }) => {
+            return (
+              <OverViewComponent
+                type={item.type}
+                title={item.title}
+                subTitle={item.subTitle}
+                borg={item.borg}
+              />
+            );
+          }}
+        />
 
-      <FlatList
-        keyExtractor={kay.id}
-        data={kay}
-        renderItem={() => {
-          return <Displayed />;
-        }}
-      />
-      {/* <Displayed />
         <Soon />
         <Ontime />
-        <Displayed />
         <Soon />
         <Ontime />
-        <Displayed />
         <Soon />
         <Ontime />
-        <Displayed />
         <Soon />
         <Ontime />
-      </ScrollView> */}
+      </ScrollView>
     </SafeAreaView>
   );
 }

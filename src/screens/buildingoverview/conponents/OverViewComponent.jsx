@@ -1,14 +1,14 @@
 import React from "react";
 import { StyleSheet, Dimensions } from "react-native";
 import { View, Text, Column, Card, Row, Box } from "native-base";
-import { Entypo } from "expo-vector-icons";
+import { Entypo, FontAwesome, MaterialCommunityIcons } from "expo-vector-icons";
 
 import Colors from "../../../constants/Colors";
 import Layout from "../../../constants/Layout";
 
 const size = Layout.window;
 
-function Desplayed({ type, icon, title, subTitle, icon2, borg }) {
+function OverViewComponent({ type, title, subTitle, borg }) {
   return (
     <Row style={styles.card}>
       <Row
@@ -18,12 +18,40 @@ function Desplayed({ type, icon, title, subTitle, icon2, borg }) {
           width: size.width * 0.91,
         }}
       >
-        <Entypo
-          name="circle-with-cross"
-          size={29}
-          color={Colors.light.red}
-          style={{ marginLeft: 10 }}
-        />
+        {type === "displayed" ? (
+          <Entypo
+            name="circle-with-cross"
+            size={29}
+            color={Colors.light.red}
+            style={{ marginLeft: 10 }}
+          />
+        ) : type == "soon" ? (
+          <Box
+            style={{
+              width: 26,
+              height: 26,
+              borderRadius: 20,
+              marginLeft: 10,
+              backgroundColor: Colors.light.orange,
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <MaterialCommunityIcons
+              name="reload"
+              size={22}
+              color={Colors.light.white}
+            />
+          </Box>
+        ) : (
+          <FontAwesome
+            name="check-circle"
+            size={30}
+            color={Colors.light.primary}
+            style={{ marginLeft: 10 }}
+          />
+        )}
+
         <Column style={{ marginRight: size.width * 0.2 }}>
           <Box
             _text={{
@@ -34,7 +62,7 @@ function Desplayed({ type, icon, title, subTitle, icon2, borg }) {
               mb: 3,
             }}
           >
-            asldfalsdjfl 19,23
+            {title}
           </Box>
           <Box
             _text={{
@@ -44,10 +72,9 @@ function Desplayed({ type, icon, title, subTitle, icon2, borg }) {
               ml: 2,
             }}
           >
-            jun 26
+            {subTitle}
           </Box>
         </Column>
-
         <Column
           style={{
             alignItems: "center",
@@ -64,12 +91,12 @@ function Desplayed({ type, icon, title, subTitle, icon2, borg }) {
             _text={{
               fontSize: 12,
               fontWeight: "medium",
-              color: Colors.light0,
+              color: Colors.light.gray800,
               ml: size.width * 0.21,
               mt: 1,
             }}
           >
-            jun 26
+            Würzburg
           </Box>
         </Column>
       </Row>
@@ -87,4 +114,4 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
 });
-export default Desplayed;
+export default OverViewComponent;
