@@ -9,7 +9,7 @@ import {
   Pressable,
 } from "react-native";
 import { Row, Box, ScrollView } from "native-base";
-import { Entypo, EvilIcons } from "expo-vector-icons";
+import { Entypo, EvilIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
 import Colors from "../../constants/Colors";

@@ -13,7 +13,7 @@ import {
   MaterialCommunityIcons,
   Foundation,
   Octicons,
-} from "expo-vector-icons";
+} from "@expo/vector-icons";
 import {
   createDrawerNavigator,
   DrawerItemList,

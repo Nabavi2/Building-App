@@ -6,7 +6,7 @@ import {
   MaterialCommunityIcons,
   Foundation,
   FontAwesome5,
-} from "expo-vector-icons";
+} from "@expo/vector-icons";
 
 import Colors from "../constants/Colors";
 import BuildingInspection from "../screens/BuildingInspection";
@@ -43,23 +43,23 @@ export function BottomTabNavigator() {
               color={focused ? Colors.light.primary : Colors.light.black}
             />
           ),
-          headerRight: () => {
-            const navigation = useNavigation();
-            return (
-              <Pressable
-                onPress={() => navigation.navigate("dashboard")}
-                style={({ pressed }) => ({
-                  opacity: pressed ? 0.5 : 1,
-                })}
-              >
-                <FontAwesome5
-                  name={Platform.OS === "android" ? "building" : "building"}
-                  size={23}
-                  color={focused ? Colors.light.primary : Colors.light.black}
-                />
-              </Pressable>
-            );
-          },
+          // headerRight: () => {
+          //   const navigation = useNavigation();
+          //   return (
+          //     <Pressable
+          //       onPress={() => navigation.navigate("dashboard")}
+          //       style={({ pressed }) => ({
+          //         opacity: pressed ? 0.5 : 1,
+          //       })}
+          //     >
+          //       <FontAwesome5
+          //         name={Platform.OS === "android" ? "building" : "building"}
+          //         size={23}
+          //         color={focused ? Colors.light.primary : Colors.light.black}
+          //       />
+          //     </Pressable>
+          //   );
+          // },
           headerShown: false,
         })}
       />
@@ -76,14 +76,14 @@ export function BottomTabNavigator() {
               style={{ marginLeft: 5 }}
             />
           ),
-          headerRight: () => (
-            <Pressable
-              onPress={() => navigation.navigate("buildingoverview")}
-              style={({ pressed }) => ({
-                opacity: pressed ? 0.5 : 1,
-              })}
-            ></Pressable>
-          ),
+          // headerRight: () => (
+          //   <Pressable
+          //     onPress={() => navigation.navigate("buildingoverview")}
+          //     style={({ pressed }) => ({
+          //       opacity: pressed ? 0.5 : 1,
+          //     })}
+          //   ></Pressable>
+          // ),
           headerShown: false,
         })}
       />
@@ -100,14 +100,14 @@ export function BottomTabNavigator() {
               style={{ marginLeft: 5 }}
             />
           ),
-          headerRight: () => (
-            <Pressable
-              onPress={() => navigation.navigate("buildingInspection")}
-              style={({ pressed }) => ({
-                opacity: pressed ? 0.5 : 1,
-              })}
-            ></Pressable>
-          ),
+          // headerRight: () => (
+          //   <Pressable
+          //     onPress={() => navigation.navigate("buildingInspection")}
+          //     style={({ pressed }) => ({
+          //       opacity: pressed ? 0.5 : 1,
+          //     })}
+          //   ></Pressable>
+          // ),
           headerShown: false,
         })}
       />
@@ -124,14 +124,14 @@ export function BottomTabNavigator() {
               style={{ marginLeft: 5 }}
             />
           ),
-          headerRight: () => (
-            <Pressable
-              onPress={() => navigation.navigate("mapScreen")}
-              style={({ pressed }) => ({
-                opacity: pressed ? 0.5 : 1,
-              })}
-            ></Pressable>
-          ),
+          // headerRight: () => (
+          //   <Pressable
+          //     onPress={() => navigation.navigate("mapScreen")}
+          //     style={({ pressed }) => ({
+          //       opacity: pressed ? 0.5 : 1,
+          //     })}
+          //   ></Pressable>
+          // ),
           headerShown: false,
         })}
       />
@@ -153,16 +153,16 @@ export function BottomTabNavigator() {
               color={focused ? Colors.light.white : Colors.light.black}
             />
           ),
-          headerRight: () => {
-            return (
-              <Pressable
-                onPress={() => navigation.navigate("homeScreen")}
-                style={({ pressed }) => ({
-                  opacity: pressed ? 0.5 : 1,
-                })}
-              ></Pressable>
-            );
-          },
+          // headerRight: () => {
+          //   return (
+          //     <Pressable
+          //       onPress={() => navigation.navigate("homeScreen")}
+          //       style={({ pressed }) => ({
+          //         opacity: pressed ? 0.5 : 1,
+          //       })}
+          //     ></Pressable>
+          //   );
+          // },
           headerShown: false,
         })}
       />

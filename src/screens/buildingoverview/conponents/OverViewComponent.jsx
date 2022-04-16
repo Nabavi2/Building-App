@@ -1,7 +1,11 @@
 import React from "react";
 import { StyleSheet, Dimensions } from "react-native";
 import { View, Text, Column, Card, Row, Box } from "native-base";
-import { Entypo, FontAwesome, MaterialCommunityIcons } from "expo-vector-icons";
+import {
+  Entypo,
+  FontAwesome,
+  MaterialCommunityIcons,
+} from "@expo/vector-icons";
 
 import Colors from "../../../constants/Colors";
 import Layout from "../../../constants/Layout";

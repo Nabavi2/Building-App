@@ -1,4 +1,4 @@
-import { Ionicons } from "expo-vector-icons";
+import { Ionicons } from "@expo/vector-icons";
 import { Box, Column, FlatList, Flex, Row, Text, TextArea } from "native-base";
 import React from "react";
 import CustomButton from "../../../components/CustomButton";

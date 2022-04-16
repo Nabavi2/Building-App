@@ -1,4 +1,4 @@
-import { MaterialCommunityIcons } from "expo-vector-icons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Box, Column, Row, Text } from "native-base";
 import React, { useState } from "react";
 import CustomBadge from "../../../components/CustomBadge";
