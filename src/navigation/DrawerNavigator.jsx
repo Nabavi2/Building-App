@@ -30,7 +30,6 @@ import EditScreen from "../screens/EditScreen";
 const size = Layout.window;
 const DrawerNavigator = createDrawerNavigator();
 const AppDrawerNavigator = () => {
-  // const dispatch = useDispatch();
   return (
     <DrawerNavigator.Navigator
       drawerContent={(props) => {

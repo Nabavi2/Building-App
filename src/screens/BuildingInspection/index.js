@@ -42,9 +42,7 @@ import { NavigationContainer } from "@react-navigation/native";
 function BuildingInspection(props) {
   const [showAddBuildingModal, setShowAddBuildingModal] = useState(false);
   const [showFilterModal, setShowFilterModal] = useState(false);
-
   const [value, setValue] = useState(0);
-  const Stack = createNativeStackNavigator();
 
   return (
     <Column

@@ -15,12 +15,13 @@ import HomeScreen from "../screens/HomeScreen";
 
 const height = Layout.window.height;
 const Stack = createNativeStackNavigator();
-// const navigation = useNavigation();
+
+const navigation = useNavigation();
 
 const AppNavigation = (props) => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="buildingInspection">
+      <Stack.Navigator initialRouteName="homeScreen">
         <Stack.Screen
           name="dashboard"
           component={AppDrawerNavigator}
@@ -40,7 +41,6 @@ const AppNavigation = (props) => {
             headerShadowVisible: false,
             headerTitleStyle: {
               fontSize: 16,
-              // fontWeight: "bold",
             },
             headerStyle: {
               height: 90,
@@ -69,12 +69,11 @@ const AppNavigation = (props) => {
               height: 90,
             },
             headerLeft: () => {
-              const navi = useNavigation();
               return (
                 <IconContainer
                   onPress={() => {
                     console.log("pressed");
-                    navi.navigate("dashboard");
+                    navigation.navigate("dashboard");
                   }}
                 >
                   <Ionicons name="md-arrow-back" size={27} color="black" />

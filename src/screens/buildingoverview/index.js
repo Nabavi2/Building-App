@@ -21,7 +21,6 @@ import Soon from "./conponents/Soon";
 import Ontime from "./conponents/Ontime";
 
 const size = Layout.window;
-const navigation = useNavigation();
 
 function BuildingOverViewScreen(props) {
   const [showModal, setShowModal] = useState(false);
