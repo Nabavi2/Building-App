@@ -5,51 +5,27 @@ import {
   TextInput,
   Dimensions,
   TouchableHighlight,
+  FlatList,
+  Pressable,
 } from "react-native";
-import { Row, Column, Box, Switch, ScrollView, Pressable } from "native-base";
-import { SearchBar } from "react-native-elements";
+import { Row, Box, ScrollView } from "native-base";
 import { Entypo, EvilIcons } from "expo-vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 import Colors from "../../constants/Colors";
 import CustomButton from "../../components/CustomButton";
 import Layout from "../../constants/Layout";
-import Displayed from "./conponents/Displayed";
-import Ontime from "./conponents/Ontime";
+import OverViewComponent from "./conponents/OverViewComponent";
+import CustomFilterIcon from "../../components/CustomFilterIcon";
 import Soon from "./conponents/Soon";
+import Ontime from "./conponents/Ontime";
 
 const size = Layout.window;
+const navigation = useNavigation();
 
 function BuildingOverViewScreen(props) {
   const [showModal, setShowModal] = useState(false);
 
-  const openMenu = () => {
-    return (
-      <Box w="90%" alignItems="center">
-        <Menu
-          w="190"
-          trigger={(triggerProps) => {
-            return (
-              <Pressable
-                accessibilityLabel="More options menu"
-                {...triggerProps}
-              >
-                <HamburgerIcon />
-              </Pressable>
-            );
-          }}
-        >
-          <Menu.Item>Arial</Menu.Item>
-          <Menu.Item>Nunito Sans</Menu.Item>
-          <Menu.Item>Roboto</Menu.Item>
-          <Menu.Item>Poppins</Menu.Item>
-          <Menu.Item>SF Pro</Menu.Item>
-          <Menu.Item>Helvetica</Menu.Item>
-          <Menu.Item isDisabled>Sofia</Menu.Item>
-          <Menu.Item>Cookie</Menu.Item>
-        </Menu>
-      </Box>
-    );
-  };
   return (
     <SafeAreaView>
       <Row
@@ -60,12 +36,15 @@ function BuildingOverViewScreen(props) {
         alignSelf="center"
         mt={5}
       >
-        <Entypo
-          name="menu"
-          size={24}
-          color="black"
-          style={{ marginLeft: 10, marginTop: 20 }}
-        />
+        <Pressable>
+          <Entypo
+            name="menu"
+            size={24}
+            color="black"
+            style={{ marginLeft: 10, marginTop: 20 }}
+          />
+        </Pressable>
+
         <Box
           _text={{
             fontSize: 23,
@@ -78,7 +57,7 @@ function BuildingOverViewScreen(props) {
           Gebäudeübersicht
         </Box>
         <Box style={styles.iconView}>
-          <TouchableHighlight onPress={() => <openMenu />}>
+          <TouchableHighlight>
             <Entypo
               name="dots-three-vertical"
               size={24}
@@ -147,11 +126,11 @@ function BuildingOverViewScreen(props) {
             paddingHorizontal: 5,
             paddingVertical: 1,
             borderRadius: 4,
+            marginLeft: 90,
           }}
           onPress={() => setShowModal(!showModal)}
         >
-          {/* <CustomFilterIcon /> */}
-          <Box>adsfasfd</Box>
+          <CustomFilterIcon />
         </TouchableHighlight>
         <Pressable
           onPress={() => {
@@ -160,16 +139,94 @@ function BuildingOverViewScreen(props) {
         ></Pressable>
       </Row>
       <ScrollView>
-        <Displayed />
         <Soon />
         <Ontime />
-        <Displayed />
         <Soon />
         <Ontime />
-        <Displayed />
+        <Soon />
         <Soon />
         <Ontime />
-        <Displayed />
+        <Soon />
+        <Ontime />
+        <Soon />
+        <FlatList
+          data={[
+            {
+              id: "1",
+              type: "displayed",
+              title: "Am Schawrzenberg 19, 21, 23",
+              subTitle: "VE. 130-300",
+              borg: "Würzburg",
+            },
+            {
+              id: "2",
+              type: "soon",
+              title: "Am Schawrzenberg 19, 21, 23",
+              subTitle: "VE. 130-300",
+              borg: "Würzburg",
+            },
+            {
+              id: "3",
+              type: "ontime",
+              title: "Am Schawrzenberg 19, 21, 23",
+              subTitle: "VE. 130-300",
+              borg: "Würzburg",
+            },
+            {
+              id: "4",
+              type: "displayed",
+              title: "Am Schawrzenberg 19, 21, 23",
+              subTitle: "VE. 130-300",
+              borg: "Würzburg",
+            },
+            {
+              id: "5",
+              type: "ontime",
+              title: "Am Schawrzenberg 19, 21, 23",
+              subTitle: "VE. 130-300",
+              borg: "Würzburg",
+            },
+            {
+              id: "6",
+              type: "soon",
+              title: "Am Schawrzenberg 19, 21, 23",
+              subTitle: "VE. 130-300",
+              borg: "Würzburg",
+            },
+            {
+              id: "7",
+              type: "soon",
+              title: "Am Schawrzenberg 19, 21, 23",
+              subTitle: "VE. 130-300",
+              borg: "Würzburg",
+            },
+            {
+              id: "8",
+              type: "soon",
+              title: "Am Schawrzenberg 19, 21, 23",
+              subTitle: "VE. 130-300",
+              borg: "Würzburg",
+            },
+          ]}
+          keyExtractor={(item, id) => id}
+          renderItem={({ item }) => {
+            return (
+              <OverViewComponent
+                type={item.type}
+                title={item.title}
+                subTitle={item.subTitle}
+                borg={item.borg}
+              />
+            );
+          }}
+        />
+
+        <Soon />
+        <Ontime />
+        <Soon />
+        <Ontime />
+        <Soon />
+        <Ontime />
         <Soon />
         <Ontime />
       </ScrollView>

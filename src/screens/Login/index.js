@@ -1,6 +1,7 @@
+import React from "react";
 import * as Yup from "yup";
 import { Formik } from "formik";
-import { useState } from "react";
+
 import {
   Alert,
   TextInput,
@@ -13,31 +14,14 @@ import {
   Text,
   SafeAreaView,
 } from "react-native";
-import {
-  ScrollView,
-  Box,
-  TextArea,
-  TextField,
-  Input,
-  Row,
-  Pressable,
-  Button,
-} from "native-base";
+import { ScrollView, Box } from "native-base";
 
-import {
-  MaterialCommunityIcons,
-  MaterialIcons,
-  Entypo,
-  Ionicons,
-} from "@expo/vector-icons";
+import { MaterialCommunityIcons, Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
 import Colors from "../../constants/Colors";
-import { FontAwesome5 } from "expo-vector-icons";
 
 function LoginScreen() {
-  const [isLoading, setIsLoading] = useState(false);
-
   const validationSchema = Yup.object().shape({
     email: Yup.string()
       .required("Email is Required")
@@ -51,20 +35,6 @@ function LoginScreen() {
   });
 
   const navigation = useNavigation();
-  if (isLoading) {
-    return (
-      <View
-        style={{
-          flex: 1,
-          justifyContent: "center",
-          alignItems: "center",
-          backgroundColor: "black",
-        }}
-      >
-        <ActivityIndicator size="large" color={Colors.light.red} />
-      </View>
-    );
-  }
 
   return (
     <ScrollView style={{ flex: 1, ba: Colors.light.background }}>
@@ -98,14 +68,7 @@ function LoginScreen() {
           }}
           validateOnMount={true}
         >
-          {({
-            values,
-            errors,
-            handleBlur,
-            touched,
-            handleChange,
-            submitForm,
-          }) => {
+          {({ values, errors, handleBlur, touched, handleChange }) => {
             const { email, password } = values;
             return (
               <>
@@ -159,7 +122,6 @@ function LoginScreen() {
                   </View>
                   {errors ? (
                     <Text style={{ color: "red" }}>
-                      {" "}
                       {touched.password && errors.password}{" "}
                     </Text>
                   ) : null}
@@ -196,7 +158,6 @@ function LoginScreen() {
                   <TouchableOpacity
                     style={styles.button}
                     onPress={() => {
-                      const navigation = useNavigation();
                       navigation.navigate("dashboard");
                     }}
                   >
@@ -248,7 +209,7 @@ const styles = StyleSheet.create({
     width: "80%",
     backgroundColor: Colors.light.white,
     height: 45,
-    color: "#FFF",
+    color: Colors.light.gray500,
   },
   inputTitle: {
     marginRight: "75%",

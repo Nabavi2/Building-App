@@ -11,6 +11,7 @@ import IconContainer from "../components/IconContainer";
 import BuildingOverViewScreen from "../screens/buildingoverview";
 import Colors from "../constants/Colors";
 import Layout from "../constants/Layout";
+import HomeScreen from "../screens/HomeScreen";
 
 const height = Layout.window.height;
 const Stack = createNativeStackNavigator();
@@ -21,7 +22,7 @@ const AppNavigation = (props) => {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="buildingInspection">
         <Stack.Screen
-          name="homeScreen"
+          name="dashboard"
           component={AppDrawerNavigator}
           options={{
             title: "Home",
@@ -31,8 +32,8 @@ const AppNavigation = (props) => {
           }}
         />
         <Stack.Screen
-          name="dashboard"
-          component={Dashboard}
+          name="homeScreen"
+          component={HomeScreen}
           options={{
             title: "Global overview",
             headerTitleAlign: "center",
