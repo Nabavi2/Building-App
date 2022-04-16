@@ -3,7 +3,7 @@ import React from "react";
 import { TouchableHighlight } from "react-native";
 import Colors from "../constants/Colors";
 
-function FilterButton({ onPress }) {
+function FilterButton({ onPress, color = Colors.light.text }) {
   return (
     <TouchableHighlight
       underlayColor={Colors.light.bageBg}
@@ -14,7 +14,7 @@ function FilterButton({ onPress }) {
       }}
       onPress={onPress}
     >
-      <Octicons name="settings" size={27} color={Colors.light.text} />
+      <Octicons name="settings" size={27} color={color} />
     </TouchableHighlight>
   );
 }

@@ -4,7 +4,13 @@ import { Modal } from "react-native";
 import Colors from "../constants/Colors";
 import Layout from "../constants/Layout";
 
-function CustomModal({ children, onRequestClose, visible, isBig = false }) {
+function CustomModal({
+  children,
+  onRequestClose,
+  visible,
+  isBig = false,
+  isMap = false,
+}) {
   const size = Layout.window;
   return (
     <Modal
@@ -25,12 +31,13 @@ function CustomModal({ children, onRequestClose, visible, isBig = false }) {
           <Column
             w={"100%"}
             h={"100%"}
-            pt={"7%"}
-            pl={isBig ? null : "7%"}
-            pr={isBig ? null : "10%"}
+            pt={isMap ? 5 : "7%"}
+            pl={isBig ? null : isMap ? 0 : "7%"}
+            pr={isBig ? null : isMap ? 0 : "10%"}
             bg={Colors.light.ModalBg}
             borderTopLeftRadius={size.width / 18}
             borderTopRightRadius={size.width / 18}
+            alignItems={isMap ? "center" : null}
           >
             {children}
           </Column>

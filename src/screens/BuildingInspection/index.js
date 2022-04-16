@@ -1,15 +1,7 @@
 import React, { useState } from "react";
 import { TouchableHighlight, StyleSheet } from "react-native";
 import { Ionicons, MaterialIcons, SimpleLineIcons } from "@expo/vector-icons";
-import {
-  Box,
-  Column,
-  FlatList,
-  Image,
-  Pressable,
-  Row,
-  Text,
-} from "native-base";
+import { Box, Column, FlatList, Image, Row, Text } from "native-base";
 
 import IconContainer from "../../components/IconContainer";
 import Colors from "../../constants/Colors";

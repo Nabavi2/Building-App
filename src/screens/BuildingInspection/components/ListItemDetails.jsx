@@ -1,20 +1,6 @@
-import { AntDesign, Foundation, Ionicons } from "@expo/vector-icons";
-import {
-  Box,
-  Button,
-  Center,
-  Column,
-  FlatList,
-  Flex,
-  Pressable,
-  Row,
-  Spacer,
-  Text,
-  TextArea,
-  ZStack,
-} from "native-base";
-import React, { useState } from "react";
-import { Modal } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+import { Box, Column, FlatList, Flex, Row, Text, TextArea } from "native-base";
+import React from "react";
 import CustomButton from "../../../components/CustomButton";
 import GradeBage from "../../../components/GradeBage";
 import IconContainer from "../../../components/IconContainer";

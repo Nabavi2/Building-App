@@ -1,20 +1,19 @@
 import React from "react";
 import { Pressable } from "react-native";
+import { Row } from "native-base";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { DrawerActions, useNavigation } from "@react-navigation/native";
 import {
   MaterialCommunityIcons,
   Foundation,
   FontAwesome5,
-  Entypo,
-  Ionicons,
 } from "@expo/vector-icons";
 
 import Colors from "../constants/Colors";
 import BuildingInspection from "../screens/BuildingInspection";
 import Dashboard from "../screens/Dashboard";
 import BuildingOverViewScreen from "../screens/buildingoverview";
-import HomeScreen from "../screens/HomeScreen";
+import ApartmentScreen from "../screens/Apartment";
 import MapScreen from "../screens/map";
 import IconContainer from "../components/IconContainer";
 import { Box } from "native-base";
@@ -56,22 +55,12 @@ export function BottomTabNavigator() {
           tabBarIcon: ({ color }) => (
             <FontAwesome5 name={"building"} size={23} color={color} />
           ),
-          headerLeft: () => (
-            <Box ml={5}>
-              <IconContainer
-                onPress={() =>
-                  navigation.dispatch(DrawerActions.toggleDrawer())
-                }
-              >
-                <Ionicons name="menu" size={24} color={Colors.light.gray900} />
-              </IconContainer>
-            </Box>
-          ),
+          headerShown: false,
         })}
       />
       <bottomTabNavigator.Screen
-        name="buildingoverview"
-        component={BuildingOverViewScreen}
+        name="apartment"
+        component={ApartmentScreen}
         options={() => ({
           title: "Gebäudeübersicht",
           tabBarIcon: ({ color }) => (
@@ -146,7 +135,7 @@ export function BottomTabNavigator() {
       />
       <bottomTabNavigator.Screen
         name="homeScreen"
-        component={HomeScreen}
+        component={ApartmentScreen}
         options={() => ({
           title: "Home",
           tabBarIcon: ({ color }) => (

@@ -11,7 +11,8 @@ import IconContainer from "../components/IconContainer";
 import BuildingOverViewScreen from "../screens/buildingoverview";
 import Colors from "../constants/Colors";
 import Layout from "../constants/Layout";
-import HomeScreen from "../screens/HomeScreen";
+import MapScreen from "../screens/map";
+import MapOverViewScreen from "../screens/map/MapOverViewScreen";
 
 const height = Layout.window.height;
 const Stack = createNativeStackNavigator();
@@ -20,20 +21,20 @@ const Stack = createNativeStackNavigator();
 const AppNavigation = (props) => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="loginScreen">
+      <Stack.Navigator initialRouteName="mapoverview">
         <Stack.Screen
           name="dashboard"
           component={AppDrawerNavigator}
           options={{
-            title: "Home",
+            title: "Dashboard",
             headerTitleAlign: "center",
             headerShadowVisible: false,
             headerShown: false,
           }}
         />
         <Stack.Screen
-          name="homeScreen"
-          component={HomeScreen}
+          name="mapoverview"
+          component={MapOverViewScreen}
           options={{
             title: "Global overview",
             headerTitleAlign: "center",
@@ -51,6 +52,7 @@ const AppNavigation = (props) => {
                 <Entypo name="menu" size={30} color="black" />
               </IconContainer>
             ),
+            headerShown: false,
           }}
         />
         <Stack.Screen
@@ -94,8 +96,8 @@ const AppNavigation = (props) => {
           }}
         />
         <Stack.Screen
-          name="buildingoverview"
-          component={BuildingOverViewScreen}
+          name="mapview"
+          component={MapScreen}
           options={{
             title: "Global overview",
             headerTitleAlign: "center",
