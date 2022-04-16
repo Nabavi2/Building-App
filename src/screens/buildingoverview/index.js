@@ -23,7 +23,6 @@ import Ontime from "./conponents/Ontime";
 const size = Layout.window;
 
 function BuildingOverViewScreen(props) {
-  const navigation = useNavigation();
   const [showModal, setShowModal] = useState(false);
 
   return (

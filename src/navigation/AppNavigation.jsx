@@ -16,9 +16,8 @@ import HomeScreen from "../screens/HomeScreen";
 const height = Layout.window.height;
 const Stack = createNativeStackNavigator();
 
-const navigation = useNavigation();
-
 const AppNavigation = (props) => {
+  const navigation = useNavigation();
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="loginScreen">
@@ -68,18 +67,18 @@ const AppNavigation = (props) => {
               backgroundColor: Colors.light.primary,
               height: 90,
             },
-            headerLeft: () => {
-              return (
-                <IconContainer
-                  onPress={() => {
-                    console.log("pressed");
-                    navigation.navigate("dashboard");
-                  }}
-                >
-                  <Ionicons name="md-arrow-back" size={27} color="black" />
-                </IconContainer>
-              );
-            },
+            // headerLeft: () => {
+            //   return (
+            //     <IconContainer
+            //       onPress={() => {
+            //         console.log("pressed");
+            //         navigation.navigate("dashboard");
+            //       }}
+            //     >
+            //       <Ionicons name="md-arrow-back" size={27} color="black" />
+            //     </IconContainer>
+            //   );
+            // },
           }}
         />
         <Stack.Screen

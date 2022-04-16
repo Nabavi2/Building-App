@@ -15,10 +15,10 @@ import BuildingOverViewScreen from "../screens/buildingoverview";
 import HomeScreen from "../screens/HomeScreen";
 import MapScreen from "../screens/map";
 
-
 const bottomTabNavigator = createBottomTabNavigator();
-const navigation = useNavigation();
+
 export function BottomTabNavigator() {
+  const navigation = useNavigation();
   return (
     <bottomTabNavigator.Navigator
       initialRouteName="loginScreen"
