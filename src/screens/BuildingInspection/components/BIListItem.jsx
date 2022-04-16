@@ -1,17 +1,27 @@
 import { MaterialCommunityIcons } from "expo-vector-icons";
 import { Box, Column, Row, Text } from "native-base";
-import React from "react";
+import React, { useState } from "react";
 import CustomBadge from "../../../components/CustomBadge";
+import CustomModal from "../../../components/CustomModal";
 import ListTileContainer from "../../../components/ListTileContainer";
 import Colors from "../../../constants/Colors";
 import Layout from "../../../constants/Layout";
+import ListItemDetails from "./ListItemDetails";
 
 const { height } = Layout.window;
 
 function BIListItem({ title, description, grade, value, hasImage }) {
+  const [visible, setIsVisible] = useState(false);
   return (
-    <ListTileContainer>
+    <ListTileContainer onPress={() => setIsVisible(true)}>
       <Column>
+        <CustomModal
+          isBig
+          visible={visible}
+          onRequestClose={() => setIsVisible(false)}
+        >
+          <ListItemDetails />
+        </CustomModal>
         <Text fontSize={14} color={Colors.light.text}>
           {title}
         </Text>

@@ -1,26 +1,7 @@
 import React, { useState } from "react";
-import { Modal, TouchableHighlight } from "react-native";
-import {
-  Entypo,
-  Ionicons,
-  MaterialIcons,
-  Octicons,
-  SimpleLineIcons,
-} from "expo-vector-icons";
-import {
-  Box,
-  Center,
-  CheckIcon,
-  Column,
-  FlatList,
-  Image,
-  Row,
-  Select,
-  Switch,
-  Text,
-  TextArea,
-  ZStack,
-} from "native-base";
+import { TouchableHighlight, StyleSheet } from "react-native";
+import { Ionicons, MaterialIcons, SimpleLineIcons } from "expo-vector-icons";
+import { Box, Column, FlatList, Image, Row, Text, TextArea } from "native-base";
 
 import IconContainer from "../../components/IconContainer";
 import Colors from "../../constants/Colors";
@@ -38,11 +19,13 @@ import FilterButton from "../../components/FilterButton";
 import SettingFilter from "./components/SettingFilter";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
+import Notes from "./components/Notes";
+import AddBuilding from "./components/AddBuilding";
 
 function BuildingInspection(props) {
   const [showAddBuildingModal, setShowAddBuildingModal] = useState(false);
   const [showFilterModal, setShowFilterModal] = useState(false);
-  const [value, setValue] = useState(0);
+  const [showNotesModal, setShowNotesModal] = useState(false);
 
   return (
     <Column
@@ -57,74 +40,21 @@ function BuildingInspection(props) {
         onRequestClose={() => setShowAddBuildingModal(false)}
         visible={showAddBuildingModal}
       >
-        <Column pl={"2%"}>
-          <Text color={Colors.light.primary} fontWeight="bold" fontSize={18}>
-            SELECT ZUSTAND
-          </Text>
-          <Box bg={Colors.light.primary} h={1} w={"10"} borderRadius="sm" />
-        </Column>
-        {/* Bages and text area */}
-        <Column my={8}>
-          <Row justifyContent={"space-between"} w={"60%"}>
-            <GradeBage isSelected={true} grade="A" />
-            <GradeBage isSelected={false} grade="b" />
-            <GradeBage isSelected={false} grade="c" />
-            <GradeBage isSelected={false} grade="d" />
-          </Row>
-          <TextArea
-            mt={5}
-            bg="white"
-            color={Colors.light.subText}
-            placeholder={
-              "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley"
-            }
-          />
-        </Column>
-        {/* Anteil */}
-        <Row justifyContent={"space-between"} mb={8}>
-          <Text fontSize={14} fontWeight={"bold"} color={Colors.light.subText}>
-            Anteil
-          </Text>
-          <CustomBadge size="small">
-            <Text fontSize={13} fontWeight="bold" color={Colors.light.subText}>
-              {value.toFixed(0)}
-            </Text>
-          </CustomBadge>
-        </Row>
-
-        <Slider
-          style={{
-            marginLeft: -10,
-            marginBottom: 15,
-          }}
-          onValueChange={(value) => setValue(value)}
-          minimumValue={0}
-          maximumValue={100}
-          thumbTintColor={Colors.light.primary}
-          minimumTrackTintColor={Colors.light.primary}
-          maximumTrackTintColor="#fff"
-        />
-
-        <Row justifyContent={"flex-end"} mt={2}>
-          <CustomButton title="SAVE" onPress={() => console.log("Pressed")} />
-        </Row>
+        <AddBuilding />
       </CustomModal>
       {/* Filtering the building lists */}
       <CustomModal
         onRequestClose={() => setShowFilterModal(false)}
         visible={showFilterModal}
       >
-        <Column pl={"2%"}>
-          <Text color={Colors.light.primary} fontWeight="bold" fontSize={18}>
-            Gebäudeprüfung FILTERS
-          </Text>
-          <Box bg={Colors.light.primary} h={1} w={"10"} borderRadius="sm" />
-        </Column>
-
-        {/* <Stack.Navigator initialRouteName="filter">
-          <Stack.Screen name="filter" component={SettingFilter} />
-        </Stack.Navigator> */}
         <SettingFilter />
+      </CustomModal>
+      {/* Modal for NOTES */}
+      <CustomModal
+        onRequestClose={() => setShowNotesModal(false)}
+        visible={showNotesModal}
+      >
+        <Notes />
       </CustomModal>
       <Column
         w={"100%"}
@@ -226,23 +156,22 @@ function BuildingInspection(props) {
               Aktive Baugruppe
             </Text>
           </Row>
-          <Row
-            w="30%"
-            h="70%"
-            bg="white"
-            borderRadius={5}
-            alignItems="center"
-            pl={3.5}
-            mr={7}
+          {/* Notes Button */}
+          <TouchableHighlight
+            underlayColor={Colors.light.bageBg}
+            style={styles.notesButton}
+            onPress={() => setShowNotesModal(true)}
           >
-            <Box pt={1}>
-              <MaterialIcons name="chat-bubble" size={20} color="#77828e" />
-            </Box>
-            <Text fontSize={14} color={Colors.light.subText}>
-              {"  "}
-              Notes
-            </Text>
-          </Row>
+            <Row>
+              <Box pt={1}>
+                <MaterialIcons name="chat-bubble" size={20} color="#77828e" />
+              </Box>
+              <Text fontSize={14} color={Colors.light.subText}>
+                {"  "}
+                Notes
+              </Text>
+            </Row>
+          </TouchableHighlight>
           <FilterButton onPress={() => setShowFilterModal()} />
         </Row>
         <FlatList
@@ -330,4 +259,16 @@ function BuildingInspection(props) {
   );
 }
 
+const styles = StyleSheet.create({
+  notesButton: {
+    width: "30%",
+    height: "70%",
+    backgroundColor: "white",
+    borderRadius: 5,
+    alignItems: "center",
+    justifyContent: "center",
+    paddingLeft: 3.5,
+    marginRight: 7,
+  },
+});
 export default BuildingInspection;

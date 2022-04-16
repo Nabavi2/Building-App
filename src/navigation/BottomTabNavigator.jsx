@@ -14,6 +14,11 @@ import Dashboard from "../screens/Dashboard";
 import BuildingOverViewScreen from "../screens/buildingoverview";
 import HomeScreen from "../screens/HomeScreen";
 import MapScreen from "../screens/map";
+<<<<<<< HEAD
+=======
+
+const bottomTabNavigator = createBottomTabNavigator();
+>>>>>>> 9650b7e69552377adcf51325dee52042e8c55902
 
 const bottomTabNavigator = createBottomTabNavigator();
 const navigation = useNavigation();
@@ -43,14 +48,23 @@ export function BottomTabNavigator() {
               color={focused ? Colors.light.primary : Colors.light.black}
             />
           ),
-          headerRight: () => (
-            <Pressable
-              onPress={() => navigation.navigate("dashboard")}
-              style={({ pressed }) => ({
-                opacity: pressed ? 0.5 : 1,
-              })}
-            ></Pressable>
-          ),
+          headerRight: () => {
+            const navigation = useNavigation();
+            return (
+              <Pressable
+                onPress={() => navigation.navigate("dashboard")}
+                style={({ pressed }) => ({
+                  opacity: pressed ? 0.5 : 1,
+                })}
+              >
+                <FontAwesome5
+                  name={Platform.OS === "android" ? "building" : "building"}
+                  size={23}
+                  color={focused ? Colors.light.primary : Colors.light.black}
+                />
+              </Pressable>
+            );
+          },
           headerShown: false,
         })}
       />
@@ -144,14 +158,16 @@ export function BottomTabNavigator() {
               color={focused ? Colors.light.white : Colors.light.black}
             />
           ),
-          headerRight: () => (
-            <Pressable
-              onPress={() => navigation.navigate("homeScreen")}
-              style={({ pressed }) => ({
-                opacity: pressed ? 0.5 : 1,
-              })}
-            ></Pressable>
-          ),
+          headerRight: () => {
+            return (
+              <Pressable
+                onPress={() => navigation.navigate("homeScreen")}
+                style={({ pressed }) => ({
+                  opacity: pressed ? 0.5 : 1,
+                })}
+              ></Pressable>
+            );
+          },
           headerShown: false,
         })}
       />
