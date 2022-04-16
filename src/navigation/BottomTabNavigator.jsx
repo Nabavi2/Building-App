@@ -14,11 +14,7 @@ import Dashboard from "../screens/Dashboard";
 import BuildingOverViewScreen from "../screens/buildingoverview";
 import HomeScreen from "../screens/HomeScreen";
 import MapScreen from "../screens/map";
-<<<<<<< HEAD
-=======
 
-const bottomTabNavigator = createBottomTabNavigator();
->>>>>>> 9650b7e69552377adcf51325dee52042e8c55902
 
 const bottomTabNavigator = createBottomTabNavigator();
 const navigation = useNavigation();

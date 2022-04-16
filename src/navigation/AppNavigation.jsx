@@ -21,11 +21,7 @@ const navigation = useNavigation();
 const AppNavigation = (props) => {
   return (
     <NavigationContainer>
-<<<<<<< HEAD
-      <Stack.Navigator initialRouteName="homeScreen">
-=======
       <Stack.Navigator initialRouteName="loginScreen">
->>>>>>> 9650b7e69552377adcf51325dee52042e8c55902
         <Stack.Screen
           name="dashboard"
           component={AppDrawerNavigator}
