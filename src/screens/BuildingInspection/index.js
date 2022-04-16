@@ -253,6 +253,7 @@ function BuildingInspection(props) {
               hasImage: true,
             },
           ]}
+          showsVerticalScrollIndicator={false}
           keyExtractor={(item, ind) => ind}
           renderItem={({ item }) => (
             <BIListItem

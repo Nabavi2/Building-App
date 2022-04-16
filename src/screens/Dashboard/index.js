@@ -130,6 +130,7 @@ const Dashboard = (props) => {
         </Text>
       </Row>
       <FlatList
+        showsVerticalScrollIndicator={false}
         keyExtractor={(item, index) => item.id}
         data={[
           {
