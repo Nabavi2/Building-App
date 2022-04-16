@@ -64,14 +64,7 @@ const Dashboard = (props) => {
   return (
     <SafeAreaView style={GlobalStyles.container}>
       <TabSection />
-      <Row
-        width={size.width}
-        h={size.height * 0.28}
-        p={25}
-        mt={5}
-        mb={3}
-        bg="blue"
-      >
+      <Row width={size.width} h={size.height * 0.28} p={25} my={3} bg="blue">
         <Column w="45%" h="100%" justifyContent="center">
           <Column mb={7}>
             <Bage color={Colors.light.red} text="Overdued" />

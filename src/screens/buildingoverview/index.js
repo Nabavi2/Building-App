@@ -112,6 +112,7 @@ function BuildingOverViewScreen(props) {
         <Ontime />
         <Soon />
         <FlatList
+          showsVerticalScrollIndicator={false}
           data={[
             {
               id: "1",
@@ -170,7 +171,6 @@ function BuildingOverViewScreen(props) {
               borg: "Würzburg",
             },
           ]}
-          showsVerticalScrollIndicator={false}
           keyExtractor={(item, id) => id}
           renderItem={({ item }) => {
             return (
