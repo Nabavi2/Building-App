@@ -1,24 +1,16 @@
 import React, { useState } from "react";
 import { TouchableHighlight, StyleSheet } from "react-native";
-import { Ionicons, MaterialIcons, SimpleLineIcons } from "expo-vector-icons";
-import { Box, Column, FlatList, Image, Row, Text, TextArea } from "native-base";
+import { Ionicons, MaterialIcons, SimpleLineIcons } from "@expo/vector-icons";
+import { Box, Column, FlatList, Image, Row, Text } from "native-base";
 
 import IconContainer from "../../components/IconContainer";
 import Colors from "../../constants/Colors";
 import GlobalStyles from "../../constants/GlobalStyles";
 import CustomBadge from "../../components/CustomBadge";
-import CustomFilterIcon from "../../components/CustomFilterIcon";
 import BIListItem from "./components/BIListItem";
-import Layout from "../../constants/Layout";
-import { Dimensions } from "react-native";
-import GradeBage from "../../components/GradeBage";
-import CustomButton from "../../components/CustomButton";
-import Slider from "@react-native-community/slider";
 import CustomModal from "../../components/CustomModal";
 import FilterButton from "../../components/FilterButton";
 import SettingFilter from "./components/SettingFilter";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { NavigationContainer } from "@react-navigation/native";
 import Notes from "./components/Notes";
 import AddBuilding from "./components/AddBuilding";
 

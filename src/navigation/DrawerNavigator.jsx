@@ -13,7 +13,7 @@ import {
   MaterialCommunityIcons,
   Foundation,
   Octicons,
-} from "expo-vector-icons";
+} from "@expo/vector-icons";
 import {
   createDrawerNavigator,
   DrawerItemList,
@@ -30,6 +30,7 @@ import EditScreen from "../screens/EditScreen";
 const size = Layout.window;
 const DrawerNavigator = createDrawerNavigator();
 const AppDrawerNavigator = () => {
+  // const dispatch = useDispatch();
   return (
     <DrawerNavigator.Navigator
       drawerContent={(props) => {

@@ -1,27 +1,27 @@
 import React from "react";
 import { Pressable } from "react-native";
+import { Row } from "native-base";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { useNavigation } from "@react-navigation/native";
 import {
   MaterialCommunityIcons,
   Foundation,
   FontAwesome5,
-} from "expo-vector-icons";
+} from "@expo/vector-icons";
 
 import Colors from "../constants/Colors";
 import BuildingInspection from "../screens/BuildingInspection";
 import Dashboard from "../screens/Dashboard";
 import BuildingOverViewScreen from "../screens/buildingoverview";
-import HomeScreen from "../screens/HomeScreen";
+import ApartmentScreen from "../screens/Apartment";
 import MapScreen from "../screens/map";
 
-
 const bottomTabNavigator = createBottomTabNavigator();
-const navigation = useNavigation();
+
 export function BottomTabNavigator() {
   return (
     <bottomTabNavigator.Navigator
-      initialRouteName="loginScreen"
+      initialRouteName="dashboard"
       screenOptions={{
         tabBarActiveTintColor: Colors.light.primary,
         tabBarStyle: {
@@ -44,29 +44,29 @@ export function BottomTabNavigator() {
               color={focused ? Colors.light.primary : Colors.light.black}
             />
           ),
-          headerRight: () => {
-            const navigation = useNavigation();
-            return (
-              <Pressable
-                onPress={() => navigation.navigate("dashboard")}
-                style={({ pressed }) => ({
-                  opacity: pressed ? 0.5 : 1,
-                })}
-              >
-                <FontAwesome5
-                  name={Platform.OS === "android" ? "building" : "building"}
-                  size={23}
-                  color={focused ? Colors.light.primary : Colors.light.black}
-                />
-              </Pressable>
-            );
-          },
+          // headerRight: () => {
+          //   const navigation = useNavigation();
+          //   return (
+          //     <Pressable
+          //       onPress={() => navigation.navigate("dashboard")}
+          //       style={({ pressed }) => ({
+          //         opacity: pressed ? 0.5 : 1,
+          //       })}
+          //     >
+          //       <FontAwesome5
+          //         name={Platform.OS === "android" ? "building" : "building"}
+          //         size={23}
+          //         color={focused ? Colors.light.primary : Colors.light.black}
+          //       />
+          //     </Pressable>
+          //   );
+          // },
           headerShown: false,
         })}
       />
       <bottomTabNavigator.Screen
-        name="buildingoverview"
-        component={BuildingOverViewScreen}
+        name="apartment"
+        component={ApartmentScreen}
         options={() => ({
           title: "building",
           tabBarIcon: ({ focused }) => (
@@ -85,7 +85,7 @@ export function BottomTabNavigator() {
               })}
             ></Pressable>
           ),
-          headerShown: false,
+          headerShown: true,
         })}
       />
       <bottomTabNavigator.Screen
@@ -101,15 +101,15 @@ export function BottomTabNavigator() {
               style={{ marginLeft: 5 }}
             />
           ),
-          headerRight: () => (
-            <Pressable
-              onPress={() => navigation.navigate("buildingInspection")}
-              style={({ pressed }) => ({
-                opacity: pressed ? 0.5 : 1,
-              })}
-            ></Pressable>
-          ),
-          headerShown: false,
+          // headerRight: () => (
+          //   <Pressable
+          //     onPress={() => navigation.navigate("buildingInspection")}
+          //     style={({ pressed }) => ({
+          //       opacity: pressed ? 0.5 : 1,
+          //     })}
+          //   ></Pressable>
+          // ),
+          headerShown: true,
         })}
       />
       <bottomTabNavigator.Screen
@@ -125,20 +125,20 @@ export function BottomTabNavigator() {
               style={{ marginLeft: 5 }}
             />
           ),
-          headerRight: () => (
-            <Pressable
-              onPress={() => navigation.navigate("mapScreen")}
-              style={({ pressed }) => ({
-                opacity: pressed ? 0.5 : 1,
-              })}
-            ></Pressable>
-          ),
+          // headerRight: () => (
+          //   <Pressable
+          //     onPress={() => navigation.navigate("mapScreen")}
+          //     style={({ pressed }) => ({
+          //       opacity: pressed ? 0.5 : 1,
+          //     })}
+          //   ></Pressable>
+          // ),
           headerShown: false,
         })}
       />
       <bottomTabNavigator.Screen
         name="homeScreen"
-        component={HomeScreen}
+        component={ApartmentScreen}
         options={() => ({
           title: "Home",
           tabBarIcon: ({ focused }) => (
@@ -154,16 +154,16 @@ export function BottomTabNavigator() {
               color={focused ? Colors.light.white : Colors.light.black}
             />
           ),
-          headerRight: () => {
-            return (
-              <Pressable
-                onPress={() => navigation.navigate("homeScreen")}
-                style={({ pressed }) => ({
-                  opacity: pressed ? 0.5 : 1,
-                })}
-              ></Pressable>
-            );
-          },
+          // headerRight: () => {
+          //   return (
+          //     <Pressable
+          //       onPress={() => navigation.navigate("homeScreen")}
+          //       style={({ pressed }) => ({
+          //         opacity: pressed ? 0.5 : 1,
+          //       })}
+          //     ></Pressable>
+          //   );
+          // },
           headerShown: false,
         })}
       />

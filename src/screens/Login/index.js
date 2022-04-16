@@ -15,6 +15,7 @@ import {
   SafeAreaView,
 } from "react-native";
 import { ScrollView, Box } from "native-base";
+
 import { MaterialCommunityIcons, Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
@@ -62,9 +63,9 @@ function LoginScreen() {
         <Formik
           validationSchema={validationSchema}
           initialValues={{ email: "", password: "", server: "" }}
-          // onSubmit={(values) => {
-          //   navigation.navigate("dashboard");
-          // }}
+          onSubmit={(values) => {
+            navigation.navigate("dashboard");
+          }}
           validateOnMount={true}
         >
           {({ values, errors, handleBlur, touched, handleChange }) => {
@@ -160,22 +161,15 @@ function LoginScreen() {
                       navigation.navigate("dashboard");
                     }}
                   >
-                    <Row>
-                      <AntDesign
-                        name="login"
-                        size={24}
-                        color={Colors.light.white}
-                      />
-                      <Text
-                        style={{
-                          color: Colors.light.white,
-                          fontWeight: "bold",
-                          marginLeft: 10,
-                        }}
-                      >
-                        Login
-                      </Text>
-                    </Row>
+                    <Text
+                      style={{
+                        color: Colors.light.white,
+                        fontWeight: "bold",
+                        marginLeft: 10,
+                      }}
+                    >
+                      Login
+                    </Text>
                   </TouchableOpacity>
                 </View>
               </>

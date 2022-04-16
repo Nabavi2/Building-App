@@ -8,89 +8,85 @@ import {
   FlatList,
   Pressable,
 } from "react-native";
-import { Row, Box, ScrollView } from "native-base";
+import { Row, Box, ScrollView, Column } from "native-base";
 import { Entypo, EvilIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
 import Colors from "../../constants/Colors";
-import CustomButton from "../../components/CustomButton";
 import Layout from "../../constants/Layout";
-import OverViewComponent from "./conponents/OverViewComponent";
 import CustomFilterIcon from "../../components/CustomFilterIcon";
-import Soon from "./conponents/Soon";
-import Ontime from "./conponents/Ontime";
+import MapComponent from "./components/MapComponent";
 
 const size = Layout.window;
 
-function BuildingOverViewScreen(props) {
+function ApartmentScreen(props) {
+  const [showModal, setShowModal] = useState(false);
   const initData = [
     {
       id: "1",
       type: "displayed",
-      title: "Am Schawrzenberg 19, 21, 23",
+      title: "Frany-Schubert-Str. 2 u Seinsheimstr…",
       subTitle: "VE. 130-300",
       borg: "Würzburg",
     },
     {
       id: "2",
       type: "soon",
-      title: "Am Schawrzenberg 19, 21, 23",
+      title: "Frany-Schubert-Str. 2 u Seinsheimstr…3",
       subTitle: "VE. 130-300",
       borg: "Würzburg",
     },
     {
       id: "3",
       type: "ontime",
-      title: "Am Schawrzenberg 19, 21, 23",
+      title: "Frany-Schubert-Str. 2 u Seinsheimstr…",
       subTitle: "VE. 130-300",
       borg: "Würzburg",
     },
     {
       id: "4",
       type: "displayed",
-      title: "Am Schawrzenberg 19, 21, 23",
+      title: "Frany-Schubert-Str. 2 u Seinsheimstr…",
       subTitle: "VE. 130-300",
       borg: "Würzburg",
     },
     {
       id: "5",
       type: "ontime",
-      title: "Am Schawrzenberg 19, 21, 23",
+      title: "Frany-Schubert-Str. 2 u Seinsheimstr…",
       subTitle: "VE. 130-300",
       borg: "Würzburg",
     },
     {
       id: "6",
       type: "soon",
-      title: "Am Schawrzenberg 19, 21, 23",
+      title: "Frany-Schubert-Str. 2 u Seinsheimstr…",
       subTitle: "VE. 130-300",
       borg: "Würzburg",
     },
     {
       id: "7",
       type: "soon",
-      title: "Am Schawrzenberg 19, 21, 23",
+      title: "Frany-Schubert-Str. 2 u Seinsheimstr…",
       subTitle: "VE. 130-300",
       borg: "Würzburg",
     },
     {
       id: "8",
       type: "soon",
-      title: "Am Schawrzenberg 19, 21, 23",
+      title: "Frany-Schubert-Str. 2 u Seinsheimstr…",
       subTitle: "VE. 130-300",
       borg: "Würzburg",
     },
   ];
-  const [data, setData] = useState(initData);
 
   const navigation = useNavigation();
-  const [showModal, setShowModal] = useState(false);
 
   return (
-    <SafeAreaView>
+    <Column>
       <Row
         justifyContent="space-between"
-        marginBottom={20}
+        marginBottom={10}
         alignItems="center"
         width={size.width * 0.98}
         alignSelf="center"
@@ -114,7 +110,7 @@ function BuildingOverViewScreen(props) {
             fontWeight: "bold",
           }}
         >
-          Gebäudeübersicht
+          Apartment
         </Box>
         <Box style={styles.iconView}>
           <TouchableHighlight>
@@ -139,41 +135,6 @@ function BuildingOverViewScreen(props) {
           placeholder="Search"
           placeholderTextColor={Colors.light.gray500}
           keyboardType="default"
-        />
-      </Row>
-      <Row
-        style={{
-          paddingLeft: 17,
-          marginTop: 25,
-          alignItems: "center",
-          justifyContent: "space-between",
-          // paddingRight: 19,
-          width: size.width * 0.97,
-        }}
-      >
-        <CustomButton
-          title="29 Displayed"
-          color={Colors.light.red}
-          Size={size.width * 0.28}
-          onPress={() => {
-            setData(initData.filter((item) => item.type === "displayed"));
-          }}
-        />
-        <CustomButton
-          title="18 Soon"
-          color={Colors.light.orange}
-          Size={size.width * 0.28}
-          onPress={() => {
-            setData(initData.filter((item) => item.type === "soon"));
-          }}
-        />
-        <CustomButton
-          title="77 Ontime"
-          Size={size.width * 0.28}
-          onPress={() => {
-            setData(initData.filter((item) => item.type === "ontime"));
-          }}
-          color={Colors.light.primary}
         />
       </Row>
       <Row
@@ -206,42 +167,24 @@ function BuildingOverViewScreen(props) {
           }}
         ></Pressable>
       </Row>
-      <ScrollView>
-        {/* <Soon />
-        <Ontime />
-        <Soon />
-        <Ontime />
-        <Soon />
-        <Soon />
-        <Ontime />
-        <Soon />
-        <Ontime />
-        <Soon /> */}
-        <FlatList
-          data={data}
-          keyExtractor={(item, id) => id}
-          renderItem={({ item }) => {
-            return (
-              <OverViewComponent
-                type={item.type}
-                title={item.title}
-                subTitle={item.subTitle}
-                borg={item.borg}
-              />
-            );
-          }}
-        />
 
-        {/* <Soon />
-        <Ontime />
-        <Soon />
-        <Ontime />
-        <Soon />
-        <Ontime />
-        <Soon />
-        <Ontime /> */}
-      </ScrollView>
-    </SafeAreaView>
+      <FlatList
+        showsVerticalScrollIndicator={true}
+        scrollEnabled={true}
+        data={initData}
+        keyExtractor={(item, id) => id}
+        renderItem={({ item }) => {
+          return (
+            <MapComponent
+              type={item.type}
+              title={item.title}
+              subTitle={item.subTitle}
+              borg={item.borg}
+            />
+          );
+        }}
+      />
+    </Column>
   );
 }
 const styles = StyleSheet.create({
@@ -270,4 +213,4 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
 });
-export default BuildingOverViewScreen;
+export default ApartmentScreen;
