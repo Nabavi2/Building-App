@@ -1,14 +1,6 @@
+import Slider from "@react-native-community/slider";
 import { Entypo } from "expo-vector-icons";
-import {
-  Box,
-  CheckIcon,
-  Column,
-  Row,
-  Select,
-  Slider,
-  Switch,
-  Text,
-} from "native-base";
+import { Box, CheckIcon, Column, Row, Select, Switch, Text } from "native-base";
 import React, { useState } from "react";
 import CustomBadge from "../../../components/CustomBadge";
 import CustomButton from "../../../components/CustomButton";
@@ -19,6 +11,12 @@ function SettingFilter(props) {
   const [value, setValue] = useState(0);
   return (
     <Box>
+      <Column pl={"2%"}>
+        <Text color={Colors.light.primary} fontWeight="bold" fontSize={18}>
+          Gebäudeprüfung FILTERS
+        </Text>
+        <Box bg={Colors.light.primary} h={1} w={"10"} borderRadius="sm" />
+      </Column>
       <Column mb={7} mt={8}>
         <Text
           mb={2}
@@ -67,6 +65,7 @@ function SettingFilter(props) {
           marginLeft: -10,
           marginBottom: 15,
         }}
+        value={20}
         onValueChange={(value) => setValue(value)}
         minimumValue={0}
         maximumValue={100}
