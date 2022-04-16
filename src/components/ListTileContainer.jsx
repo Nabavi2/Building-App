@@ -14,7 +14,7 @@ function ListTileContainer({ children, onPress }) {
       onPress={onPress}
     >
       <Row
-        w="md"
+        w={width * 0.995}
         h={height * 0.085}
         bg="white"
         borderRadius="xl"

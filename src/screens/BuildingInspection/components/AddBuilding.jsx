@@ -1,4 +1,5 @@
-import { Box, Column, Row, Slider, Text, TextArea } from "native-base";
+import Slider from "@react-native-community/slider";
+import { Box, Column, Row, Text, TextArea } from "native-base";
 import React, { useState } from "react";
 import CustomBadge from "../../../components/CustomBadge";
 import CustomButton from "../../../components/CustomButton";
@@ -50,6 +51,7 @@ function AddBuilding(props) {
           marginLeft: -10,
           marginBottom: 15,
         }}
+        value={20}
         onValueChange={(value) => setValue(value)}
         minimumValue={0}
         maximumValue={100}

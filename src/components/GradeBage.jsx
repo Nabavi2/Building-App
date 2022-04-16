@@ -1,21 +1,21 @@
-import { Box, Center, Text } from "native-base";
+import { Box, Center, Pressable, Text } from "native-base";
 import React from "react";
 import Colors from "../constants/Colors";
-import Layout from "../constants/Layout";
 
-function GradeBage({ grade, isSelected = false }) {
-  const { width, height } = Layout.window;
+function GradeBage({ grade, isSelected = false, onPress }) {
   return (
-    <Center
-      w={12}
-      h={12}
-      borderRadius={"full"}
-      bg={isSelected ? Colors.light.primary : Colors.light.gray800}
-    >
-      <Text mb={1} fontSize={18} fontWeight="bold" color={"white"}>
-        {grade.toUpperCase()}
-      </Text>
-    </Center>
+    <Pressable onPress={onPress}>
+      <Center
+        w={12}
+        h={12}
+        borderRadius={"full"}
+        bg={isSelected ? Colors.light.primary : Colors.light.gray800}
+      >
+        <Text mb={1} fontSize={18} fontWeight="bold" color={"white"}>
+          {grade.toUpperCase()}
+        </Text>
+      </Center>
+    </Pressable>
   );
 }
 

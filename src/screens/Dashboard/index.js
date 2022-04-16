@@ -64,7 +64,14 @@ const Dashboard = (props) => {
   return (
     <SafeAreaView style={GlobalStyles.container}>
       <TabSection />
-      <Row width={size.width} h={size.height * 0.28} p={25} my={20} bg="blue">
+      <Row
+        width={size.width}
+        h={size.height * 0.28}
+        p={25}
+        mt={5}
+        mb={3}
+        bg="blue"
+      >
         <Column w="45%" h="100%" justifyContent="center">
           <Column mb={7}>
             <Bage color={Colors.light.red} text="Overdued" />
@@ -90,9 +97,9 @@ const Dashboard = (props) => {
             paddingLeft={(size.width * 0.123).toString()}
           />
           <Box
-            w={size.width * 0.33}
-            h={size.height * 0.19}
-            borderRadius={(size.width * 0.33) / 2}
+            w={145}
+            h={145}
+            borderRadius={"full"}
             bg={Colors.light.background}
             justifyContent="center"
             alignItems="center"
@@ -123,6 +130,7 @@ const Dashboard = (props) => {
         </Text>
       </Row>
       <FlatList
+        showsVerticalScrollIndicator={false}
         keyExtractor={(item, index) => item.id}
         data={[
           {

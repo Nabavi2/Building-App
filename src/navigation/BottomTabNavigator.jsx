@@ -2,11 +2,16 @@ import React from "react";
 import { Pressable } from "react-native";
 import { Row } from "native-base";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { useNavigation } from "@react-navigation/native";
+import { DrawerActions, useNavigation } from "@react-navigation/native";
 import {
   MaterialCommunityIcons,
   Foundation,
   FontAwesome5,
+<<<<<<< HEAD
+=======
+  Entypo,
+  Ionicons,
+>>>>>>> bd9f0f683c49a742dd29da5b7f803ba42722a173
 } from "@expo/vector-icons";
 
 import Colors from "../constants/Colors";
@@ -15,35 +20,47 @@ import Dashboard from "../screens/Dashboard";
 import BuildingOverViewScreen from "../screens/buildingoverview";
 import ApartmentScreen from "../screens/Apartment";
 import MapScreen from "../screens/map";
+import IconContainer from "../components/IconContainer";
+import { Box } from "native-base";
 
 const bottomTabNavigator = createBottomTabNavigator();
 
 export function BottomTabNavigator() {
+  const navigation = useNavigation();
+
   return (
     <bottomTabNavigator.Navigator
       initialRouteName="dashboard"
       screenOptions={{
         tabBarActiveTintColor: Colors.light.primary,
+        tabBarInactiveTintColor: "white",
         tabBarStyle: {
-          backgroundColor: Colors.light.background,
+          backgroundColor: Colors.light.gray800,
           overflow: "hidden",
         },
-        headerShown: false,
-        headerStyle: { backgroundColor: Colors.light.background },
+        tabBarShowLabel: false,
+        headerShown: true,
+        headerShadowVisible: false,
+        headerTitleAlign: "center",
+        headerStyle: {
+          backgroundColor: Colors.light.background,
+          height: 90,
+        },
+        headerTitleStyle: {
+          fontSize: 16,
+          color: Colors.light.text,
+        },
       }}
     >
       <bottomTabNavigator.Screen
         name="dashboard"
         component={Dashboard}
         options={() => ({
-          title: "Dashboard Screen",
-          tabBarIcon: ({ focused }) => (
-            <FontAwesome5
-              name={Platform.OS === "android" ? "building" : "building"}
-              size={23}
-              color={focused ? Colors.light.primary : Colors.light.black}
-            />
+          title: "Global overview",
+          tabBarIcon: ({ color }) => (
+            <FontAwesome5 name={"building"} size={23} color={color} />
           ),
+<<<<<<< HEAD
           // headerRight: () => {
           //   const navigation = useNavigation();
           //   return (
@@ -62,45 +79,76 @@ export function BottomTabNavigator() {
           //   );
           // },
           headerShown: false,
+=======
+          headerLeft: () => (
+            <Box ml={5}>
+              <IconContainer
+                onPress={() =>
+                  navigation.dispatch(DrawerActions.toggleDrawer())
+                }
+              >
+                <Ionicons name="menu" size={24} color={Colors.light.gray900} />
+              </IconContainer>
+            </Box>
+          ),
+>>>>>>> bd9f0f683c49a742dd29da5b7f803ba42722a173
         })}
       />
       <bottomTabNavigator.Screen
         name="apartment"
         component={ApartmentScreen}
         options={() => ({
-          title: "building",
-          tabBarIcon: ({ focused }) => (
+          title: "Gebäudeübersicht",
+          tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons
               name="home-outline"
-              size={24}
-              color={focused ? Colors.light.primary : Colors.light.black}
+              size={31}
+              color={color}
               style={{ marginLeft: 5 }}
             />
           ),
           headerRight: () => (
-            <Pressable
-              onPress={() => navigation.navigate("buildingoverview")}
-              style={({ pressed }) => ({
-                opacity: pressed ? 0.5 : 1,
-              })}
-            ></Pressable>
+            <Box mr={5}>
+              <IconContainer onPress={() => console.log("dkfsfdj")}>
+                <Entypo
+                  name="dots-three-vertical"
+                  size={24}
+                  color={Colors.light.gray900}
+                />
+              </IconContainer>
+            </Box>
           ),
+          headerLeft: () => (
+            <Box ml={5}>
+              <IconContainer
+                onPress={() =>
+                  navigation.dispatch(DrawerActions.toggleDrawer())
+                }
+              >
+                <Ionicons name="menu" size={24} color={Colors.light.gray900} />
+              </IconContainer>
+            </Box>
+          ),
+<<<<<<< HEAD
           headerShown: true,
+=======
+>>>>>>> bd9f0f683c49a742dd29da5b7f803ba42722a173
         })}
       />
       <bottomTabNavigator.Screen
         name="buildingInspection"
         component={BuildingInspection}
         options={() => ({
-          title: "Dash ",
-          tabBarIcon: ({ focused }) => (
+          title: "Gebäudeprüfung",
+          tabBarIcon: ({ color }) => (
             <Foundation
               name="page-edit"
               size={24}
-              color={focused ? Colors.light.primary : Colors.light.black}
+              color={color}
               style={{ marginLeft: 5 }}
             />
           ),
+<<<<<<< HEAD
           // headerRight: () => (
           //   <Pressable
           //     onPress={() => navigation.navigate("buildingInspection")}
@@ -110,6 +158,15 @@ export function BottomTabNavigator() {
           //   ></Pressable>
           // ),
           headerShown: true,
+=======
+
+          headerStyle: {
+            backgroundColor: Colors.light.primary,
+          },
+          headerTitleStyle: {
+            color: "white",
+          },
+>>>>>>> bd9f0f683c49a742dd29da5b7f803ba42722a173
         })}
       />
       <bottomTabNavigator.Screen
@@ -117,14 +174,15 @@ export function BottomTabNavigator() {
         component={MapScreen}
         options={() => ({
           title: "Home",
-          tabBarIcon: ({ focused }) => (
+          tabBarIcon: ({ color }) => (
             <FontAwesome5
               name="map-marked"
               size={24}
-              color={focused ? Colors.light.primary : Colors.light.black}
+              color={color}
               style={{ marginLeft: 5 }}
             />
           ),
+<<<<<<< HEAD
           // headerRight: () => (
           //   <Pressable
           //     onPress={() => navigation.navigate("mapScreen")}
@@ -133,6 +191,8 @@ export function BottomTabNavigator() {
           //     })}
           //   ></Pressable>
           // ),
+=======
+>>>>>>> bd9f0f683c49a742dd29da5b7f803ba42722a173
           headerShown: false,
         })}
       />
@@ -141,19 +201,14 @@ export function BottomTabNavigator() {
         component={ApartmentScreen}
         options={() => ({
           title: "Home",
-          tabBarIcon: ({ focused }) => (
-            // <FontAwesome5
-            //   name="map-marked"
-            //   size={24}
-            //   color={focused ? Colors.light.white : Colors.light.black}
-            //   style={{ marginLeft: 5 }}
-            // />
+          tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons
               name="google-maps"
               size={24}
-              color={focused ? Colors.light.white : Colors.light.black}
+              color={color}
             />
           ),
+<<<<<<< HEAD
           // headerRight: () => {
           //   return (
           //     <Pressable
@@ -164,6 +219,8 @@ export function BottomTabNavigator() {
           //     ></Pressable>
           //   );
           // },
+=======
+>>>>>>> bd9f0f683c49a742dd29da5b7f803ba42722a173
           headerShown: false,
         })}
       />
