@@ -19,6 +19,7 @@ import OverViewComponent from "./conponents/OverViewComponent";
 import CustomFilterIcon from "../../components/CustomFilterIcon";
 import Soon from "./conponents/Soon";
 import Ontime from "./conponents/Ontime";
+import GlobalStyles from "../../constants/GlobalStyles";
 
 const size = Layout.window;
 
@@ -27,46 +28,7 @@ function BuildingOverViewScreen(props) {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <SafeAreaView>
-      <Row
-        justifyContent="space-between"
-        marginBottom={20}
-        alignItems="center"
-        width={size.width * 0.98}
-        alignSelf="center"
-        mt={5}
-      >
-        <Pressable>
-          <Entypo
-            name="menu"
-            size={24}
-            color="black"
-            style={{ marginLeft: 10, marginTop: 20 }}
-          />
-        </Pressable>
-
-        <Box
-          _text={{
-            fontSize: 23,
-            color: Colors.white,
-            marginLeft: 10,
-            marginTop: 5,
-            fontWeight: "bold",
-          }}
-        >
-          Gebäudeübersicht
-        </Box>
-        <Box style={styles.iconView}>
-          <TouchableHighlight>
-            <Entypo
-              name="dots-three-vertical"
-              size={24}
-              color={Colors.light.gray900}
-              style={{ marginTop: 5 }}
-            />
-          </TouchableHighlight>
-        </Box>
-      </Row>
+    <SafeAreaView style={GlobalStyles.container}>
       <Row style={styles.inputView}>
         <EvilIcons
           name="search"

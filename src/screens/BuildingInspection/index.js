@@ -1,7 +1,15 @@
 import React, { useState } from "react";
 import { TouchableHighlight, StyleSheet } from "react-native";
 import { Ionicons, MaterialIcons, SimpleLineIcons } from "@expo/vector-icons";
-import { Box, Column, FlatList, Image, Row, Text } from "native-base";
+import {
+  Box,
+  Column,
+  FlatList,
+  Image,
+  Pressable,
+  Row,
+  Text,
+} from "native-base";
 
 import IconContainer from "../../components/IconContainer";
 import Colors from "../../constants/Colors";
@@ -18,6 +26,7 @@ function BuildingInspection(props) {
   const [showAddBuildingModal, setShowAddBuildingModal] = useState(false);
   const [showFilterModal, setShowFilterModal] = useState(false);
   const [showNotesModal, setShowNotesModal] = useState(false);
+  const [isActive, setIsActive] = useState(false);
 
   return (
     <Column
@@ -57,6 +66,7 @@ function BuildingInspection(props) {
         justifyContent="center"
         alignItems="center"
       >
+        {/* Top build type sectoin */}
         <Row
           w="100%"
           h="7%"
@@ -92,11 +102,11 @@ function BuildingInspection(props) {
           my={8}
           justifyContent="space-around"
           alignItems="center"
-          // bg={"yellow.300"}
         >
           <IconContainer>
             <Ionicons name="md-arrow-back" size={27} color="black" />
           </IconContainer>
+
           <Row
             bg={Colors.light.white}
             borderRadius={8}
@@ -116,7 +126,7 @@ function BuildingInspection(props) {
             </CustomBadge>
           </Row>
           <IconContainer>
-            <Ionicons name="car-sport" size={24} color="black" />
+            <Ionicons name="md-arrow-forward" size={27} color="black" />
           </IconContainer>
         </Row>
         {/* Filter Section */}
@@ -132,21 +142,29 @@ function BuildingInspection(props) {
           <Row
             w="50%"
             h="70%"
-            bg="white"
+            bg={isActive ? "white" : "#77838f"}
             borderRadius={5}
             alignItems="center"
             pl={3.5}
           >
-            <Image
-              source={require("../../../assets/eyeIcon.png")}
-              w={5}
-              h={5}
-              resizeMode="contain"
-            />
-            <Text fontSize={14} color={Colors.light.subText}>
-              {"  "}
-              Aktive Baugruppe
-            </Text>
+            <Pressable
+              flex={1}
+              flexDir={"row"}
+              alignItems="center"
+              onPress={() => setIsActive(!isActive)}
+            >
+              {isActive ? (
+                <Ionicons name="eye" size={24} color="#77838f" />
+              ) : (
+                <Ionicons name="eye-off" size={24} color="white" />
+              )}
+              <Text
+                fontSize={14}
+                color={isActive ? Colors.light.subText : "white"}
+              >
+                {isActive ? "  Aktive Baugruppe" : "  Inaktive Baugruppe"}
+              </Text>
+            </Pressable>
           </Row>
           {/* Notes Button */}
           <TouchableHighlight

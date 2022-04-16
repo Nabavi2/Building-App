@@ -52,7 +52,7 @@ function LoginScreen() {
         <Text
           style={{
             color: Colors.light.gray900,
-            fontSize: 20,
+            fontSize: 14,
             marginBottom: "15%",
             alignSelf: "center",
             marginHorizontal: 40,
@@ -129,7 +129,7 @@ function LoginScreen() {
                   <View
                     style={[
                       styles.inputView,
-                      { marginBottom: 25, marginTop: 10, padding: 3.5 },
+                      { marginBottom: 25, padding: 3.5 },
                     ]}
                   >
                     <TextInput
@@ -199,6 +199,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.light.background,
   },
   inputView: {
+    elevation: 2.5,
     width: "90%",
     flexDirection: "row",
     backgroundColor: Colors.light.white,
@@ -212,8 +213,9 @@ const styles = StyleSheet.create({
     color: Colors.light.gray500,
   },
   inputTitle: {
+    marginBottom: 1,
     marginRight: "75%",
-    fontSize: 18,
+    fontSize: 14,
     fontWeight: "bold",
   },
   button: {
@@ -225,7 +227,7 @@ const styles = StyleSheet.create({
     marginTop: 12,
     alignItems: "center",
     justifyContent: "center",
-    elevation: 10,
+    elevation: 4,
   },
   cart: {
     backgroundColor: Colors.light.background,
