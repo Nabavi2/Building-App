@@ -61,6 +61,7 @@ function MapScreen(props) {
       number: "216",
       subTitle: "Stadtteil",
     },
+
     {
       id: "4",
       title: "Building street here",
@@ -69,6 +70,12 @@ function MapScreen(props) {
     },
     {
       id: "5",
+      title: "Building street here",
+      number: "216",
+      subTitle: "Stadtteil",
+    },
+    {
+      id: "6",
       title: "Building street here",
       number: "216",
       subTitle: "Stadtteil",
@@ -101,7 +108,7 @@ function MapScreen(props) {
             alignSelf="center"
             marginBottom={5}
             height={1.5}
-            width={size.width * 0.05}
+            width={size.width * 0.17}
             backgroundColor={Colors.light.gray500}
             borderRadius={4}
             onPressIn={() => setVisible(!visible)}
@@ -146,7 +153,7 @@ function MapScreen(props) {
                 );
               }}
             />
-            <FlatList
+            {/* <FlatList
               data={mapModalSearchData}
               keyExtractor={(item, id) => id}
               renderItem={({ item }) => {
@@ -157,7 +164,7 @@ function MapScreen(props) {
                   />
                 );
               }}
-            />
+            /> */}
           </Column>
         </CustomModal>
         <Pressable

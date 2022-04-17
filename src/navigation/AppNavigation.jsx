@@ -6,12 +6,11 @@ import AppDrawerNavigator from "./DrawerNavigator";
 import LoginScreen from "../screens/Login";
 import Layout from "../constants/Layout";
 import MapStatusScreen from "../screens/map/MapStatusScreen";
-import MapScreen from "../screens/map";
 
 const Stack = createNativeStackNavigator();
+// const navigation = useNavigation();
 
 const AppNavigation = (props) => {
-  const navigation = useNavigation();
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="loginScreen">

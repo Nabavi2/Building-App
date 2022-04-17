@@ -1,6 +1,6 @@
 import React from "react";
 import { Pressable } from "react-native";
-import { Row } from "native-base";
+import { Box, Row } from "native-base";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { DrawerActions, useNavigation } from "@react-navigation/native";
 import {
@@ -17,6 +17,9 @@ import BuildingInspection from "../screens/BuildingInspection";
 import BuildingOverViewScreen from "../screens/buildingoverview";
 import ApartmentScreen from "../screens/Apartment";
 import MapScreen from "../screens/map";
+import DashboardNavigation from "./DashboardNavigation";
+import TrafficSafety from "../screens/TrafficSafety";
+import IconContainer from "../components/IconContainer";
 
 const bottomTabNavigator = createBottomTabNavigator();
 
@@ -136,11 +139,11 @@ export function BottomTabNavigator() {
         component={ApartmentScreen}
         options={() => ({
           title: "Apartment",
-          tabBarIcon: ({ color }) => (
+          tabBarIcon: ({ focused }) => (
             <Octicons
               name="settings"
               size={24}
-              color={focused ? Colors.light.white : Colors.light.black}
+              color={focused ? Colors.light.primary : Colors.light.white}
               style={{ marginLeft: 5 }}
             />
           ),
