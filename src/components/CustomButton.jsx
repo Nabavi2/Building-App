@@ -43,6 +43,7 @@ const styles = StyleSheet.create({
     width: size.width * 0.3,
     height: size.height * 0.047,
     backgroundColor: Colors.light.primary,
+    elevation: 1,
   },
   text: {
     fontSize: 14,

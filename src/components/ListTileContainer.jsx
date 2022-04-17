@@ -22,6 +22,7 @@ function ListTileContainer({ children, onPress }) {
         pr={2.5}
         justifyContent="space-between"
         alignItems="center"
+        shadow={"1"}
       >
         {children}
       </Row>

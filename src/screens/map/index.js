@@ -90,7 +90,7 @@ function MapScreen(props) {
             alignSelf="center"
             marginBottom={5}
             height={1.5}
-            width={size.width * 0.2}
+            width={size.width * 0.05}
             backgroundColor={Colors.light.gray500}
             borderRadius={4}
             onPressIn={() => setVisible(!visible)}

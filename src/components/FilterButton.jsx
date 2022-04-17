@@ -8,6 +8,7 @@ function FilterButton({ onPress, color = Colors.light.text }) {
     <TouchableHighlight
       underlayColor={Colors.light.bageBg}
       style={{
+        elevation: 0.5,
         paddingHorizontal: 5,
         paddingVertical: 1,
         borderRadius: 4,

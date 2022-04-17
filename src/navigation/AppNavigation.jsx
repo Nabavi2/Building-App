@@ -1,27 +1,18 @@
 import React from "react";
-import { Entypo, Ionicons } from "@expo/vector-icons";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import AppDrawerNavigator from "./DrawerNavigator";
-import BuildingInspection from "../screens/BuildingInspection";
-import Dashboard from "../screens/Dashboard";
 import LoginScreen from "../screens/Login";
-import IconContainer from "../components/IconContainer";
-import BuildingOverViewScreen from "../screens/buildingoverview";
-import Colors from "../constants/Colors";
 import Layout from "../constants/Layout";
-import MapScreen from "../screens/map";
-import MapOverViewScreen from "../screens/map/MapOverViewScreen";
 
-const height = Layout.window.height;
 const Stack = createNativeStackNavigator();
 // const navigation = useNavigation();
 
 const AppNavigation = (props) => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="mapoverview">
+      <Stack.Navigator initialRouteName="loginScreen">
         <Stack.Screen
           name="dashboard"
           component={AppDrawerNavigator}
@@ -33,71 +24,8 @@ const AppNavigation = (props) => {
           }}
         />
         <Stack.Screen
-          name="mapoverview"
-          component={MapOverViewScreen}
-          options={{
-            title: "Global overview",
-            headerTitleAlign: "center",
-            headerShadowVisible: false,
-            headerTitleStyle: {
-              fontSize: 16,
-              // fontWeight: "bold",
-            },
-            headerStyle: {
-              height: 90,
-              backgroundColor: Colors.light.background,
-            },
-            headerLeft: () => (
-              <IconContainer>
-                <Entypo name="menu" size={30} color="black" />
-              </IconContainer>
-            ),
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="buildingInspection"
-          component={BuildingInspection}
-          options={{
-            title: "Gebäudeprüfung",
-            headerTitleAlign: "center",
-            headerShadowVisible: false,
-            headerTitleStyle: {
-              fontSize: 16,
-              color: Colors.light.white,
-            },
-            headerStyle: {
-              backgroundColor: Colors.light.primary,
-              height: 90,
-            },
-            headerLeft: () => {
-              const navi = useNavigation();
-              return (
-                <IconContainer
-                  onPress={() => {
-                    console.log("pressed");
-                    navi.navigate("dashboard");
-                  }}
-                >
-                  <Ionicons name="md-arrow-back" size={27} color="black" />
-                </IconContainer>
-              );
-            },
-          }}
-        />
-        <Stack.Screen
           name="loginScreen"
           component={LoginScreen}
-          options={{
-            title: "Global overview",
-            headerTitleAlign: "center",
-            headerShadowVisible: false,
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="mapview"
-          component={MapScreen}
           options={{
             title: "Global overview",
             headerTitleAlign: "center",

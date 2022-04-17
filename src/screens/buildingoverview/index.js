@@ -17,13 +17,10 @@ import CustomButton from "../../components/CustomButton";
 import Layout from "../../constants/Layout";
 import OverViewComponent from "./conponents/OverViewComponent";
 import CustomFilterIcon from "../../components/CustomFilterIcon";
-import Soon from "./conponents/Soon";
-import Ontime from "./conponents/Ontime";
 import GlobalStyles from "../../constants/GlobalStyles";
 
-const size = Layout.window;
-
 function BuildingOverViewScreen(props) {
+  const size = Layout.window;
   const initData = [
     {
       id: "1",
