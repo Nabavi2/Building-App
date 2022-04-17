@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { SafeAreaView, StyleSheet, TextInput, Dimensions } from "react-native";
+import {
+  SafeAreaView,
+  StyleSheet,
+  TextInput,
+  Dimensions,
+  FlatList,
+} from "react-native";
 import {
   CheckIcon,
   Column,
@@ -8,6 +14,7 @@ import {
   Select,
   Switch,
   Text,
+  View,
 } from "native-base";
 import { Entypo, EvilIcons, AntDesign, Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
@@ -17,6 +24,8 @@ import CustomButton from "../../components/CustomButton";
 import Layout from "../../constants/Layout";
 import IconContainer from "../../components/IconContainer";
 import RowIconAndTitleComponent from "./components/RowIconAndTitleComponent";
+import StatusComponent from "./components/StatusComponent";
+import PickerComponent from "./components/PickerComponent";
 
 const size = Layout.window;
 
@@ -24,69 +33,24 @@ function MapStatusScreen(props) {
   const initData = [
     {
       id: "1",
-      type: "displayed",
-      title: "Am Schawrzenberg 19, 21, 23",
-      subTitle: "VE. 130-300",
-      borg: "Würzburg",
+      title: "overview",
     },
     {
       id: "2",
-      type: "soon",
-      title: "Am Schawrzenberg 19, 21, 23",
-      subTitle: "VE. 130-300",
-      borg: "Würzburg",
+      title: "status",
     },
     {
-      id: "3",
-      type: "ontime",
-      title: "Am Schawrzenberg 19, 21, 23",
-      subTitle: "VE. 130-300",
-      borg: "Würzburg",
-    },
-    {
-      id: "4",
-      type: "displayed",
-      title: "Am Schawrzenberg 19, 21, 23",
-      subTitle: "VE. 130-300",
-      borg: "Würzburg",
-    },
-    {
-      id: "5",
-      type: "ontime",
-      title: "Am Schawrzenberg 19, 21, 23",
-      subTitle: "VE. 130-300",
-      borg: "Würzburg",
-    },
-    {
-      id: "6",
-      type: "soon",
-      title: "Am Schawrzenberg 19, 21, 23",
-      subTitle: "VE. 130-300",
-      borg: "Würzburg",
-    },
-    {
-      id: "7",
-      type: "soon",
-      title: "Am Schawrzenberg 19, 21, 23",
-      subTitle: "VE. 130-300",
-      borg: "Würzburg",
-    },
-    {
-      id: "8",
-      type: "soon",
-      title: "Am Schawrzenberg 19, 21, 23",
-      subTitle: "VE. 130-300",
-      borg: "Würzburg",
+      id: "2",
+      title: "statussdsd",
     },
   ];
-  const [service, setService] = useState("");
-  const [value, setValue] = useState(0);
+
   const [data, setData] = useState(initData);
 
   const navigation = useNavigation();
 
   return (
-    <Column style={{ backgroundColor: Colors.light.background }}>
+    <View style={{ backgroundColor: Colors.light.background, flex: 1 }}>
       <Row
         justifyContent="space-between"
         marginBottom={20}
@@ -121,79 +85,36 @@ function MapStatusScreen(props) {
       </Column>
       <Column
         style={{
-          // alignItems: "center",
           justifyContent: "center",
           backgroundColor: Colors.light.white,
-          marginBottom: 30,
+          height: size.height * 0.2,
+          marginBottom: size.height * 0.1,
         }}
       >
-        <Row
-          style={{
-            justifyContent: "space-between",
-            marginBottom: 10,
-            alignItems: "center",
-            marginRight: 20,
-          }}
-        >
-          <Text style={{ marginLeft: 15 }}>Status</Text>
-          <Text style={{ marginRight: 20 }}>Intervall</Text>
+        <Row style={styles.dropdownContainer}>
+          <Text style={{ marginLeft: 15, fontWeight: "bold" }}>Status</Text>
+          <Text
+            style={{
+              marginRight: size.width * 0.12,
+              marginTop: 3,
+              fontWeight: "bold",
+            }}
+          >
+            Intervall
+          </Text>
         </Row>
-        <Row w="100%" justifyContent="space-between">
-          {/* <Picker
-                      style={{
-                        width: 220,
-                        color: "#FFF",
-                        backgroundColor: "#000",
-                      }}
-                      selectedValue={currentSeasone.name}
-                      onValueChange={(itemValue, itemIndex) =>
-                        setCurrentSeasone(selectSeasonPicker[itemIndex])
-                      }
-                      dropdownIconColor="#FFF"
-                    >
-                      {seasons.map((seasonName: any) => (
-                        <Picker.Item label={seasonName} value={seasonName} />
-                      ))}
-                    </Picker>
-                    <Picker
-                      style={{
-                        width: 220,
-                        color: "#FFF",
-                        backgroundColor: "#000",
-                      }}
-                      selectedValue={currentSeasone.name}
-                      onValueChange={(itemValue, itemIndex) =>
-                        setCurrentSeasone(selectSeasonPicker[itemIndex])
-                      }
-                      dropdownIconColor="#FFF"
-                    >
-                      {seasons.map((seasonName: any) => (
-                        <Picker.Item label={seasonName} value={seasonName} />
-                      ))}
-                    </Picker> */}
+        <Row justifyContent="space-between" pr={4}>
+          <PickerComponent dataArray={data} width={size.width * 0.6} />
+          <PickerComponent dataArray={data} width={size.width * 0.3} />
         </Row>
-        <Row
-          style={{
-            marginTop: 25,
-            alignItems: "center",
-            justifyContent: "space-between",
-            // paddingRight: 19,
-            width: size.width * 0.97,
-            alignContent: "center",
-            backgroundColor: Colors.light.gray800,
-            height: 60,
-            width: size.width * 0.95,
-            paddingHorizontal: 10,
-            alignSelf: "center",
-            borderRadius: 10,
-          }}
-        >
+
+        <Row style={styles.buttonContainer}>
           <CustomButton
             title="Overview"
             color={Colors.light.gray800}
             Size={size.width * 0.28}
             onPress={() => {
-              setData(initData.filter((item) => item.type === "displayed"));
+              setData(initData.filter((item) => item.titel === "overview"));
             }}
           />
           <CustomButton
@@ -201,62 +122,38 @@ function MapStatusScreen(props) {
             color={Colors.light.white}
             Size={size.width * 0.28}
             onPress={() => {
-              setData(initData.filter((item) => item.type === "soon"));
+              setData(initData.filter((item) => item.title === "status"));
             }}
           />
           <CustomButton
             title="Maßnahme"
             Size={size.width * 0.28}
             onPress={() => {
-              setData(initData.filter((item) => item.type === "ontime"));
+              setData(initData.filter((item) => item.title === "status"));
             }}
             color={Colors.light.gray800}
           />
         </Row>
       </Column>
-      <SafeAreaView
-        style={{ paddingLeft: 15, backgroundColor: Colors.light.white }}
-      >
-        <RowIconAndTitleComponent title="Symptome Krone" />
-        <Row
-          bgColor={Colors.light.gray200}
-          h={30}
-          w={size.width * 0.8}
-          justifyContent="space-between"
-        >
-          <Text>My checklist item</Text>
-          <Entypo name="cross" size={24} color={Colors.light.gray500} />
-        </Row>
-        <Row
-          bgColor={Colors.light.gray200}
-          h={30}
-          w={size.width * 0.8}
-          justifyContent="space-between"
-          mb={20}
-        >
-          <Text>My checklist item</Text>
-          <Entypo name="cross" size={24} color={Colors.light.gray500} />
-        </Row>
-        <RowIconAndTitleComponent title="Symptome Krone" />
-        <RowIconAndTitleComponent title="Symptome Krone" />
-        <RowIconAndTitleComponent title="Symptome Krone" />
-        <Text
-          style={{
-            color: Colors.light.primary,
-            marginTop: 10,
-            marginBottom: 20,
-          }}
-        >
-          Bewertung
-        </Text>
-        <Text style={{ color: Colors.light.gray200, marginTop: 10 }}>
-          Vitalität
-        </Text>
-      </SafeAreaView>
-    </Column>
+
+      <StatusComponent />
+    </View>
   );
 }
 const styles = StyleSheet.create({
+  buttonContainer: {
+    marginTop: 25,
+    alignItems: "center",
+    justifyContent: "space-between",
+    width: size.width * 0.97,
+    alignContent: "center",
+    backgroundColor: Colors.light.gray800,
+    height: 60,
+    width: size.width * 0.95,
+    paddingHorizontal: 10,
+    alignSelf: "center",
+    borderRadius: 10,
+  },
   iconView: {
     width: 35,
     height: 40,
@@ -272,6 +169,14 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.light.white,
     height: 45,
     color: Colors.light.white,
+  },
+  dropdownContainer: {
+    justifyContent: "space-between",
+    marginBottom: 10,
+    alignItems: "center",
+    marginRight: 20,
+    marginTop: size.height * 0.1,
+    paddingRight: 13,
   },
   inputView: {
     width: Dimensions.get("window").width * 0.93,
@@ -291,11 +196,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: Colors.light.gray500,
     fontWeight: "bold",
-  },
-  row: {
-    justifyContent: "space-between",
-    alignItems: "center",
-    marginRight: 50,
   },
 });
 export default MapStatusScreen;

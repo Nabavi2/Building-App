@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import AppDrawerNavigator from "./DrawerNavigator";
 import LoginScreen from "../screens/Login";
 import Layout from "../constants/Layout";
+import MapStatusScreen from "../screens/map/MapStatusScreen";
 
 const Stack = createNativeStackNavigator();
 // const navigation = useNavigation();
@@ -24,8 +25,8 @@ const AppNavigation = (props) => {
           }}
         />
         <Stack.Screen
-          name="loginScreen"
-          component={LoginScreen}
+          name="mapstatus"
+          component={MapStatusScreen}
           options={{
             title: "Global overview",
             headerTitleAlign: "center",

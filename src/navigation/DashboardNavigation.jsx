@@ -1,15 +1,8 @@
-import { Entypo, Ionicons } from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons";
 import { DrawerActions, useNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Box, Text } from "native-base";
+import { Box } from "native-base";
 import React from "react";
-import {
-  Menu,
-  MenuOption,
-  MenuOptions,
-  MenuProvider,
-  MenuTrigger,
-} from "react-native-popup-menu";
 import IconContainer from "../components/IconContainer.jsx";
 import Colors from "../constants/Colors.js";
 import BuildingInspection from "../screens/BuildingInspection/index.js";
@@ -41,7 +34,7 @@ function DashboardNavigation(props) {
         component={GlobalOverview}
         options={{
           headerLeft: () => (
-            <Box ml={-1}>
+            <Box>
               <IconContainer
                 onPress={() =>
                   navigation.dispatch(DrawerActions.toggleDrawer())

@@ -185,31 +185,23 @@ function BuildingOverViewScreen(props) {
           <FilterButton onPress={() => setShowFilterModal(true)} />
         </Box>
       </Row>
-
-      <FlatList
-        showsVerticalScrollIndicator={false}
-        data={data}
-        keyExtractor={(item, id) => id}
-        renderItem={({ item }) => {
-          return (
-            <OverViewComponent
-              type={item.type}
-              title={item.title}
-              subTitle={item.subTitle}
-              borg={item.borg}
-            />
-          );
-        }}
-      />
-
-      {/* <Soon />
-        <Ontime />
-        <Soon />
-        <Ontime />
-        <Soon />
-        <Ontime />
-        <Soon />
-        <Ontime /> */}
+      <ScrollView>
+        <FlatList
+          showsVerticalScrollIndicator={false}
+          data={data}
+          keyExtractor={(item, id) => id}
+          renderItem={({ item }) => {
+            return (
+              <OverViewComponent
+                type={item.type}
+                title={item.title}
+                subTitle={item.subTitle}
+                borg={item.borg}
+              />
+            );
+          }}
+        />
+      </ScrollView>
     </SafeAreaView>
   );
 }
