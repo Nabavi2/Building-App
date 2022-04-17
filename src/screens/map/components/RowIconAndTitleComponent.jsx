@@ -8,7 +8,7 @@ function RowIconAndTitleComponent({ title, onPress }) {
   return (
     <Row style={styles.row}>
       <Box>{title}</Box>
-      <TouchableOpacity style={style.button} onPress={onPress}>
+      <TouchableOpacity style={styles.button} onPress={onPress}>
         <Box
           _text={{
             fontSize: 14,

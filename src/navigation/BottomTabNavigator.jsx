@@ -20,6 +20,7 @@ import IconContainer from "../components/IconContainer";
 import { Box } from "native-base";
 import GlobalOverview from "../screens/GlobalOverview.jsx";
 import DashboardNavigation from "./DashboardNavigation";
+import TrafficSafety from "../screens/TrafficSafety";
 
 const bottomTabNavigator = createBottomTabNavigator();
 
@@ -31,13 +32,12 @@ export function BottomTabNavigator() {
       initialRouteName="dashboard"
       screenOptions={{
         tabBarActiveTintColor: Colors.light.primary,
-        tabBarInactiveTintColor: "white",
+        tabBarInactiveTintColor: "#afb2b5",
         tabBarStyle: {
           backgroundColor: Colors.light.gray800,
           overflow: "hidden",
         },
         tabBarShowLabel: false,
-
         headerShadowVisible: false,
         headerTitleAlign: "center",
         headerStyle: {
@@ -63,9 +63,9 @@ export function BottomTabNavigator() {
       />
       <bottomTabNavigator.Screen
         name="apartment"
-        component={BuildingOverViewScreen}
+        component={ApartmentScreen}
         options={() => ({
-          title: "Gebäudeübersicht",
+          title: "Apartments",
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons
               name="home-outline"
@@ -99,10 +99,10 @@ export function BottomTabNavigator() {
         })}
       />
       <bottomTabNavigator.Screen
-        name="buildingInspection"
-        component={BuildingInspection}
+        name="trafficSafety"
+        component={TrafficSafety}
         options={() => ({
-          title: "Gebäudeprüfung",
+          title: "Verkehrssicherung",
           tabBarIcon: ({ color }) => (
             <Foundation
               name="page-edit"
@@ -113,7 +113,7 @@ export function BottomTabNavigator() {
           ),
 
           headerStyle: {
-            backgroundColor: Colors.light.primary,
+            backgroundColor: Colors.light.blue400,
           },
           headerTitleStyle: {
             color: "white",
