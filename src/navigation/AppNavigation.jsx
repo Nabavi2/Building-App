@@ -12,7 +12,7 @@ const Stack = createNativeStackNavigator();
 const AppNavigation = (props) => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="loginScreen">
+      <Stack.Navigator initialRouteName="mapstatus">
         <Stack.Screen
           name="dashboard"
           component={AppDrawerNavigator}
