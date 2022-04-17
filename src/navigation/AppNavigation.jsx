@@ -1,5 +1,5 @@
 import React from "react";
-import { Entypo, Ionicons } from "expo-vector-icons";
+import { Entypo, Ionicons } from "@expo/vector-icons";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
@@ -11,36 +11,38 @@ import IconContainer from "../components/IconContainer";
 import BuildingOverViewScreen from "../screens/buildingoverview";
 import Colors from "../constants/Colors";
 import Layout from "../constants/Layout";
-import HomeScreen from "../screens/HomeScreen";
+import MapScreen from "../screens/map";
+import MapOverViewScreen from "../screens/map/MapOverViewScreen";
+import MapStatusScreen from "../screens/map/MapStatusScreen";
 
 const height = Layout.window.height;
 const Stack = createNativeStackNavigator();
-
-const navigation = useNavigation();
+// const navigation = useNavigation();
 
 const AppNavigation = (props) => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="loginScreen">
+      <Stack.Navigator initialRouteName="mapstatus">
         <Stack.Screen
           name="dashboard"
           component={AppDrawerNavigator}
           options={{
-            title: "Home",
+            title: "Dashboard",
             headerTitleAlign: "center",
             headerShadowVisible: false,
             headerShown: false,
           }}
         />
         <Stack.Screen
-          name="homeScreen"
-          component={HomeScreen}
+          name="mapoverview"
+          component={MapOverViewScreen}
           options={{
             title: "Global overview",
             headerTitleAlign: "center",
             headerShadowVisible: false,
             headerTitleStyle: {
               fontSize: 16,
+              // fontWeight: "bold",
             },
             headerStyle: {
               height: 90,
@@ -51,6 +53,7 @@ const AppNavigation = (props) => {
                 <Entypo name="menu" size={30} color="black" />
               </IconContainer>
             ),
+            headerShown: false,
           }}
         />
         <Stack.Screen
@@ -69,11 +72,12 @@ const AppNavigation = (props) => {
               height: 90,
             },
             headerLeft: () => {
+              const navi = useNavigation();
               return (
                 <IconContainer
                   onPress={() => {
                     console.log("pressed");
-                    navigation.navigate("dashboard");
+                    navi.navigate("dashboard");
                   }}
                 >
                   <Ionicons name="md-arrow-back" size={27} color="black" />
@@ -93,10 +97,20 @@ const AppNavigation = (props) => {
           }}
         />
         <Stack.Screen
-          name="buildingoverview"
-          component={BuildingOverViewScreen}
+          name="mapview"
+          component={MapScreen}
           options={{
             title: "Global overview",
+            headerTitleAlign: "center",
+            headerShadowVisible: false,
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="mapstatus"
+          component={MapStatusScreen}
+          options={{
+            title: "Map Status ",
             headerTitleAlign: "center",
             headerShadowVisible: false,
             headerShown: false,

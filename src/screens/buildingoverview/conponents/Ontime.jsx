@@ -1,6 +1,6 @@
 // import React from "react";
 // import { View, Text, Column, VStack } from "react-native";
-// import { FontAwesome } from "expo-vector-icons";
+// import { FontAwesome } from "@expo/vector-icons";
 
 // import Colors from "../../../constants/Colors";
 
@@ -69,7 +69,7 @@
 import React from "react";
 import { StyleSheet, Dimensions } from "react-native";
 import { View, Text, Column, Card, Row, Box } from "native-base";
-import { Entypo, FontAwesome } from "expo-vector-icons";
+import { Entypo, FontAwesome } from "@expo/vector-icons";
 
 import Colors from "../../../constants/Colors";
 import Layout from "../../../constants/Layout";

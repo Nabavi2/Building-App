@@ -1,6 +1,6 @@
 // import React from "react";
 // import { View, Text, Column, VStack } from "react-native";
-// import { Entypo } from "expo-vector-icons";
+// import { Entypo } from "@expo/vector-icons";
 
 // import Colors from "../../../constants/Colors";
 
@@ -78,7 +78,7 @@
 import React from "react";
 import { StyleSheet, Dimensions, Image } from "react-native";
 import { View, Text, Column, Card, Row, Box } from "native-base";
-import { Entypo, Ionicons, MaterialCommunityIcons } from "expo-vector-icons";
+import { Entypo, Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 
 import Colors from "../../../constants/Colors";
 import Layout from "../../../constants/Layout";

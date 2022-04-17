@@ -1,24 +1,24 @@
 import React, { useState } from "react";
 import { TouchableHighlight, StyleSheet } from "react-native";
-import { Ionicons, MaterialIcons, SimpleLineIcons } from "expo-vector-icons";
-import { Box, Column, FlatList, Image, Row, Text, TextArea } from "native-base";
+import { Ionicons, MaterialIcons, SimpleLineIcons } from "@expo/vector-icons";
+import {
+  Box,
+  Column,
+  FlatList,
+  Image,
+  Pressable,
+  Row,
+  Text,
+} from "native-base";
 
 import IconContainer from "../../components/IconContainer";
 import Colors from "../../constants/Colors";
 import GlobalStyles from "../../constants/GlobalStyles";
 import CustomBadge from "../../components/CustomBadge";
-import CustomFilterIcon from "../../components/CustomFilterIcon";
 import BIListItem from "./components/BIListItem";
-import Layout from "../../constants/Layout";
-import { Dimensions } from "react-native";
-import GradeBage from "../../components/GradeBage";
-import CustomButton from "../../components/CustomButton";
-import Slider from "@react-native-community/slider";
 import CustomModal from "../../components/CustomModal";
 import FilterButton from "../../components/FilterButton";
 import SettingFilter from "./components/SettingFilter";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { NavigationContainer } from "@react-navigation/native";
 import Notes from "./components/Notes";
 import AddBuilding from "./components/AddBuilding";
 
@@ -26,6 +26,7 @@ function BuildingInspection(props) {
   const [showAddBuildingModal, setShowAddBuildingModal] = useState(false);
   const [showFilterModal, setShowFilterModal] = useState(false);
   const [showNotesModal, setShowNotesModal] = useState(false);
+  const [isActive, setIsActive] = useState(false);
 
   return (
     <Column
@@ -65,6 +66,7 @@ function BuildingInspection(props) {
         justifyContent="center"
         alignItems="center"
       >
+        {/* Top build type sectoin */}
         <Row
           w="100%"
           h="7%"
@@ -100,11 +102,11 @@ function BuildingInspection(props) {
           my={8}
           justifyContent="space-around"
           alignItems="center"
-          // bg={"yellow.300"}
         >
           <IconContainer>
             <Ionicons name="md-arrow-back" size={27} color="black" />
           </IconContainer>
+
           <Row
             bg={Colors.light.white}
             borderRadius={8}
@@ -140,21 +142,29 @@ function BuildingInspection(props) {
           <Row
             w="50%"
             h="70%"
-            bg="white"
+            bg={isActive ? "white" : "#77838f"}
             borderRadius={5}
             alignItems="center"
             pl={3.5}
           >
-            <Image
-              source={require("../../../assets/eyeIcon.png")}
-              w={5}
-              h={5}
-              resizeMode="contain"
-            />
-            <Text fontSize={14} color={Colors.light.subText}>
-              {"  "}
-              Aktive Baugruppe
-            </Text>
+            <Pressable
+              flex={1}
+              flexDir={"row"}
+              alignItems="center"
+              onPress={() => setIsActive(!isActive)}
+            >
+              {isActive ? (
+                <Ionicons name="eye" size={24} color="#77838f" />
+              ) : (
+                <Ionicons name="eye-off" size={24} color="white" />
+              )}
+              <Text
+                fontSize={14}
+                color={isActive ? Colors.light.subText : "white"}
+              >
+                {isActive ? "  Aktive Baugruppe" : "  Inaktive Baugruppe"}
+              </Text>
+            </Pressable>
           </Row>
           {/* Notes Button */}
           <TouchableHighlight
@@ -243,6 +253,7 @@ function BuildingInspection(props) {
               hasImage: true,
             },
           ]}
+          showsVerticalScrollIndicator={false}
           keyExtractor={(item, ind) => ind}
           renderItem={({ item }) => (
             <BIListItem

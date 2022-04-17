@@ -1,5 +1,5 @@
 import Slider from "@react-native-community/slider";
-import { Entypo } from "expo-vector-icons";
+import { Entypo } from "@expo/vector-icons";
 import { Box, CheckIcon, Column, Row, Select, Switch, Text } from "native-base";
 import React, { useState } from "react";
 import CustomBadge from "../../../components/CustomBadge";

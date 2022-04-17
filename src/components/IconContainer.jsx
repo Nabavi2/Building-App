@@ -12,9 +12,12 @@ function IconContainer({ children, onPress }) {
           justifyContent: "center",
           alignItems: "center",
           backgroundColor: Colors.light.white,
-          borderRadius: 5,
+          borderRadius: 10,
           padding: 2,
           marginLeft: 2.5,
+          margin: 10,
+          marginLeft: 10,
+          marginTop: 20,
         }}
       >
         {children}

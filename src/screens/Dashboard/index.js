@@ -64,7 +64,7 @@ const Dashboard = (props) => {
   return (
     <SafeAreaView style={GlobalStyles.container}>
       <TabSection />
-      <Row width={size.width} h={size.height * 0.28} p={25} my={20} bg="blue">
+      <Row width={size.width} h={size.height * 0.28} p={25} my={3} bg="blue">
         <Column w="45%" h="100%" justifyContent="center">
           <Column mb={7}>
             <Bage color={Colors.light.red} text="Overdued" />
@@ -73,7 +73,10 @@ const Dashboard = (props) => {
             <Bage color="#707070" text="Not inspected" />
           </Column>
 
-          <CustomButton title="Building list" />
+          <CustomButton
+            title="Building list"
+            onPress={() => console.log("pressed")}
+          />
         </Column>
         <ZStack alignItems={"center"} justifyContent={"center"}>
           <PieChart
@@ -90,9 +93,9 @@ const Dashboard = (props) => {
             paddingLeft={(size.width * 0.123).toString()}
           />
           <Box
-            w={size.width * 0.33}
-            h={size.height * 0.19}
-            borderRadius={(size.width * 0.33) / 2}
+            w={145}
+            h={145}
+            borderRadius={"full"}
             bg={Colors.light.background}
             justifyContent="center"
             alignItems="center"
@@ -123,6 +126,7 @@ const Dashboard = (props) => {
         </Text>
       </Row>
       <FlatList
+        showsVerticalScrollIndicator={false}
         keyExtractor={(item, index) => item.id}
         data={[
           {
