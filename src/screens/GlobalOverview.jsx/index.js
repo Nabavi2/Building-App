@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Avatar, Box, Column, FlatList, Row, Text, ZStack } from "native-base";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -9,20 +9,16 @@ import { PieChart } from "react-native-chart-kit";
 import Colors from "../../constants/Colors";
 import Layout from "../../constants/Layout";
 import GlobalStyles from "../../constants/GlobalStyles";
+import { StyleSheet } from "react-native";
+import TabItem from "./components/TabSection";
+import Bage from "./components/Bage";
 
 const size = Layout.window;
 
-const Dashboard = (props) => {
-  const Bage = ({ text, color }) => (
-    <Row alignItems={"center"}>
-      <Avatar bg={color} width={15} height={15} />
-      <Text ml={2} color={Colors.light.subText}>
-        {text}
-      </Text>
-    </Row>
-  );
+const GlobalOverview = (props) => {
+  const [isSelected, setIsSelected] = useState(true);
 
-  const data = [
+  const chartData = [
     {
       name: "Seoul",
       population: 14,
@@ -63,7 +59,22 @@ const Dashboard = (props) => {
 
   return (
     <SafeAreaView style={GlobalStyles.container}>
+<<<<<<< HEAD:src/screens/Dashboard/index.js
       <TabSection />
+=======
+      <Row style={styles.tabSection}>
+        <TabItem
+          title="Buildings"
+          isSelected={isSelected}
+          onPress={() => setIsSelected(true)}
+        />
+        <TabItem
+          title="Apartments"
+          isSelected={!isSelected}
+          onPress={() => setIsSelected(false)}
+        />
+      </Row>
+>>>>>>> f6be4eca868044b5c52c8e68822fe805da9727e1:src/screens/GlobalOverview.jsx/index.js
       <Row width={size.width} h={size.height * 0.28} p={25} my={3} bg="blue">
         <Column w="45%" h="100%" justifyContent="center">
           <Column mb={7}>
@@ -80,7 +91,7 @@ const Dashboard = (props) => {
         </Column>
         <ZStack alignItems={"center"} justifyContent={"center"}>
           <PieChart
-            data={data}
+            data={chartData}
             width={size.width * 0.5}
             height={size.height * 0.3}
             chartConfig={chartConfig}
@@ -199,4 +210,16 @@ const Dashboard = (props) => {
   );
 };
 
-export default Dashboard;
+const styles = StyleSheet.create({
+  tabSection: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "center",
+    width: size.width * 0.92,
+    height: size.height * 0.05,
+    backgroundColor: Colors.light.white,
+    borderRadius: (size.height * 0.05) / 6,
+  },
+});
+
+export default GlobalOverview;

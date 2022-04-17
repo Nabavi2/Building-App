@@ -21,11 +21,11 @@ import {
 import { BottomTabNavigator } from "./BottomTabNavigator";
 
 import Colors from "../constants/Colors";
-import Dashboard from "../screens/Dashboard";
 import BuildingOverViewScreen from "../screens/buildingoverview";
 import Layout from "../constants/Layout";
 import SettingsScreen from "../screens/Settings";
 import EditScreen from "../screens/EditScreen";
+import GlobalOverview from "../screens/GlobalOverview.jsx";
 
 const size = Layout.window;
 const DrawerNavigator = createDrawerNavigator();
@@ -163,7 +163,7 @@ const AppDrawerNavigator = () => {
       />
       <DrawerNavigator.Screen
         name="dashboard"
-        component={Dashboard}
+        component={GlobalOverview}
         options={{
           title: "Wohnungen",
           drawerIcon: ({ focused }) => (

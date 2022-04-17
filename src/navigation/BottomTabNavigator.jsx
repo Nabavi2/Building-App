@@ -13,12 +13,12 @@ import {
 
 import Colors from "../constants/Colors";
 import BuildingInspection from "../screens/BuildingInspection";
-import Dashboard from "../screens/Dashboard";
 import BuildingOverViewScreen from "../screens/buildingoverview";
 import ApartmentScreen from "../screens/Apartment";
 import MapScreen from "../screens/map";
 import IconContainer from "../components/IconContainer";
 import { Box } from "native-base";
+import GlobalOverview from "../screens/GlobalOverview.jsx";
 
 const bottomTabNavigator = createBottomTabNavigator();
 
@@ -51,7 +51,7 @@ export function BottomTabNavigator() {
     >
       <bottomTabNavigator.Screen
         name="dashboard"
-        component={Dashboard}
+        component={GlobalOverview}
         options={() => ({
           title: "Global overview",
           tabBarIcon: ({ color }) => (

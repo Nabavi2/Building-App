@@ -1,6 +1,16 @@
 import React, { useState } from "react";
+<<<<<<< HEAD
 import { TouchableHighlight, StyleSheet } from "react-native";
 import { Ionicons, MaterialIcons, SimpleLineIcons } from "@expo/vector-icons";
+=======
+import { TouchableHighlight, StyleSheet, Modal, TextInput } from "react-native";
+import {
+  EvilIcons,
+  Ionicons,
+  MaterialIcons,
+  SimpleLineIcons,
+} from "@expo/vector-icons";
+>>>>>>> f6be4eca868044b5c52c8e68822fe805da9727e1
 import {
   Box,
   Column,
@@ -9,6 +19,10 @@ import {
   Pressable,
   Row,
   Text,
+<<<<<<< HEAD
+=======
+  ZStack,
+>>>>>>> f6be4eca868044b5c52c8e68822fe805da9727e1
 } from "native-base";
 
 import IconContainer from "../../components/IconContainer";
@@ -21,13 +35,87 @@ import FilterButton from "../../components/FilterButton";
 import SettingFilter from "./components/SettingFilter";
 import Notes from "./components/Notes";
 import AddBuilding from "./components/AddBuilding";
+import Layout from "../../constants/Layout";
+import SearchBar from "./components/SearchBar";
 
 function BuildingInspection(props) {
+  const [showSearchBar, setShowSearchBar] = useState(false);
   const [showAddBuildingModal, setShowAddBuildingModal] = useState(false);
   const [showFilterModal, setShowFilterModal] = useState(false);
   const [showNotesModal, setShowNotesModal] = useState(false);
   const [isActive, setIsActive] = useState(false);
+<<<<<<< HEAD
 
+=======
+  const arrayData = [
+    {
+      title: "Lorem ipsume dolor sit amet",
+      des: "Bauart goes here",
+      grade: "A",
+      value: 100,
+      hasImage: true,
+    },
+    {
+      title: "Salvador de amot ichi ikaino",
+      des: "The text goes here",
+      grade: "A",
+      value: 100,
+      hasImage: true,
+    },
+    {
+      title: "Lorem ipsume dolor sit amet",
+      des: "Bauart goes here",
+      grade: "A",
+      value: 100,
+      hasImage: true,
+    },
+    {
+      title: "Salvador de amot ichi ikaino",
+      des: "The text goes here",
+      grade: "B",
+      value: 70,
+      hasImage: false,
+    },
+    {
+      title: "Lorem ipsume dolor sit amet",
+      des: "Bauart goes here",
+      grade: "C",
+      value: 90,
+      hasImage: true,
+    },
+    {
+      title: "Salvador de amot ichi ikaino",
+      des: "The text goes here",
+      hasImage: false,
+    },
+    {
+      title: "Lorem ipsume dolor sit amet",
+      des: "Bauart goes here",
+      hasImage: true,
+    },
+    {
+      title: "Salvador de amot ichi ikaino",
+      des: "The text goes here",
+      grade: "A",
+      value: 100,
+      hasImage: true,
+    },
+    {
+      title: "Lorem ipsume dolor sit amet",
+      des: "Bauart goes here",
+      grade: "A",
+      value: 100,
+      hasImage: true,
+    },
+    {
+      title: "Salvador de amot ichi ikaino",
+      des: "The text goes here",
+      grade: "A",
+      value: 100,
+      hasImage: true,
+    },
+  ];
+>>>>>>> f6be4eca868044b5c52c8e68822fe805da9727e1
   return (
     <Column
       style={{
@@ -36,6 +124,14 @@ function BuildingInspection(props) {
         justifyContent: "flex-end",
       }}
     >
+      <Modal
+        animationType="fade"
+        visible={showSearchBar}
+        transparent
+        onRequestClose={() => setShowSearchBar(false)}
+      >
+        <SearchBar onPressOut={() => setShowSearchBar(false)} />
+      </Modal>
       {/* Adding Building list Item */}
       <CustomModal
         onRequestClose={() => setShowAddBuildingModal(false)}
@@ -95,6 +191,7 @@ function BuildingInspection(props) {
             <SimpleLineIcons name="options-vertical" size={20} color="black" />
           </IconContainer>
         </Row>
+        {/* Search bar section */}
         <Row
           w="100%"
           h="7%"
@@ -107,6 +204,7 @@ function BuildingInspection(props) {
             <Ionicons name="md-arrow-back" size={27} color="black" />
           </IconContainer>
 
+<<<<<<< HEAD
           <Row
             bg={Colors.light.white}
             borderRadius={8}
@@ -115,16 +213,24 @@ function BuildingInspection(props) {
             px={4}
             justifyContent="space-between"
             alignItems="center"
+=======
+          <TouchableHighlight
+            underlayColor={Colors.light.bageBg}
+            style={styles.searchBar}
+            onPress={() => setShowSearchBar(true)}
+>>>>>>> f6be4eca868044b5c52c8e68822fe805da9727e1
           >
-            <Text fontSize={14} fontWeight="bold" color={Colors.light.primary}>
-              1. Geländelflächen
-            </Text>
-            <CustomBadge size="small">
-              <Text fontSize={9} color={Colors.light.text}>
-                A
+            <Row
+              w={"100%"}
+              flex={1}
+              justifyContent={"space-between"}
+              alignItems="center"
+            >
+              <Text pl={3} fontSize={14} color={Colors.light.subText}>
+                Search...
               </Text>
-            </CustomBadge>
-          </Row>
+            </Row>
+          </TouchableHighlight>
           <IconContainer>
             <Ionicons name="md-arrow-forward" size={27} color="black" />
           </IconContainer>
@@ -147,6 +253,7 @@ function BuildingInspection(props) {
             alignItems="center"
             pl={3.5}
           >
+<<<<<<< HEAD
             <Pressable
               flex={1}
               flexDir={"row"}
@@ -165,6 +272,28 @@ function BuildingInspection(props) {
                 {isActive ? "  Aktive Baugruppe" : "  Inaktive Baugruppe"}
               </Text>
             </Pressable>
+=======
+            <Box shadow={"1"}>
+              <Pressable
+                flex={1}
+                flexDir={"row"}
+                alignItems="center"
+                onPress={() => setIsActive(!isActive)}
+              >
+                {isActive ? (
+                  <Ionicons name="eye" size={24} color="#77838f" />
+                ) : (
+                  <Ionicons name="eye-off" size={24} color="white" />
+                )}
+                <Text
+                  fontSize={14}
+                  color={isActive ? Colors.light.subText : "white"}
+                >
+                  {isActive ? "  Aktive Baugruppe" : "  Inaktive Baugruppe"}
+                </Text>
+              </Pressable>
+            </Box>
+>>>>>>> f6be4eca868044b5c52c8e68822fe805da9727e1
           </Row>
           {/* Notes Button */}
           <TouchableHighlight
@@ -185,6 +314,7 @@ function BuildingInspection(props) {
           <FilterButton onPress={() => setShowFilterModal()} />
         </Row>
         <FlatList
+<<<<<<< HEAD
           data={[
             {
               title: "Lorem ipsume dolor sit amet",
@@ -253,6 +383,9 @@ function BuildingInspection(props) {
               hasImage: true,
             },
           ]}
+=======
+          data={arrayData}
+>>>>>>> f6be4eca868044b5c52c8e68822fe805da9727e1
           showsVerticalScrollIndicator={false}
           keyExtractor={(item, ind) => ind}
           renderItem={({ item }) => (
@@ -272,6 +405,7 @@ function BuildingInspection(props) {
 
 const styles = StyleSheet.create({
   notesButton: {
+    elevation: 1,
     width: "30%",
     height: "70%",
     backgroundColor: "white",
@@ -280,6 +414,16 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     paddingLeft: 3.5,
     marginRight: 7,
+  },
+  searchBar: {
+    backgroundColor: "white",
+    marginTop: 9,
+    borderRadius: 8,
+    height: "80%",
+    width: "70%",
+    paddingHorizontal: 10,
+    alignItems: "center",
+    elevation: 1,
   },
 });
 export default BuildingInspection;
