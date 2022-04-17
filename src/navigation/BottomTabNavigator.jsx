@@ -9,6 +9,7 @@ import {
   FontAwesome5,
   Ionicons,
   Entypo,
+  Octicons,
 } from "@expo/vector-icons";
 
 import Colors from "../constants/Colors";
@@ -16,17 +17,11 @@ import BuildingInspection from "../screens/BuildingInspection";
 import BuildingOverViewScreen from "../screens/buildingoverview";
 import ApartmentScreen from "../screens/Apartment";
 import MapScreen from "../screens/map";
-import IconContainer from "../components/IconContainer";
-import { Box } from "native-base";
-import GlobalOverview from "../screens/GlobalOverview.jsx";
-import DashboardNavigation from "./DashboardNavigation";
-import TrafficSafety from "../screens/TrafficSafety";
 
 const bottomTabNavigator = createBottomTabNavigator();
 
 export function BottomTabNavigator() {
   const navigation = useNavigation();
-
   return (
     <bottomTabNavigator.Navigator
       initialRouteName="dashboard"
@@ -142,10 +137,11 @@ export function BottomTabNavigator() {
         options={() => ({
           title: "Apartment",
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons
-              name="google-maps"
+            <Octicons
+              name="settings"
               size={24}
-              color={color}
+              color={focused ? Colors.light.white : Colors.light.black}
+              style={{ marginLeft: 5 }}
             />
           ),
         })}

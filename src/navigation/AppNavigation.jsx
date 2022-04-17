@@ -9,12 +9,12 @@ import MapStatusScreen from "../screens/map/MapStatusScreen";
 import MapScreen from "../screens/map";
 
 const Stack = createNativeStackNavigator();
-// const navigation = useNavigation();
 
 const AppNavigation = (props) => {
+  const navigation = useNavigation();
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="mapstatus">
+      <Stack.Navigator initialRouteName="loginScreen">
         <Stack.Screen
           name="dashboard"
           component={AppDrawerNavigator}
@@ -26,8 +26,8 @@ const AppNavigation = (props) => {
           }}
         />
         <Stack.Screen
-          name="mapstatus"
-          component={MapStatusScreen}
+          name="loginScreen"
+          component={LoginScreen}
           options={{
             title: "Global overview",
             headerTitleAlign: "center",
