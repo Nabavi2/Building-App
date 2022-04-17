@@ -61,9 +61,6 @@ const GlobalOverview = (props) => {
 
   return (
     <SafeAreaView style={GlobalStyles.container}>
-<<<<<<< HEAD:src/screens/Dashboard/index.js
-      <TabSection />
-=======
       <Row style={styles.tabSection}>
         <TabItem
           title="Buildings"
@@ -76,7 +73,6 @@ const GlobalOverview = (props) => {
           onPress={() => setIsSelected(false)}
         />
       </Row>
->>>>>>> f6be4eca868044b5c52c8e68822fe805da9727e1:src/screens/GlobalOverview.jsx/index.js
       <Row width={size.width} h={size.height * 0.28} p={25} my={3} bg="blue">
         <Column w="45%" h="100%" justifyContent="center">
           <Column mb={7}>

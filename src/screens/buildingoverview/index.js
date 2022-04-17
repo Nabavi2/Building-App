@@ -169,16 +169,6 @@ function BuildingOverViewScreen(props) {
         ></Pressable>
       </Row>
       <ScrollView>
-        {/* <Soon />
-        <Ontime />
-        <Soon />
-        <Ontime />
-        <Soon />
-        <Soon />
-        <Ontime />
-        <Soon />
-        <Ontime />
-        <Soon /> */}
         <FlatList
           showsVerticalScrollIndicator={false}
           data={data}
@@ -194,15 +184,6 @@ function BuildingOverViewScreen(props) {
             );
           }}
         />
-
-        {/* <Soon />
-        <Ontime />
-        <Soon />
-        <Ontime />
-        <Soon />
-        <Ontime />
-        <Soon />
-        <Ontime /> */}
       </ScrollView>
     </SafeAreaView>
   );

@@ -30,7 +30,6 @@ import GlobalOverview from "../screens/GlobalOverview.jsx";
 const size = Layout.window;
 const DrawerNavigator = createDrawerNavigator();
 const AppDrawerNavigator = () => {
-  // const dispatch = useDispatch();
   return (
     <DrawerNavigator.Navigator
       drawerContent={(props) => {
@@ -221,6 +220,7 @@ const AppDrawerNavigator = () => {
               style={{ marginLeft: 5 }}
             />
           ),
+          drawerItemStyle: { width: size.width * 0.58 },
         }}
       />
     </DrawerNavigator.Navigator>

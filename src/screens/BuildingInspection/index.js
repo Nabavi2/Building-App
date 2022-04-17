@@ -1,8 +1,4 @@
 import React, { useState } from "react";
-<<<<<<< HEAD
-import { TouchableHighlight, StyleSheet } from "react-native";
-import { Ionicons, MaterialIcons, SimpleLineIcons } from "@expo/vector-icons";
-=======
 import { TouchableHighlight, StyleSheet, Modal, TextInput } from "react-native";
 import {
   EvilIcons,
@@ -10,7 +6,6 @@ import {
   MaterialIcons,
   SimpleLineIcons,
 } from "@expo/vector-icons";
->>>>>>> f6be4eca868044b5c52c8e68822fe805da9727e1
 import {
   Box,
   Column,
@@ -19,10 +14,7 @@ import {
   Pressable,
   Row,
   Text,
-<<<<<<< HEAD
-=======
   ZStack,
->>>>>>> f6be4eca868044b5c52c8e68822fe805da9727e1
 } from "native-base";
 
 import IconContainer from "../../components/IconContainer";
@@ -44,9 +36,6 @@ function BuildingInspection(props) {
   const [showFilterModal, setShowFilterModal] = useState(false);
   const [showNotesModal, setShowNotesModal] = useState(false);
   const [isActive, setIsActive] = useState(false);
-<<<<<<< HEAD
-
-=======
   const arrayData = [
     {
       title: "Lorem ipsume dolor sit amet",
@@ -115,7 +104,6 @@ function BuildingInspection(props) {
       hasImage: true,
     },
   ];
->>>>>>> f6be4eca868044b5c52c8e68822fe805da9727e1
   return (
     <Column
       style={{
@@ -204,21 +192,10 @@ function BuildingInspection(props) {
             <Ionicons name="md-arrow-back" size={27} color="black" />
           </IconContainer>
 
-<<<<<<< HEAD
-          <Row
-            bg={Colors.light.white}
-            borderRadius={8}
-            h="80%"
-            w="70%"
-            px={4}
-            justifyContent="space-between"
-            alignItems="center"
-=======
           <TouchableHighlight
             underlayColor={Colors.light.bageBg}
             style={styles.searchBar}
             onPress={() => setShowSearchBar(true)}
->>>>>>> f6be4eca868044b5c52c8e68822fe805da9727e1
           >
             <Row
               w={"100%"}
@@ -253,26 +230,6 @@ function BuildingInspection(props) {
             alignItems="center"
             pl={3.5}
           >
-<<<<<<< HEAD
-            <Pressable
-              flex={1}
-              flexDir={"row"}
-              alignItems="center"
-              onPress={() => setIsActive(!isActive)}
-            >
-              {isActive ? (
-                <Ionicons name="eye" size={24} color="#77838f" />
-              ) : (
-                <Ionicons name="eye-off" size={24} color="white" />
-              )}
-              <Text
-                fontSize={14}
-                color={isActive ? Colors.light.subText : "white"}
-              >
-                {isActive ? "  Aktive Baugruppe" : "  Inaktive Baugruppe"}
-              </Text>
-            </Pressable>
-=======
             <Box shadow={"1"}>
               <Pressable
                 flex={1}
@@ -293,7 +250,6 @@ function BuildingInspection(props) {
                 </Text>
               </Pressable>
             </Box>
->>>>>>> f6be4eca868044b5c52c8e68822fe805da9727e1
           </Row>
           {/* Notes Button */}
           <TouchableHighlight
@@ -314,78 +270,7 @@ function BuildingInspection(props) {
           <FilterButton onPress={() => setShowFilterModal()} />
         </Row>
         <FlatList
-<<<<<<< HEAD
-          data={[
-            {
-              title: "Lorem ipsume dolor sit amet",
-              des: "Bauart goes here",
-              grade: "A",
-              value: 100,
-              hasImage: true,
-            },
-            {
-              title: "Salvador de amot ichi ikaino",
-              des: "The text goes here",
-              grade: "A",
-              value: 100,
-              hasImage: true,
-            },
-            {
-              title: "Lorem ipsume dolor sit amet",
-              des: "Bauart goes here",
-              grade: "A",
-              value: 100,
-              hasImage: true,
-            },
-            {
-              title: "Salvador de amot ichi ikaino",
-              des: "The text goes here",
-              grade: "B",
-              value: 70,
-              hasImage: false,
-            },
-            {
-              title: "Lorem ipsume dolor sit amet",
-              des: "Bauart goes here",
-              grade: "C",
-              value: 90,
-              hasImage: true,
-            },
-            {
-              title: "Salvador de amot ichi ikaino",
-              des: "The text goes here",
-              hasImage: false,
-            },
-            {
-              title: "Lorem ipsume dolor sit amet",
-              des: "Bauart goes here",
-              hasImage: true,
-            },
-            {
-              title: "Salvador de amot ichi ikaino",
-              des: "The text goes here",
-              grade: "A",
-              value: 100,
-              hasImage: true,
-            },
-            {
-              title: "Lorem ipsume dolor sit amet",
-              des: "Bauart goes here",
-              grade: "A",
-              value: 100,
-              hasImage: true,
-            },
-            {
-              title: "Salvador de amot ichi ikaino",
-              des: "The text goes here",
-              grade: "A",
-              value: 100,
-              hasImage: true,
-            },
-          ]}
-=======
           data={arrayData}
->>>>>>> f6be4eca868044b5c52c8e68822fe805da9727e1
           showsVerticalScrollIndicator={false}
           keyExtractor={(item, ind) => ind}
           renderItem={({ item }) => (

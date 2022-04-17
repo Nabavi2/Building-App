@@ -37,7 +37,6 @@ export function BottomTabNavigator() {
           overflow: "hidden",
         },
         tabBarShowLabel: false,
-
         headerShadowVisible: false,
         headerTitleAlign: "center",
         headerStyle: {
