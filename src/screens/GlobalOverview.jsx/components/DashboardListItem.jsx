@@ -1,4 +1,4 @@
-import { Feather, FontAwesome5 } from "expo-vector-icons";
+import { Feather, FontAwesome5 } from "@expo/vector-icons";
 import { Column, Row, Text } from "native-base";
 import React from "react";
 import ListTileContainer from "../../../components/ListTileContainer";

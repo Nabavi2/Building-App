@@ -1,115 +1,123 @@
 import React from "react";
 import { Pressable } from "react-native";
+import { Row } from "native-base";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { useNavigation } from "@react-navigation/native";
+import { DrawerActions, useNavigation } from "@react-navigation/native";
 import {
   MaterialCommunityIcons,
   Foundation,
   FontAwesome5,
-} from "expo-vector-icons";
+  Ionicons,
+  Entypo,
+} from "@expo/vector-icons";
 
 import Colors from "../constants/Colors";
 import BuildingInspection from "../screens/BuildingInspection";
-import Dashboard from "../screens/Dashboard";
 import BuildingOverViewScreen from "../screens/buildingoverview";
-import HomeScreen from "../screens/HomeScreen";
+import ApartmentScreen from "../screens/Apartment";
 import MapScreen from "../screens/map";
-
+import IconContainer from "../components/IconContainer";
+import { Box } from "native-base";
+import GlobalOverview from "../screens/GlobalOverview.jsx";
+import DashboardNavigation from "./DashboardNavigation";
+import TrafficSafety from "../screens/TrafficSafety";
 
 const bottomTabNavigator = createBottomTabNavigator();
-const navigation = useNavigation();
+
 export function BottomTabNavigator() {
+  const navigation = useNavigation();
+
   return (
     <bottomTabNavigator.Navigator
-      initialRouteName="loginScreen"
+      initialRouteName="dashboard"
       screenOptions={{
         tabBarActiveTintColor: Colors.light.primary,
+        tabBarInactiveTintColor: "#afb2b5",
         tabBarStyle: {
-          backgroundColor: Colors.light.background,
+          backgroundColor: Colors.light.gray800,
           overflow: "hidden",
         },
-        headerShown: false,
-        headerStyle: { backgroundColor: Colors.light.background },
+        tabBarShowLabel: false,
+        headerShadowVisible: false,
+        headerTitleAlign: "center",
+        headerStyle: {
+          backgroundColor: Colors.light.background,
+          height: 90,
+        },
+        headerTitleStyle: {
+          fontSize: 16,
+          color: Colors.light.text,
+        },
       }}
     >
       <bottomTabNavigator.Screen
         name="dashboard"
-        component={Dashboard}
+        component={DashboardNavigation}
         options={() => ({
-          title: "Dashboard Screen",
-          tabBarIcon: ({ focused }) => (
-            <FontAwesome5
-              name={Platform.OS === "android" ? "building" : "building"}
-              size={23}
-              color={focused ? Colors.light.primary : Colors.light.black}
-            />
+          title: "Global overview",
+          tabBarIcon: ({ color }) => (
+            <FontAwesome5 name={"building"} size={23} color={color} />
           ),
-          headerRight: () => {
-            const navigation = useNavigation();
-            return (
-              <Pressable
-                onPress={() => navigation.navigate("dashboard")}
-                style={({ pressed }) => ({
-                  opacity: pressed ? 0.5 : 1,
-                })}
-              >
-                <FontAwesome5
-                  name={Platform.OS === "android" ? "building" : "building"}
-                  size={23}
-                  color={focused ? Colors.light.primary : Colors.light.black}
-                />
-              </Pressable>
-            );
-          },
           headerShown: false,
         })}
       />
       <bottomTabNavigator.Screen
-        name="buildingoverview"
-        component={BuildingOverViewScreen}
+        name="apartment"
+        component={ApartmentScreen}
         options={() => ({
-          title: "building",
-          tabBarIcon: ({ focused }) => (
+          title: "Apartments",
+          tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons
               name="home-outline"
-              size={24}
-              color={focused ? Colors.light.primary : Colors.light.black}
+              size={31}
+              color={color}
               style={{ marginLeft: 5 }}
             />
           ),
           headerRight: () => (
-            <Pressable
-              onPress={() => navigation.navigate("buildingoverview")}
-              style={({ pressed }) => ({
-                opacity: pressed ? 0.5 : 1,
-              })}
-            ></Pressable>
+            <Box mr={5}>
+              <IconContainer onPress={() => console.log("dkfsfdj")}>
+                <Entypo
+                  name="dots-three-vertical"
+                  size={24}
+                  color={Colors.light.gray900}
+                />
+              </IconContainer>
+            </Box>
           ),
-          headerShown: false,
+          headerLeft: () => (
+            <Box ml={5}>
+              <IconContainer
+                onPress={() =>
+                  navigation.dispatch(DrawerActions.toggleDrawer())
+                }
+              >
+                <Ionicons name="menu" size={24} color={Colors.light.gray900} />
+              </IconContainer>
+            </Box>
+          ),
         })}
       />
       <bottomTabNavigator.Screen
-        name="buildingInspection"
-        component={BuildingInspection}
+        name="trafficSafety"
+        component={TrafficSafety}
         options={() => ({
-          title: "Dash ",
-          tabBarIcon: ({ focused }) => (
+          title: "Verkehrssicherung",
+          tabBarIcon: ({ color }) => (
             <Foundation
               name="page-edit"
               size={24}
-              color={focused ? Colors.light.primary : Colors.light.black}
+              color={color}
               style={{ marginLeft: 5 }}
             />
           ),
-          headerRight: () => (
-            <Pressable
-              onPress={() => navigation.navigate("buildingInspection")}
-              style={({ pressed }) => ({
-                opacity: pressed ? 0.5 : 1,
-              })}
-            ></Pressable>
-          ),
-          headerShown: false,
+
+          headerStyle: {
+            backgroundColor: Colors.light.blue400,
+          },
+          headerTitleStyle: {
+            color: "white",
+          },
         })}
       />
       <bottomTabNavigator.Screen
@@ -117,54 +125,29 @@ export function BottomTabNavigator() {
         component={MapScreen}
         options={() => ({
           title: "Home",
-          tabBarIcon: ({ focused }) => (
+          tabBarIcon: ({ color }) => (
             <FontAwesome5
               name="map-marked"
               size={24}
-              color={focused ? Colors.light.primary : Colors.light.black}
+              color={color}
               style={{ marginLeft: 5 }}
             />
-          ),
-          headerRight: () => (
-            <Pressable
-              onPress={() => navigation.navigate("mapScreen")}
-              style={({ pressed }) => ({
-                opacity: pressed ? 0.5 : 1,
-              })}
-            ></Pressable>
           ),
           headerShown: false,
         })}
       />
       <bottomTabNavigator.Screen
         name="homeScreen"
-        component={HomeScreen}
+        component={ApartmentScreen}
         options={() => ({
-          title: "Home",
-          tabBarIcon: ({ focused }) => (
-            // <FontAwesome5
-            //   name="map-marked"
-            //   size={24}
-            //   color={focused ? Colors.light.white : Colors.light.black}
-            //   style={{ marginLeft: 5 }}
-            // />
+          title: "Apartment",
+          tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons
               name="google-maps"
               size={24}
-              color={focused ? Colors.light.white : Colors.light.black}
+              color={color}
             />
           ),
-          headerRight: () => {
-            return (
-              <Pressable
-                onPress={() => navigation.navigate("homeScreen")}
-                style={({ pressed }) => ({
-                  opacity: pressed ? 0.5 : 1,
-                })}
-              ></Pressable>
-            );
-          },
-          headerShown: false,
         })}
       />
     </bottomTabNavigator.Navigator>

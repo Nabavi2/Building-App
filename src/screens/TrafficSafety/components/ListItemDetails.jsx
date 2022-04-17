@@ -4,7 +4,6 @@ import {
   Center,
   Column,
   FlatList,
-  Flex,
   Pressable,
   Row,
   Spacer,

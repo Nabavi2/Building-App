@@ -15,6 +15,7 @@ import {
   SafeAreaView,
 } from "react-native";
 import { ScrollView, Box } from "native-base";
+
 import { MaterialCommunityIcons, Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
@@ -51,7 +52,7 @@ function LoginScreen() {
         <Text
           style={{
             color: Colors.light.gray900,
-            fontSize: 20,
+            fontSize: 14,
             marginBottom: "15%",
             alignSelf: "center",
             marginHorizontal: 40,
@@ -62,9 +63,9 @@ function LoginScreen() {
         <Formik
           validationSchema={validationSchema}
           initialValues={{ email: "", password: "", server: "" }}
-          // onSubmit={(values) => {
-          //   navigation.navigate("dashboard");
-          // }}
+          onSubmit={(values) => {
+            navigation.navigate("dashboard");
+          }}
           validateOnMount={true}
         >
           {({ values, errors, handleBlur, touched, handleChange }) => {
@@ -128,7 +129,7 @@ function LoginScreen() {
                   <View
                     style={[
                       styles.inputView,
-                      { marginBottom: 25, marginTop: 10, padding: 3.5 },
+                      { marginBottom: 25, padding: 3.5 },
                     ]}
                   >
                     <TextInput
@@ -160,22 +161,15 @@ function LoginScreen() {
                       navigation.navigate("dashboard");
                     }}
                   >
-                    <Row>
-                      <AntDesign
-                        name="login"
-                        size={24}
-                        color={Colors.light.white}
-                      />
-                      <Text
-                        style={{
-                          color: Colors.light.white,
-                          fontWeight: "bold",
-                          marginLeft: 10,
-                        }}
-                      >
-                        Login
-                      </Text>
-                    </Row>
+                    <Text
+                      style={{
+                        color: Colors.light.white,
+                        fontWeight: "bold",
+                        marginLeft: 10,
+                      }}
+                    >
+                      Login
+                    </Text>
                   </TouchableOpacity>
                 </View>
               </>
@@ -205,6 +199,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.light.background,
   },
   inputView: {
+    elevation: 2.5,
     width: "90%",
     flexDirection: "row",
     backgroundColor: Colors.light.white,
@@ -218,8 +213,9 @@ const styles = StyleSheet.create({
     color: Colors.light.gray500,
   },
   inputTitle: {
+    marginBottom: 1,
     marginRight: "75%",
-    fontSize: 18,
+    fontSize: 14,
     fontWeight: "bold",
   },
   button: {
@@ -231,7 +227,7 @@ const styles = StyleSheet.create({
     marginTop: 12,
     alignItems: "center",
     justifyContent: "center",
-    elevation: 10,
+    elevation: 4,
   },
   cart: {
     backgroundColor: Colors.light.background,

@@ -5,10 +5,7 @@ import CustomBadge from "../../../components/CustomBadge";
 import CustomModal from "../../../components/CustomModal";
 import ListTileContainer from "../../../components/ListTileContainer";
 import Colors from "../../../constants/Colors";
-import Layout from "../../../constants/Layout";
 import ListItemDetails from "./ListItemDetails";
-
-const { height } = Layout.window;
 
 function BIListItem({ title, description, grade, value, hasImage }) {
   const [visible, setIsVisible] = useState(false);
