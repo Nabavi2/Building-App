@@ -19,6 +19,7 @@ import MapScreen from "../screens/map";
 import IconContainer from "../components/IconContainer";
 import { Box } from "native-base";
 import GlobalOverview from "../screens/GlobalOverview.jsx";
+import DashboardNavigation from "./DashboardNavigation";
 
 const bottomTabNavigator = createBottomTabNavigator();
 
@@ -51,12 +52,13 @@ export function BottomTabNavigator() {
     >
       <bottomTabNavigator.Screen
         name="dashboard"
-        component={GlobalOverview}
+        component={DashboardNavigation}
         options={() => ({
           title: "Global overview",
           tabBarIcon: ({ color }) => (
             <FontAwesome5 name={"building"} size={23} color={color} />
           ),
+          headerShown: false,
         })}
       />
       <bottomTabNavigator.Screen

@@ -155,7 +155,10 @@ function BuildingOverViewScreen(props) {
             borderRadius: 4,
             marginLeft: 90,
           }}
-          onPress={() => setShowModal(!showModal)}
+          onPress={() => {
+            // setShowModal(!showModal)
+            navigation.navigate("buildingInspection");
+          }}
         >
           <CustomFilterIcon />
         </TouchableHighlight>

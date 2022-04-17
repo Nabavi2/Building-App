@@ -12,10 +12,12 @@ import GlobalStyles from "../../constants/GlobalStyles";
 import { StyleSheet } from "react-native";
 import TabItem from "./components/TabSection";
 import Bage from "./components/Bage";
+import { useNavigation } from "@react-navigation/native";
 
 const size = Layout.window;
 
 const GlobalOverview = (props) => {
+  const navigation = useNavigation();
   const [isSelected, setIsSelected] = useState(true);
 
   const chartData = [
@@ -82,7 +84,7 @@ const GlobalOverview = (props) => {
 
           <CustomButton
             title="Building list"
-            onPress={() => console.log("pressed")}
+            onPress={() => navigation.navigate("buildingOverview")}
           />
         </Column>
         <ZStack alignItems={"center"} justifyContent={"center"}>
