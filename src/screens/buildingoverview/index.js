@@ -15,9 +15,6 @@ import { DrawerActions, useNavigation } from "@react-navigation/native";
 import Colors from "../../constants/Colors";
 import CustomButton from "../../components/CustomButton";
 import Layout from "../../constants/Layout";
-<<<<<<< HEAD
-import OverViewComponent from "./conponents/OverViewComponent";
-import CustomFilterIcon from "../../components/CustomFilterIcon";
 import GlobalStyles from "../../constants/GlobalStyles";
 import {
   Menu,
@@ -26,18 +23,12 @@ import {
   MenuProvider,
   MenuTrigger,
 } from "react-native-popup-menu";
-=======
-import GlobalStyles from "../../constants/GlobalStyles";
->>>>>>> 1b5eb13217be947a6f76949604766db47633d92f
 import IconContainer from "../../components/IconContainer";
 import PopupMenu from "./conponents/PopupMenu";
 import FilterButton from "../../components/FilterButton";
 import CustomModal from "../../components/CustomModal";
 import FilterModal from "./conponents/FilterModal";
-<<<<<<< HEAD
-=======
 import OVListItem from "./conponents/OVListItem";
->>>>>>> 1b5eb13217be947a6f76949604766db47633d92f
 
 function BuildingOverViewScreen(props) {
   const size = Layout.window;
@@ -117,10 +108,7 @@ function BuildingOverViewScreen(props) {
         alignItems="flex-end"
         justifyContent="space-between"
         h={"8.85%"}
-<<<<<<< HEAD
         // bg="red.300"
-=======
->>>>>>> 1b5eb13217be947a6f76949604766db47633d92f
       >
         <Box h="73%">
           <IconContainer

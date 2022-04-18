@@ -4,7 +4,6 @@ import { Row, Box } from "native-base";
 
 import Colors from "../../../constants/Colors";
 
-<<<<<<< HEAD
 function RowIconAndTitleComponent({ title, onPress, marginTop }) {
   return (
     <Row style={[styles.row, { marginTop: marginTop }]}>
@@ -12,12 +11,6 @@ function RowIconAndTitleComponent({ title, onPress, marginTop }) {
         {title}
       </Box>
 
-=======
-function RowIconAndTitleComponent({ title, onPress }) {
-  return (
-    <Row style={styles.row}>
-      <Box>{title}</Box>
->>>>>>> 1b5eb13217be947a6f76949604766db47633d92f
       <TouchableOpacity style={styles.button} onPress={onPress}>
         <Box
           _text={{
@@ -39,10 +32,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.light.white,
     marginRight: 28,
     marginLeft: 15,
-<<<<<<< HEAD
-=======
     elevation: 1,
->>>>>>> 1b5eb13217be947a6f76949604766db47633d92f
   },
   button: {
     width: 40,

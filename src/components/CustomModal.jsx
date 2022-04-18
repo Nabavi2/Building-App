@@ -10,10 +10,7 @@ function CustomModal({
   visible,
   isBig = false,
   isMap = false,
-<<<<<<< HEAD
   isStatus = false,
-=======
->>>>>>> 1b5eb13217be947a6f76949604766db47633d92f
 }) {
   const size = Layout.window;
   return (

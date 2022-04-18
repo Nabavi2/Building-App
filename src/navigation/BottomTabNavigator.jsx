@@ -13,13 +13,9 @@ import {
 } from "@expo/vector-icons";
 
 import Colors from "../constants/Colors";
-import BuildingInspection from "../screens/BuildingInspection";
-import BuildingOverViewScreen from "../screens/buildingoverview";
 import ApartmentScreen from "../screens/Apartment";
 import MapScreen from "../screens/map";
 import IconContainer from "../components/IconContainer";
-import { Box } from "native-base";
-import GlobalOverview from "../screens/GlobalOverview.jsx";
 import DashboardNavigation from "./DashboardNavigation";
 import TrafficSafety from "../screens/TrafficSafety";
 

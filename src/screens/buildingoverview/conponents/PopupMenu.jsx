@@ -8,50 +8,31 @@ import {
   MenuTrigger,
 } from "react-native-popup-menu";
 import Colors from "../../../constants/Colors";
-<<<<<<< HEAD
-
-function PopupMenu(props) {
-  const navigation = useNavigation();
-=======
 import Layout from "../../../constants/Layout";
 
-function PopupMenu(props) {
+function PopupMenu() {
   const navigation = useNavigation();
   const { height, width } = Layout.window;
->>>>>>> 1b5eb13217be947a6f76949604766db47633d92f
   return (
     <Menu onSelect={(value) => navigation.navigate("buildingInspection")}>
       <MenuTrigger
         customStyles={{
           triggerWrapper: {
-<<<<<<< HEAD
-            width: 39,
-            height: 39,
-=======
             width: width * 0.074,
             height: height * 0.04,
->>>>>>> 1b5eb13217be947a6f76949604766db47633d92f
             justifyContent: "center",
             alignItems: "center",
             backgroundColor: Colors.light.white,
             borderRadius: 6,
-<<<<<<< HEAD
-            marginRight: 20,
-=======
             padding: 2,
 
->>>>>>> 1b5eb13217be947a6f76949604766db47633d92f
             elevation: 1,
           },
         }}
       >
         <Entypo
           name="dots-three-vertical"
-<<<<<<< HEAD
-          size={24}
-=======
           size={22}
->>>>>>> 1b5eb13217be947a6f76949604766db47633d92f
           color={Colors.light.gray900}
         />
       </MenuTrigger>

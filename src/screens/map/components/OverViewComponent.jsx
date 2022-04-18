@@ -11,16 +11,12 @@ const size = Layout.window;
 function OverViewComponent(props) {
   return (
     <ScrollView
-<<<<<<< HEAD
       style={{
         paddingLeft: 20,
         backgroundColor: Colors.light.white,
         paddingBottom: 40,
         flex: 1,
       }}
-=======
-      style={{ paddingLeft: 15, backgroundColor: Colors.light.white }}
->>>>>>> 1b5eb13217be947a6f76949604766db47633d92f
     >
       <Text style={styles.text}>Baum Type</Text>
       <Text style={[styles.subText, { marginBottom: 20 }]}>

@@ -13,21 +13,6 @@ function ListTileContainer({ children, onPress }) {
       underlayColor={Colors.light.bageBg}
       onPress={onPress}
     >
-<<<<<<< HEAD
-      <Row
-        w={width * 0.995}
-        h={height * 0.085}
-        bg="white"
-        borderRadius="xl"
-        pl={5}
-        pr={2.5}
-        justifyContent="space-between"
-        alignItems="center"
-        shadow={"1"}
-      >
-        {children}
-      </Row>
-=======
       <Box w={width} h={height * 0.085}>
         <Row
           bg="white"
@@ -42,7 +27,6 @@ function ListTileContainer({ children, onPress }) {
           {children}
         </Row>
       </Box>
->>>>>>> 1b5eb13217be947a6f76949604766db47633d92f
     </TouchableHighlight>
   );
 }

@@ -6,27 +6,6 @@ import Layout from "../constants/Layout";
 function IconContainer({ children, onPress }) {
   const { height, width } = Layout.window;
   return (
-<<<<<<< HEAD
-    <Pressable onPressIn={onPress}>
-      <Column
-        style={{
-          width: 39,
-          height: 39,
-          justifyContent: "center",
-          alignItems: "center",
-          backgroundColor: Colors.light.white,
-          borderRadius: 6,
-          padding: 2,
-          marginLeft: 2.5,
-          margin: 10,
-          marginLeft: 10,
-          marginTop: 20,
-          elevation: 1,
-        }}
-      >
-        {children}
-      </Column>
-=======
     <Pressable
       style={{
         width: width * 0.074,
@@ -43,7 +22,6 @@ function IconContainer({ children, onPress }) {
       onPress={onPress}
     >
       <Column>{children}</Column>
->>>>>>> 1b5eb13217be947a6f76949604766db47633d92f
     </Pressable>
   );
 }

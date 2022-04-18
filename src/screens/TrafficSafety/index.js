@@ -1,37 +1,17 @@
 import React, { useState } from "react";
 import { StyleSheet, Modal } from "react-native";
-<<<<<<< HEAD
 import { SimpleLineIcons } from "@expo/vector-icons";
 import { Column, FlatList, Image, Row, Text } from "native-base";
-=======
-import { AntDesign, SimpleLineIcons } from "@expo/vector-icons";
-import { Avatar, Column, FlatList, Image, Row, Text } from "native-base";
->>>>>>> 1b5eb13217be947a6f76949604766db47633d92f
 
 import IconContainer from "../../components/IconContainer";
 import Colors from "../../constants/Colors";
 import GlobalStyles from "../../constants/GlobalStyles";
-<<<<<<< HEAD
 import BIListItem from "./components/BIListItem";
-=======
-import TSListItem from "./components/TSListItem";
->>>>>>> 1b5eb13217be947a6f76949604766db47633d92f
 import CustomModal from "../../components/CustomModal";
 import FilterButton from "../../components/FilterButton";
 import SettingFilter from "./components/SettingFilter";
 import AddBuilding from "./components/AddBuilding";
 import SearchBar from "./components/SearchBar";
-<<<<<<< HEAD
-=======
-import DropDown from "react-native-paper-dropdown";
-import {
-  Menu,
-  MenuOption,
-  MenuOptions,
-  MenuTrigger,
-} from "react-native-popup-menu";
-import StatusDropdown from "../../components/StatusDropdown";
->>>>>>> 1b5eb13217be947a6f76949604766db47633d92f
 
 function TrafficSafety(props) {
   const [showSearchBar, setShowSearchBar] = useState(false);
@@ -149,12 +129,7 @@ function TrafficSafety(props) {
         <Row
           w="100%"
           h="7%"
-<<<<<<< HEAD
           px={5}
-=======
-          pl={5}
-          pr={3}
->>>>>>> 1b5eb13217be947a6f76949604766db47633d92f
           justifyContent="space-between"
           alignItems="center"
           mt={12}
@@ -189,35 +164,7 @@ function TrafficSafety(props) {
           justifyContent="space-between"
           alignItems="center"
         >
-<<<<<<< HEAD
           {/* Notes Button */}
-=======
-          <Row
-            shadow={"0"}
-            width={"35%"}
-            height={35}
-            bg={"white"}
-            borderRadius={4}
-            px={5}
-            justifyContent={"space-around"}
-            alignItems="center"
-          >
-            <Text color={Colors.light.subText}>All phase</Text>
-            <AntDesign name="caretdown" size={12} color="black" />
-          </Row>
-
-          <StatusDropdown
-            title="Show All"
-            list={[
-              { name: "Gemeldet", color: "#2bdc4d" },
-              { name: "On progress", color: "#f3c472" },
-              { name: "Streitfall", color: "#7f7f7f" },
-              { name: "Abgelehnt", color: "#c04b31" },
-              { name: "Behoben", color: "#2b99dc" },
-            ]}
-            onSelect={(value) => console.log(value)}
-          />
->>>>>>> 1b5eb13217be947a6f76949604766db47633d92f
 
           <FilterButton onPress={() => setShowFilterModal()} />
         </Row>
@@ -226,11 +173,7 @@ function TrafficSafety(props) {
           showsVerticalScrollIndicator={false}
           keyExtractor={(item, ind) => ind}
           renderItem={({ item }) => (
-<<<<<<< HEAD
             <BIListItem
-=======
-            <TSListItem
->>>>>>> 1b5eb13217be947a6f76949604766db47633d92f
               title={item.title}
               description={item.des}
               grade={item.grade}

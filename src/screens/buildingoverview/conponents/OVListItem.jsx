@@ -13,11 +13,7 @@ import ListTileContainer from "../../../components/ListTileContainer";
 
 const size = Layout.window;
 
-<<<<<<< HEAD:src/screens/buildingoverview/conponents/OverViewComponent.jsx
-function OverViewComponent({ type, title, subTitle, borg }) {
-=======
 function OVListItem({ type, title, subTitle, borg }) {
->>>>>>> 1b5eb13217be947a6f76949604766db47633d92f:src/screens/buildingoverview/conponents/OVListItem.jsx
   console.log(borg);
   return (
     <ListTileContainer>
