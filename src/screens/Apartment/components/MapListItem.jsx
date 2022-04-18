@@ -11,9 +11,8 @@ import Colors from "../../../constants/Colors";
 import Layout from "../../../constants/Layout";
 import ListTileContainer from "../../../components/ListTileContainer";
 
-const size = Layout.window;
-
 function MapListItem({ type, title, subTitle, borg }) {
+  const size = Layout.window;
   console.log(borg);
   return (
     <ListTileContainer>
@@ -79,14 +78,4 @@ function MapListItem({ type, title, subTitle, borg }) {
   );
 }
 
-const styles = StyleSheet.create({
-  card: {
-    alignSelf: "center",
-    width: Dimensions.get("window").width * 0.93,
-    height: Dimensions.get("window").height * 0.09,
-    margin: 10,
-    backgroundColor: Colors.light.white,
-    borderRadius: 10,
-  },
-});
 export default MapListItem;

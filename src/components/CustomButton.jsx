@@ -15,6 +15,7 @@ function CustomButton({
 }) {
   return (
     <Button
+      android_ripple={{ color: "#c3c3d1", foreground: true }}
       onPress={onPress}
       style={[
         styles.container,

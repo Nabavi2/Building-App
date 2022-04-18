@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { StyleSheet, Modal } from "react-native";
-import { AntDesign, SimpleLineIcons } from "@expo/vector-icons";
+import { AntDesign, FontAwesome5, SimpleLineIcons } from "@expo/vector-icons";
 import { Avatar, Column, FlatList, Image, Row, Text } from "native-base";
 
 import IconContainer from "../../components/IconContainer";
@@ -12,15 +12,8 @@ import FilterButton from "../../components/FilterButton";
 import SettingFilter from "./components/SettingFilter";
 import AddBuilding from "./components/AddBuilding";
 import SearchBar from "./components/SearchBar";
-import DropDown from "react-native-paper-dropdown";
-import {
-  Menu,
-  MenuOption,
-  MenuOptions,
-  MenuTrigger,
-} from "react-native-popup-menu";
 import StatusDropdown from "../../components/StatusDropdown";
-
+import Swipeable from "react-native-swipeable";
 function TrafficSafety(props) {
   const [showSearchBar, setShowSearchBar] = useState(false);
   const [showAddBuildingModal, setShowAddBuildingModal] = useState(false);
@@ -144,12 +137,7 @@ function TrafficSafety(props) {
           mt={12}
         >
           <Row alignItems="center">
-            <Image
-              source={require("../../../assets/buildingIcon.png")}
-              w={10}
-              h={10}
-              resizeMode="contain"
-            />
+            <FontAwesome5 name="building" size={35} color={Colors.light.text} />
             <Column pl={4}>
               <Text fontSize={13} fontWeight="bold" color={Colors.light.text}>
                 Am Schawrzenberg 19, 21, 23
@@ -220,27 +208,4 @@ function TrafficSafety(props) {
   );
 }
 
-const styles = StyleSheet.create({
-  notesButton: {
-    elevation: 1,
-    width: "30%",
-    height: "70%",
-    backgroundColor: "white",
-    borderRadius: 5,
-    alignItems: "center",
-    justifyContent: "center",
-    paddingLeft: 3.5,
-    marginRight: 7,
-  },
-  searchBar: {
-    backgroundColor: "white",
-    marginTop: 9,
-    borderRadius: 8,
-    height: "80%",
-    width: "70%",
-    paddingHorizontal: 10,
-    alignItems: "center",
-    elevation: 1,
-  },
-});
 export default TrafficSafety;

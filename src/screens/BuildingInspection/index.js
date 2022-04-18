@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { TouchableHighlight, StyleSheet, Modal, TextInput } from "react-native";
 import {
   EvilIcons,
+  FontAwesome5,
   Ionicons,
   MaterialIcons,
   SimpleLineIcons,
@@ -160,12 +161,7 @@ function BuildingInspection(props) {
           mt={12}
         >
           <Row alignItems="center">
-            <Image
-              source={require("../../../assets/buildingIcon.png")}
-              w={10}
-              h={10}
-              resizeMode="contain"
-            />
+            <FontAwesome5 name="building" size={35} color={Colors.light.text} />
             <Column pl={4}>
               <Text fontSize={13} fontWeight="bold" color={Colors.light.text}>
                 Am Schawrzenberg 19, 21, 23
