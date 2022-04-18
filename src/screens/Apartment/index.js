@@ -119,7 +119,7 @@ function ApartmentScreen(props) {
         <Box _text={{ marginLeft: 5, marginTop: 3, fontSize: 18 }}>
           Showing all buildings (124)
         </Box>
-        <Box justifyContent={"flex-end"}>
+        <Box mr={3} justifyContent={"flex-end"}>
           <FilterButton onPress={() => setShowFilterModal(true)} />
         </Box>
       </Row>

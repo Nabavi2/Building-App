@@ -16,6 +16,13 @@ import Colors from "../../constants/Colors";
 import CustomButton from "../../components/CustomButton";
 import Layout from "../../constants/Layout";
 import GlobalStyles from "../../constants/GlobalStyles";
+import {
+  Menu,
+  MenuOption,
+  MenuOptions,
+  MenuProvider,
+  MenuTrigger,
+} from "react-native-popup-menu";
 import IconContainer from "../../components/IconContainer";
 import PopupMenu from "./conponents/PopupMenu";
 import FilterButton from "../../components/FilterButton";
@@ -101,6 +108,7 @@ function BuildingOverViewScreen(props) {
         alignItems="flex-end"
         justifyContent="space-between"
         h={"8.85%"}
+        // bg="red.300"
       >
         <Box h="73%">
           <IconContainer

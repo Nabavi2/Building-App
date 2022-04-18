@@ -4,10 +4,13 @@ import { Row, Box } from "native-base";
 
 import Colors from "../../../constants/Colors";
 
-function RowIconAndTitleComponent({ title, onPress }) {
+function RowIconAndTitleComponent({ title, onPress, marginTop }) {
   return (
-    <Row style={styles.row}>
-      <Box>{title}</Box>
+    <Row style={[styles.row, { marginTop: marginTop }]}>
+      <Box _text={{ fontWeight: "bold", color: Colors.light.gray500 }}>
+        {title}
+      </Box>
+
       <TouchableOpacity style={styles.button} onPress={onPress}>
         <Box
           _text={{

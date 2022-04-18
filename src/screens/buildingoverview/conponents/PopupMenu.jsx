@@ -10,7 +10,7 @@ import {
 import Colors from "../../../constants/Colors";
 import Layout from "../../../constants/Layout";
 
-function PopupMenu(props) {
+function PopupMenu() {
   const navigation = useNavigation();
   const { height, width } = Layout.window;
   return (

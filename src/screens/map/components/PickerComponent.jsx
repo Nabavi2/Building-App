@@ -23,6 +23,7 @@ function PickerComponent({ width, dataArray }) {
       selectedValue={selectedItem}
       onValueChange={(value) => setSelectedItem(value)}
       dropdownIconColor={Colors.light.gray500}
+      mode="dropdown"
     >
       {data.map((item) => (
         <Picker.Item label={item.title} value={item.title} />

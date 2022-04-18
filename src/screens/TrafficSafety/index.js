@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { StyleSheet, Modal } from "react-native";
-import { AntDesign, FontAwesome5, SimpleLineIcons } from "@expo/vector-icons";
-import { Avatar, Column, FlatList, Image, Row, Text } from "native-base";
+import { SimpleLineIcons } from "@expo/vector-icons";
+import { Column, FlatList, Image, Row, Text } from "native-base";
 
 import IconContainer from "../../components/IconContainer";
 import Colors from "../../constants/Colors";
 import GlobalStyles from "../../constants/GlobalStyles";
-import TSListItem from "./components/TSListItem";
 import CustomModal from "../../components/CustomModal";
 import FilterButton from "../../components/FilterButton";
 import SettingFilter from "./components/SettingFilter";
@@ -14,6 +13,7 @@ import AddBuilding from "./components/AddBuilding";
 import SearchBar from "./components/SearchBar";
 import StatusDropdown from "../../components/StatusDropdown";
 import Swipeable from "react-native-swipeable";
+import TSListItem from "./components/TSListItem";
 function TrafficSafety(props) {
   const [showSearchBar, setShowSearchBar] = useState(false);
   const [showAddBuildingModal, setShowAddBuildingModal] = useState(false);
@@ -130,8 +130,7 @@ function TrafficSafety(props) {
         <Row
           w="100%"
           h="7%"
-          pl={5}
-          pr={3}
+          px={5}
           justifyContent="space-between"
           alignItems="center"
           mt={12}
@@ -161,31 +160,7 @@ function TrafficSafety(props) {
           justifyContent="space-between"
           alignItems="center"
         >
-          <Row
-            shadow={"0"}
-            width={"35%"}
-            height={35}
-            bg={"white"}
-            borderRadius={4}
-            px={5}
-            justifyContent={"space-around"}
-            alignItems="center"
-          >
-            <Text color={Colors.light.subText}>All phase</Text>
-            <AntDesign name="caretdown" size={12} color="black" />
-          </Row>
-
-          <StatusDropdown
-            title="Show All"
-            list={[
-              { name: "Gemeldet", color: "#2bdc4d" },
-              { name: "On progress", color: "#f3c472" },
-              { name: "Streitfall", color: "#7f7f7f" },
-              { name: "Abgelehnt", color: "#c04b31" },
-              { name: "Behoben", color: "#2b99dc" },
-            ]}
-            onSelect={(value) => console.log(value)}
-          />
+          {/* Notes Button */}
 
           <FilterButton onPress={() => setShowFilterModal()} />
         </Row>

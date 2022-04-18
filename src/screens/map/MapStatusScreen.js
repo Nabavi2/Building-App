@@ -15,6 +15,8 @@ import {
   Switch,
   Text,
   View,
+  Button,
+  Box,
 } from "native-base";
 import { Entypo, EvilIcons, AntDesign, Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
@@ -26,11 +28,12 @@ import IconContainer from "../../components/IconContainer";
 import RowIconAndTitleComponent from "./components/RowIconAndTitleComponent";
 import StatusComponent from "./components/StatusComponent";
 import PickerComponent from "./components/PickerComponent";
+import OverViewComponent from "./components/OverViewComponent";
 
 const size = Layout.window;
 
 function MapStatusScreen(props) {
-  const initData = [
+  const data = [
     {
       id: "1",
       title: "overview",
@@ -45,7 +48,11 @@ function MapStatusScreen(props) {
     },
   ];
 
-  const [data, setData] = useState(initData);
+  const [isShowOverView, setIsShowOverView] = useState(false);
+  const [isShowStatus, setIsShowStatus] = useState(false);
+  const [isShowDatails, setIsShowDetails] = useState(false);
+  const [overView, setOverViewClicked] = useState(false);
+  const [status, setStatusClicked] = useState(false);
 
   const navigation = useNavigation();
 
@@ -53,7 +60,7 @@ function MapStatusScreen(props) {
     <View style={{ backgroundColor: Colors.light.background, flex: 1 }}>
       <Row
         justifyContent="space-between"
-        marginBottom={20}
+        marginBottom={5}
         alignItems="center"
         width={size.width * 0.98}
         alignSelf="center"
@@ -71,88 +78,134 @@ function MapStatusScreen(props) {
           </IconContainer>
         </Row>
       </Row>
-      <Column>
+      <Column pl={2}>
         <Text
           style={{ color: Colors.light.primary, marginLeft: 10, fontSize: 14 }}
         >
           WIE 001-001
         </Text>
         <Text
-          style={{ color: Colors.light.gray500, marginLeft: 10, fontSize: 12 }}
+          style={{
+            color: Colors.light.gray500,
+            marginLeft: 10,
+            fontSize: 12,
+            marginBottom: 20,
+          }}
         >
           Großer Kontrolltermin Fällig in 10 Monaten
         </Text>
       </Column>
-      <Column
-        style={{
-          justifyContent: "center",
-          backgroundColor: Colors.light.white,
-          height: size.height * 0.2,
-          marginBottom: size.height * 0.1,
-        }}
-      >
-        <Row style={styles.dropdownContainer}>
-          <Text style={{ marginLeft: 15, fontWeight: "bold" }}>Status</Text>
-          <Text
-            style={{
-              marginRight: size.width * 0.12,
-              marginTop: 3,
-              fontWeight: "bold",
+      <View style={{ backgroundColor: Colors.light.white }}>
+        <Column
+          style={{
+            justifyContent: "center",
+            backgroundColor: Colors.light.white,
+            height: size.height * 0.2,
+            marginBottom: size.height * 0.02,
+          }}
+        >
+          <Row style={styles.titleContainer}>
+            <Text style={{ marginLeft: 25, fontWeight: "bold" }}>Status</Text>
+            <Text
+              style={{
+                marginRight: size.width * 0.12,
+                marginTop: 3,
+                fontWeight: "bold",
+              }}
+            >
+              Intervall
+            </Text>
+          </Row>
+          <Row justifyContent="space-between" pr={4} pl={1}>
+            <PickerComponent dataArray={data} width={size.width * 0.6} />
+            <PickerComponent dataArray={data} width={size.width * 0.3} />
+          </Row>
+        </Column>
+        <Row style={styles.buttonContainer}>
+          <Button
+            style={[
+              styles.button,
+              {
+                backgroundColor: overView
+                  ? Colors.light.white
+                  : Colors.light.gray800,
+              },
+            ]}
+            title="view"
+            onPress={() => {
+              setOverViewClicked(true);
+              setIsShowOverView(true);
+              setIsShowStatus(false);
+              setStatusClicked(false);
             }}
           >
-            Intervall
-          </Text>
-        </Row>
-        <Row justifyContent="space-between" pr={4}>
-          <PickerComponent dataArray={data} width={size.width * 0.6} />
-          <PickerComponent dataArray={data} width={size.width * 0.3} />
-        </Row>
+            <Text
+              style={{
+                color: overView ? Colors.light.primary : Colors.light.gray500,
+                fontWeight: "bold",
+              }}
+            >
+              overview
+            </Text>
+          </Button>
 
-        <Row style={styles.buttonContainer}>
-          <CustomButton
-            title="Overview"
-            color={Colors.light.gray800}
-            Size={size.width * 0.28}
+          <Button
+            style={[
+              styles.button,
+              {
+                backgroundColor: status
+                  ? Colors.light.white
+                  : Colors.light.gray800,
+              },
+            ]}
             onPress={() => {
-              setData(initData.filter((item) => item.titel === "overview"));
+              setOverViewClicked(false);
+              setStatusClicked(true);
+              setIsShowOverView(false);
+              setIsShowStatus(true);
             }}
-          />
-          <CustomButton
-            title="Status"
-            color={Colors.light.white}
-            Size={size.width * 0.28}
-            onPress={() => {
-              setData(initData.filter((item) => item.title === "status"));
-            }}
-          />
-          <CustomButton
-            title="Maßnahme"
-            Size={size.width * 0.28}
-            onPress={() => {
-              setData(initData.filter((item) => item.title === "status"));
-            }}
-            color={Colors.light.gray800}
-          />
-        </Row>
-      </Column>
+          >
+            <Text
+              style={{
+                color: status ? Colors.light.primary : Colors.light.gray500,
+                fontWeight: "bold",
+              }}
+            >
+              Status
+            </Text>
+          </Button>
 
-      <StatusComponent />
+          <Button
+            style={styles.button}
+            title="view"
+            onPress={() => {
+              setIsShowOverView(true);
+              setIsShowStatus(false);
+            }}
+          >
+            <Text style={{ color: Colors.light.gray500, fontWeight: "bold" }}>
+              Maßnahme
+            </Text>
+          </Button>
+        </Row>
+      </View>
+
+      {isShowOverView && <OverViewComponent />}
+      {isShowStatus && <StatusComponent />}
     </View>
   );
 }
 const styles = StyleSheet.create({
   buttonContainer: {
-    marginTop: 25,
     alignItems: "center",
     justifyContent: "space-between",
-    width: size.width * 0.97,
+    width: size.width * 0.95,
     alignContent: "center",
     backgroundColor: Colors.light.gray800,
-    height: 60,
-    width: size.width * 0.95,
-    paddingHorizontal: 10,
+    height: 50,
     alignSelf: "center",
     borderRadius: 10,
+    marginBottom: 10,
   },
   iconView: {
     width: 35,
@@ -170,12 +223,12 @@ const styles = StyleSheet.create({
     height: 45,
     color: Colors.light.white,
   },
-  dropdownContainer: {
+  titleContainer: {
     justifyContent: "space-between",
     marginBottom: 10,
     alignItems: "center",
     marginRight: 20,
-    marginTop: size.height * 0.1,
+    marginTop: size.height * 0.02,
     paddingRight: 13,
   },
   inputView: {
@@ -196,6 +249,15 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: Colors.light.gray500,
     fontWeight: "bold",
+  },
+  button: {
+    width: size.width * 0.29,
+    height: size.height * 0.049,
+    backgroundColor: Colors.light.gray800,
+    borderRadius: 7,
+    marginLeft: 4,
+    marginRight: 7,
+    marginBottom: 1,
   },
 });
 export default MapStatusScreen;

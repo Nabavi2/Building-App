@@ -10,6 +10,7 @@ function CustomModal({
   visible,
   isBig = false,
   isMap = false,
+  isStatus = false,
 }) {
   const size = Layout.window;
   return (
@@ -26,7 +27,10 @@ function CustomModal({
           bg={Colors.light.black}
           onPressIn={onRequestClose}
         />
-        <ZStack h={isBig ? "92%" : "60%"} bg={"transparent"}>
+        <ZStack
+          h={isBig ? "92%" : "60%"}
+          bg={isStatus ? Colors.light.white : "transparent"}
+        >
           <Box w={"100%"} h={"100%"} bg={"black"} opacity={0.2}></Box>
           <Column
             w={"100%"}

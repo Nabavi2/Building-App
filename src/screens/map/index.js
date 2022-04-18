@@ -20,7 +20,29 @@ import FilterButton from "../../components/FilterButton";
 const size = Layout.window;
 
 function MapScreen(props) {
-  const initData = [
+  const mapModalSearchData = [
+    {
+      id: "1",
+      title: "WIE 001-001",
+      subTitle: "Crataegus laevigata P… Echter Rotdorn",
+    },
+    {
+      id: "2",
+      title: "WIE 001-001",
+      subTitle: "Crataegus laevigata ‘P… Echter Rotdorn",
+    },
+    {
+      id: "3",
+      title: "WIE 001-001",
+      subTitle: "Crataegus laevigata P… Echter Rotdorn",
+    },
+    {
+      id: "4",
+      title: "WIE 001-001",
+      subTitle: "Crataegus laevigata ‘P… Echter Rotdorn",
+    },
+  ];
+  const mapModalData = [
     {
       id: "1",
       title: "Building street here",
@@ -57,14 +79,9 @@ function MapScreen(props) {
       number: "216",
       subTitle: "Stadtteil",
     },
-    {
-      id: "7",
-      title: "Building street here",
-      number: "216",
-      subTitle: "Stadtteil",
-    },
   ];
   const [visible, setVisible] = useState(false);
+  const [isSearch, setIsSearch] = useState(false);
 
   return (
     <ImageBackground
@@ -90,7 +107,7 @@ function MapScreen(props) {
             alignSelf="center"
             marginBottom={5}
             height={1.5}
-            width={size.width * 0.05}
+            width={size.width * 0.17}
             backgroundColor={Colors.light.gray500}
             borderRadius={4}
             onPressIn={() => setVisible(!visible)}
@@ -123,7 +140,7 @@ function MapScreen(props) {
           </Row>
           <Column>
             <FlatList
-              data={initData}
+              data={mapModalData}
               keyExtractor={(item, id) => id}
               renderItem={({ item }) => {
                 return (
@@ -166,6 +183,10 @@ function MapScreen(props) {
               // marginRight: 10,
               borderRadius: 10,
               justifyContent: "center",
+            }}
+            onPress={() => {
+              setVisible(!visible);
+              setIsSearch(!isSearch);
             }}
           >
             <Column>
