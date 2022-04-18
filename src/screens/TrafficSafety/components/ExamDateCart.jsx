@@ -10,7 +10,7 @@ const size = Layout.window;
 function ExamDateCart(props) {
   return (
     <View style={styles.container}>
-      <Row style={[styles.row, { marginTop: 20 }]}>
+      <Row style={[styles.row, { marginTop: 10 }]}>
         <Text style={styles.text}>Aktiv</Text>
         <Text style={styles.text}>Ja</Text>
       </Row>
@@ -32,7 +32,7 @@ function ExamDateCart(props) {
 const styles = StyleSheet.create({
   container: {
     elevation: 1,
-    height: size.height * 0.22,
+    height: size.height * 0.2,
     width: size.width * 0.94,
     backgroundColor: Colors.light.white,
     paddingLeft: 20,

@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   container: {
     marginTop: 10,
     elevation: 0.6,
-    height: size.height * 0.28,
+    height: size.height * 0.27,
     width: size.width * 0.94,
     backgroundColor: Colors.light.white,
     paddingLeft: 10,
@@ -47,8 +47,8 @@ const styles = StyleSheet.create({
   },
   row: {
     justifyContent: "flex-start",
-    marginTop: 10,
-    marginBottom: 10,
+    marginTop: 9,
+    marginBottom: 7,
   },
   text: {
     color: Colors.light.gray500,

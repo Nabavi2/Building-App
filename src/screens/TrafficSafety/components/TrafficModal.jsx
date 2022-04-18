@@ -7,8 +7,9 @@ import {
   Image,
   Text,
   ScrollView,
+  TouchableOpacity,
 } from "react-native";
-import { Entypo, EvilIcons } from "@expo/vector-icons";
+import { Entypo, EvilIcons, MaterialCommunityIcons } from "@expo/vector-icons";
 import { Box, Column, Row } from "native-base";
 
 import CustomModal from "../../../components/CustomModal";
@@ -55,6 +56,28 @@ function TrafficModal({ visible2 = false }) {
           Prüfungsdaten
         </Text>
         <OverViewCart />
+        <Row style={{ justifyContent: "flex-end" }}>
+          <TouchableOpacity
+            style={{
+              backgroundColor: Colors.light.primary,
+              width: 60,
+              height: 60,
+              borderRadius: 30,
+              position: "relative",
+              alignItems: "center",
+              justifyContent: "center",
+              marginRight: 20,
+              marginBottom: 30,
+              elevation: 1,
+            }}
+          >
+            <MaterialCommunityIcons
+              name="camera-plus"
+              size={28}
+              color={Colors.light.white}
+            />
+          </TouchableOpacity>
+        </Row>
       </ScrollView>
     </View>
   );
