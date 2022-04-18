@@ -12,11 +12,13 @@ import FilterButton from "../../components/FilterButton";
 import SettingFilter from "./components/SettingFilter";
 import AddBuilding from "./components/AddBuilding";
 import SearchBar from "./components/SearchBar";
+import TrafficModal from "./components/TrafficModal";
 
 function TrafficSafety(props) {
   const [showSearchBar, setShowSearchBar] = useState(false);
   const [showAddBuildingModal, setShowAddBuildingModal] = useState(false);
   const [showFilterModal, setShowFilterModal] = useState(false);
+  const [visible, setVisible] = useState(false);
   const arrayData = [
     {
       title: "Lorem ipsume dolor sit amet",
@@ -105,8 +107,10 @@ function TrafficSafety(props) {
       <CustomModal
         onRequestClose={() => setShowAddBuildingModal(false)}
         visible={showAddBuildingModal}
+        isBig={true}
+        isTraffic={true}
       >
-        <AddBuilding />
+        <TrafficModal />
       </CustomModal>
       {/* Filtering the building lists */}
       <CustomModal
@@ -151,7 +155,12 @@ function TrafficSafety(props) {
             </Column>
           </Row>
           <IconContainer onPress={() => setShowAddBuildingModal(true)}>
-            <SimpleLineIcons name="options-vertical" size={20} color="black" />
+            <SimpleLineIcons
+              name="options-vertical"
+              size={20}
+              color="black"
+              onPressIn={() => setVisible(!visible)}
+            />
           </IconContainer>
         </Row>
         {/* Filter Section */}
@@ -182,6 +191,7 @@ function TrafficSafety(props) {
             />
           )}
         />
+        {visible && <TrafficModal visible={true} />}
       </Column>
     </Column>
   );

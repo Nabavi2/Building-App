@@ -161,8 +161,8 @@ function MapStatusScreen(props) {
             onPress={() => {
               setOverViewClicked(false);
               setStatusClicked(true);
-              setIsShowOverView(false);
               setIsShowStatus(true);
+              setIsShowOverView(false);
             }}
           >
             <Text

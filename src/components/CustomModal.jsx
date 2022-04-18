@@ -11,6 +11,7 @@ function CustomModal({
   isBig = false,
   isMap = false,
   isStatus = false,
+  isTraffic = false,
 }) {
   const size = Layout.window;
   return (
@@ -38,7 +39,7 @@ function CustomModal({
             pt={isMap ? 5 : "7%"}
             pl={isBig ? null : isMap ? 0 : "7%"}
             pr={isBig ? null : isMap ? 0 : "10%"}
-            bg={Colors.light.ModalBg}
+            bg={isTraffic ? Colors.light.background : Colors.light.ModalBg}
             borderTopLeftRadius={size.width / 18}
             borderTopRightRadius={size.width / 18}
             alignItems={isMap ? "center" : null}
