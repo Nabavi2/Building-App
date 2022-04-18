@@ -8,28 +8,31 @@ import {
   MenuTrigger,
 } from "react-native-popup-menu";
 import Colors from "../../../constants/Colors";
+import Layout from "../../../constants/Layout";
 
 function PopupMenu(props) {
   const navigation = useNavigation();
+  const { height, width } = Layout.window;
   return (
     <Menu onSelect={(value) => navigation.navigate("buildingInspection")}>
       <MenuTrigger
         customStyles={{
           triggerWrapper: {
-            width: 39,
-            height: 39,
+            width: width * 0.074,
+            height: height * 0.04,
             justifyContent: "center",
             alignItems: "center",
             backgroundColor: Colors.light.white,
             borderRadius: 6,
-            marginRight: 20,
+            padding: 2,
+
             elevation: 1,
           },
         }}
       >
         <Entypo
           name="dots-three-vertical"
-          size={24}
+          size={22}
           color={Colors.light.gray900}
         />
       </MenuTrigger>

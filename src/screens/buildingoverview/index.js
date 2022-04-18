@@ -15,21 +15,13 @@ import { DrawerActions, useNavigation } from "@react-navigation/native";
 import Colors from "../../constants/Colors";
 import CustomButton from "../../components/CustomButton";
 import Layout from "../../constants/Layout";
-import OverViewComponent from "./conponents/OverViewComponent";
-import CustomFilterIcon from "../../components/CustomFilterIcon";
 import GlobalStyles from "../../constants/GlobalStyles";
-import {
-  Menu,
-  MenuOption,
-  MenuOptions,
-  MenuProvider,
-  MenuTrigger,
-} from "react-native-popup-menu";
 import IconContainer from "../../components/IconContainer";
 import PopupMenu from "./conponents/PopupMenu";
 import FilterButton from "../../components/FilterButton";
 import CustomModal from "../../components/CustomModal";
 import FilterModal from "./conponents/FilterModal";
+import OVListItem from "./conponents/OVListItem";
 
 function BuildingOverViewScreen(props) {
   const size = Layout.window;
@@ -109,7 +101,6 @@ function BuildingOverViewScreen(props) {
         alignItems="flex-end"
         justifyContent="space-between"
         h={"8.85%"}
-        // bg="red.300"
       >
         <Box h="73%">
           <IconContainer
@@ -192,7 +183,7 @@ function BuildingOverViewScreen(props) {
           keyExtractor={(item, id) => id}
           renderItem={({ item }) => {
             return (
-              <OverViewComponent
+              <OVListItem
                 type={item.type}
                 title={item.title}
                 subTitle={item.subTitle}
@@ -230,6 +221,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     justifyContent: "center",
     alignSelf: "center",
+    elevation: 1,
   },
 });
 export default BuildingOverViewScreen;
