@@ -57,8 +57,11 @@ function StatusComponent({ type }) {
         isStatus={true}
         // isBig={true}
       >
-        <Column>
-          <Box alignItems="center" _text={{ fontSize: 18, fontWeight: "bold" }}>
+        <Column style={{ marginTop: 10 }}>
+          <Box
+            alignItems="center"
+            _text={{ fontSize: 18, fontWeight: "bold", mb: 7 }}
+          >
             Symptome Krone
           </Box>
           <FlatList
@@ -113,7 +116,7 @@ function StatusComponent({ type }) {
                   color: Colors.light.white,
                 }}
               >
-                Select
+                Select(2)
               </Box>
             </Pressable>
           </Row>

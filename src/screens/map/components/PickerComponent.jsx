@@ -18,6 +18,7 @@ function PickerComponent({ width, dataArray }) {
           marginLeft: 10,
           borderTopRightRadius: 13,
           borderBottomLeftRadius: 20,
+          elevation: 0.5,
         },
         { width: width },
       ]}

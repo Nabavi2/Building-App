@@ -6,6 +6,7 @@ import AppDrawerNavigator from "./DrawerNavigator";
 import LoginScreen from "../screens/Login";
 import Layout from "../constants/Layout";
 import MapStatusScreen from "../screens/map/MapStatusScreen";
+import TrafficSafety from "../screens/TrafficSafety";
 
 const Stack = createNativeStackNavigator();
 // const navigation = useNavigation();
@@ -13,7 +14,7 @@ const Stack = createNativeStackNavigator();
 const AppNavigation = (props) => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="loginScreen">
+      <Stack.Navigator initialRouteName="mapstatus">
         <Stack.Screen
           name="dashboard"
           component={AppDrawerNavigator}
@@ -25,8 +26,8 @@ const AppNavigation = (props) => {
           }}
         />
         <Stack.Screen
-          name="loginScreen"
-          component={LoginScreen}
+          name="mapstatus"
+          component={TrafficSafety}
           options={{
             title: "Global overview",
             headerTitleAlign: "center",

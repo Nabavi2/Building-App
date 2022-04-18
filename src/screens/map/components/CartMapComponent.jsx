@@ -56,6 +56,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     justifyContent: "center",
     marginTop: 6,
+    elevation: 0.5,
   },
 });
 export default CarMapComponent;
