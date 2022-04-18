@@ -9,13 +9,18 @@ import {
 
 import Colors from "../../../constants/Colors";
 import Layout from "../../../constants/Layout";
+import ListTileContainer from "../../../components/ListTileContainer";
 
 const size = Layout.window;
 
+<<<<<<< HEAD:src/screens/buildingoverview/conponents/OverViewComponent.jsx
 function OverViewComponent({ type, title, subTitle, borg }) {
+=======
+function OVListItem({ type, title, subTitle, borg }) {
+>>>>>>> 1b5eb13217be947a6f76949604766db47633d92f:src/screens/buildingoverview/conponents/OVListItem.jsx
   console.log(borg);
   return (
-    <Row style={styles.card}>
+    <ListTileContainer>
       <Row
         style={{
           justifyContent: "space-between",
@@ -108,7 +113,7 @@ function OverViewComponent({ type, title, subTitle, borg }) {
           </Box>
         </Column>
       </Row>
-    </Row>
+    </ListTileContainer>
   );
 }
 
@@ -122,4 +127,4 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
 });
-export default OverViewComponent;
+export default OVListItem;

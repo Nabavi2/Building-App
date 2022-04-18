@@ -20,6 +20,7 @@ import FilterButton from "../../components/FilterButton";
 const size = Layout.window;
 
 function MapScreen(props) {
+<<<<<<< HEAD
   const mapModalSearchData = [
     {
       id: "1",
@@ -43,6 +44,9 @@ function MapScreen(props) {
     },
   ];
   const mapModalData = [
+=======
+  const initData = [
+>>>>>>> 1b5eb13217be947a6f76949604766db47633d92f
     {
       id: "1",
       title: "Building street here",
@@ -61,7 +65,10 @@ function MapScreen(props) {
       number: "216",
       subTitle: "Stadtteil",
     },
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1b5eb13217be947a6f76949604766db47633d92f
     {
       id: "4",
       title: "Building street here",
@@ -80,9 +87,20 @@ function MapScreen(props) {
       number: "216",
       subTitle: "Stadtteil",
     },
+<<<<<<< HEAD
   ];
   const [visible, setVisible] = useState(false);
   const [isSearch, setIsSearch] = useState(false);
+=======
+    {
+      id: "7",
+      title: "Building street here",
+      number: "216",
+      subTitle: "Stadtteil",
+    },
+  ];
+  const [visible, setVisible] = useState(false);
+>>>>>>> 1b5eb13217be947a6f76949604766db47633d92f
 
   return (
     <ImageBackground
@@ -108,7 +126,11 @@ function MapScreen(props) {
             alignSelf="center"
             marginBottom={5}
             height={1.5}
+<<<<<<< HEAD
             width={size.width * 0.17}
+=======
+            width={size.width * 0.05}
+>>>>>>> 1b5eb13217be947a6f76949604766db47633d92f
             backgroundColor={Colors.light.gray500}
             borderRadius={4}
             onPressIn={() => setVisible(!visible)}
@@ -141,7 +163,11 @@ function MapScreen(props) {
           </Row>
           <Column>
             <FlatList
+<<<<<<< HEAD
               data={mapModalData}
+=======
+              data={initData}
+>>>>>>> 1b5eb13217be947a6f76949604766db47633d92f
               keyExtractor={(item, id) => id}
               renderItem={({ item }) => {
                 return (
@@ -153,6 +179,7 @@ function MapScreen(props) {
                 );
               }}
             />
+<<<<<<< HEAD
             {/* <FlatList
               data={mapModalSearchData}
               keyExtractor={(item, id) => id}
@@ -165,6 +192,8 @@ function MapScreen(props) {
                 );
               }}
             /> */}
+=======
+>>>>>>> 1b5eb13217be947a6f76949604766db47633d92f
           </Column>
         </CustomModal>
         <Pressable
@@ -197,10 +226,13 @@ function MapScreen(props) {
               borderRadius: 10,
               justifyContent: "center",
             }}
+<<<<<<< HEAD
             onPress={() => {
               setVisible(!visible);
               setIsSearch(!isSearch);
             }}
+=======
+>>>>>>> 1b5eb13217be947a6f76949604766db47633d92f
           >
             <Column>
               <Image source={require("../../../assets/path7.png")} />

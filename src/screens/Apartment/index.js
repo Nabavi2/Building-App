@@ -14,12 +14,19 @@ import { useNavigation } from "@react-navigation/native";
 
 import Colors from "../../constants/Colors";
 import Layout from "../../constants/Layout";
+<<<<<<< HEAD
 import CustomFilterIcon from "../../components/CustomFilterIcon";
 import MapComponent from "./components/MapComponent";
+=======
+>>>>>>> 1b5eb13217be947a6f76949604766db47633d92f
 import GlobalStyles from "../../constants/GlobalStyles";
 import FilterButton from "../../components/FilterButton";
 import CustomModal from "../../components/CustomModal";
 import FilterModal from "./components/FilterModal";
+<<<<<<< HEAD
+=======
+import MapListItem from "./components/MapListItem";
+>>>>>>> 1b5eb13217be947a6f76949604766db47633d92f
 
 const size = Layout.window;
 
@@ -111,7 +118,11 @@ function ApartmentScreen(props) {
       <Row
         style={{
           height: 60,
+<<<<<<< HEAD
           paddingHorizontal: 5,
+=======
+          paddingHorizontal: 10,
+>>>>>>> 1b5eb13217be947a6f76949604766db47633d92f
           alignItems: "center",
           justifyContent: "space-between",
           width: "100%",
@@ -120,7 +131,11 @@ function ApartmentScreen(props) {
         <Box _text={{ marginLeft: 5, marginTop: 3, fontSize: 18 }}>
           Showing all buildings (124)
         </Box>
+<<<<<<< HEAD
         <Box mr={3} justifyContent={"flex-end"}>
+=======
+        <Box justifyContent={"flex-end"}>
+>>>>>>> 1b5eb13217be947a6f76949604766db47633d92f
           <FilterButton onPress={() => setShowFilterModal(true)} />
         </Box>
       </Row>
@@ -132,7 +147,11 @@ function ApartmentScreen(props) {
         keyExtractor={(item, id) => id}
         renderItem={({ item }) => {
           return (
+<<<<<<< HEAD
             <MapComponent
+=======
+            <MapListItem
+>>>>>>> 1b5eb13217be947a6f76949604766db47633d92f
               type={item.type}
               title={item.title}
               subTitle={item.subTitle}
@@ -163,6 +182,10 @@ const styles = StyleSheet.create({
   },
   inputView: {
     marginTop: 10,
+<<<<<<< HEAD
+=======
+    elevation: 0.5,
+>>>>>>> 1b5eb13217be947a6f76949604766db47633d92f
     width: Dimensions.get("window").width * 0.93,
     flexDirection: "row",
     backgroundColor: Colors.light.white,

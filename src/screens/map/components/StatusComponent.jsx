@@ -1,21 +1,30 @@
 import React, { useState } from "react";
+<<<<<<< HEAD
 import { Pressable, StyleSheet, TextInput, FlatList } from "react-native";
 import { Box, Row, ScrollView, Text, View, Column } from "native-base";
+=======
+import { StyleSheet } from "react-native";
+import { Row, ScrollView, Text, View } from "native-base";
+>>>>>>> 1b5eb13217be947a6f76949604766db47633d92f
 import { Entypo, EvilIcons, AntDesign, Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
 import Colors from "../../../constants/Colors";
 import Layout from "../../../constants/Layout";
 import RowIconAndTitleComponent from "./RowIconAndTitleComponent";
+<<<<<<< HEAD
 import PickerComponent from "./PickerComponent";
 import CustomModal from "../../../components/CustomModal";
 import FilterButton from "../../../components/FilterButton";
 import MapSearchModalComponent from "./MapSearchModalComponent";
 import CarMapComponent from "./CartMapComponent";
+=======
+>>>>>>> 1b5eb13217be947a6f76949604766db47633d92f
 
 const size = Layout.window;
 
 function StatusComponent({ type }) {
+<<<<<<< HEAD
   const mapModalSearchData = [
     {
       id: "1",
@@ -127,6 +136,19 @@ function StatusComponent({ type }) {
         onPress={() => setVisible(!visible)}
         marginTop={20}
       />
+=======
+  return (
+    <ScrollView
+      contentContainerStyle={{
+        paddingLeft: 15,
+        backgroundColor: Colors.light.white,
+        marginBottom: 200,
+        paddingBottom: 20,
+        marginTop: 30,
+      }}
+    >
+      <RowIconAndTitleComponent title="Symptome Krone" />
+>>>>>>> 1b5eb13217be947a6f76949604766db47633d92f
       <Row style={styles.row}>
         <Text style={{ color: Colors.light.gray500, fontWeight: "bold" }}>
           My checklist item
@@ -142,11 +164,24 @@ function StatusComponent({ type }) {
       <RowIconAndTitleComponent title="Symptome Krone" />
       <RowIconAndTitleComponent title="Symptome Krone" />
       <RowIconAndTitleComponent title="Symptome Krone" />
+<<<<<<< HEAD
 
+=======
+      <RowIconAndTitleComponent title="Symptome Krone" />
+      <RowIconAndTitleComponent title="Symptome Krone" />
+      <RowIconAndTitleComponent title="Symptome Krone" />
+      <RowIconAndTitleComponent title="Symptome Krone" />
+      <RowIconAndTitleComponent title="Symptome Krone" />
+      <RowIconAndTitleComponent title="Symptome Krone" />
+>>>>>>> 1b5eb13217be947a6f76949604766db47633d92f
       <Text
         style={{
           color: Colors.light.primary,
           marginTop: 10,
+<<<<<<< HEAD
+=======
+          marginBottom: 20,
+>>>>>>> 1b5eb13217be947a6f76949604766db47633d92f
           fontSize: 17,
           marginLeft: 10,
         }}
@@ -158,13 +193,17 @@ function StatusComponent({ type }) {
       >
         Vitalität
       </Text>
+<<<<<<< HEAD
       <Box mb={100} mt={3} ml={2}>
         <PickerComponent width={size.width * 0.78} dataArray={data} />
       </Box>
+=======
+>>>>>>> 1b5eb13217be947a6f76949604766db47633d92f
     </ScrollView>
   );
 }
 const styles = StyleSheet.create({
+<<<<<<< HEAD
   container: {
     paddingLeft: 15,
     backgroundColor: Colors.light.white,
@@ -172,6 +211,8 @@ const styles = StyleSheet.create({
     paddingBottom: 40,
     marginTop: 5,
   },
+=======
+>>>>>>> 1b5eb13217be947a6f76949604766db47633d92f
   row: {
     backgroundColor: Colors.light.gray200,
     height: 38,
@@ -184,7 +225,10 @@ const styles = StyleSheet.create({
     paddingRight: 5,
     paddingLeft: 5,
     borderRadius: 5,
+<<<<<<< HEAD
     elevation: 0.5,
+=======
+>>>>>>> 1b5eb13217be947a6f76949604766db47633d92f
   },
 });
 export default StatusComponent;

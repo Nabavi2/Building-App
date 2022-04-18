@@ -43,7 +43,10 @@ const styles = StyleSheet.create({
     width: size.width * 0.3,
     height: size.height * 0.049,
     backgroundColor: Colors.light.primary,
+<<<<<<< HEAD
     borderRadius: 7,
+=======
+>>>>>>> 1b5eb13217be947a6f76949604766db47633d92f
     elevation: 1,
   },
   text: {
