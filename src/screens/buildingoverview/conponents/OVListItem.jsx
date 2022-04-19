@@ -112,15 +112,4 @@ function OVListItem({ type, title, subTitle, borg }) {
     </ListTileContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  card: {
-    alignSelf: "center",
-    width: Dimensions.get("window").width * 0.93,
-    height: Dimensions.get("window").height * 0.09,
-    margin: 10,
-    backgroundColor: Colors.light.white,
-    borderRadius: 10,
-  },
-});
 export default OVListItem;

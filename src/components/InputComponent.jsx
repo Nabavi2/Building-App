@@ -6,7 +6,7 @@ import Colors from "../constants/Colors";
 
 const size = Layout.window;
 
-function InputComponent({placeholder, onPress, color, Size }) {
+function InputComponent({ placeholder, onPress, color, Size }) {
   return (
     // <Button
     //   onPress={onPress}
@@ -14,27 +14,24 @@ function InputComponent({placeholder, onPress, color, Size }) {
     // >
     //   <Text style={styles.text}>{title}</Text>
     // </Button>
-    <TextInput 
-    placeholder={placeholder}
-    style={}
-    />
+    <TextInput placeholder={placeholder} />
   );
 }
 
 const styles = StyleSheet.create({
-    inputView: {
-        width: "90%",
-        flexDirection: "row",
-        backgroundColor: Colors.light.white,
-        borderRadius: 10,
-        justifyContent: "center",
-      },
-      input: {
-        width: "80%",
-        backgroundColor: Colors.light.white,
-        height: 45,
-        color: "#FFF",
-      },
+  inputView: {
+    width: "90%",
+    flexDirection: "row",
+    backgroundColor: Colors.light.white,
+    borderRadius: 10,
+    justifyContent: "center",
+  },
+  input: {
+    width: "80%",
+    backgroundColor: Colors.light.white,
+    height: 45,
+    color: "#FFF",
+  },
 });
 
 export default InputComponent;
