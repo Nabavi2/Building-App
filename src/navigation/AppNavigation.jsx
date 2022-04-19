@@ -14,7 +14,7 @@ const Stack = createNativeStackNavigator();
 const AppNavigation = (props) => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="mapstatus">
+      <Stack.Navigator initialRouteName="loginScreen">
         <Stack.Screen
           name="dashboard"
           component={AppDrawerNavigator}
@@ -26,12 +26,9 @@ const AppNavigation = (props) => {
           }}
         />
         <Stack.Screen
-          name="mapstatus"
-          component={TrafficSafety}
+          name="loginScreen"
+          component={LoginScreen}
           options={{
-            title: "Global overview",
-            headerTitleAlign: "center",
-            headerShadowVisible: false,
             headerShown: false,
           }}
         />

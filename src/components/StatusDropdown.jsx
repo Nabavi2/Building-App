@@ -46,7 +46,11 @@ function StatusDropdown({ title, list, onSelect }) {
             {currentValue.name}
           </Text>
           {currentValue.name === title && (
-            <AntDesign name="caretdown" size={12} color="black" />
+            <AntDesign
+              name="caretdown"
+              size={12}
+              color={Colors.light.subText}
+            />
           )}
         </Row>
       </MenuTrigger>

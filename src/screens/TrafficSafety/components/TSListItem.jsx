@@ -10,14 +10,42 @@ import ListTileContainer from "../../../components/ListTileContainer";
 import Colors from "../../../constants/Colors";
 import Layout from "../../../constants/Layout";
 import ListItemDetails from "./ListItemDetails";
+import Swipeout from "react-native-swipeout";
 
-function TSListItem({ title, description, grade, value, hasImage }) {
+function TSListItem({ title, description, hasImage, onCheck }) {
   const { width } = Layout.window;
   const [visible, setIsVisible] = useState(false);
+  const [isClosed, setIsClosed] = useState(false);
+  const rightButton = (
+    <Box h={"100%"} w={"100%"} justifyContent={"center"} alignItems="center">
+      <Pressable
+        w={"80%"}
+        h={"85%"}
+        bg={Colors.light.green100}
+        borderRadius="lg"
+        justifyContent={"center"}
+        alignItems={"center"}
+        android_ripple={{ color: "#c3c3d1" }}
+        onPress={() => {
+          onCheck();
+          setIsClosed(true);
+        }}
+      >
+        <Feather name="check-circle" size={38} color="white" />
+      </Pressable>
+    </Box>
+  );
   return (
     <Swipeout
+      close={isClosed}
+      autoClose={true}
       style={{ backgroundColor: Colors.light.background }}
-      right={[{ text: "helel", backgroundColor: Colors.light.green400 }]}
+      right={[
+        {
+          backgroundColor: "transparent",
+          component: rightButton,
+        },
+      ]}
     >
       <ListTileContainer onPress={() => setIsVisible(true)}>
         <Column w={"98%"} h={"100%"} justifyContent="center" px={"2%"}>
