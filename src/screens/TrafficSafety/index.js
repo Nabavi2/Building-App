@@ -1,7 +1,11 @@
 import React, { useState } from "react";
-import { StyleSheet, Modal } from "react-native";
-import { SimpleLineIcons } from "@expo/vector-icons";
-import { Column, FlatList, Image, Row, Text } from "native-base";
+import {
+  AntDesign,
+  FontAwesome,
+  FontAwesome5,
+  SimpleLineIcons,
+} from "@expo/vector-icons";
+import { Column, FlatList, Pressable, Row, Text } from "native-base";
 
 import IconContainer from "../../components/IconContainer";
 import Colors from "../../constants/Colors";
@@ -10,12 +14,12 @@ import CustomModal from "../../components/CustomModal";
 import FilterButton from "../../components/FilterButton";
 import SettingFilter from "./components/SettingFilter";
 import AddBuilding from "./components/AddBuilding";
-import SearchBar from "./components/SearchBar";
 import StatusDropdown from "../../components/StatusDropdown";
-import Swipeable from "react-native-swipeable";
 import TSListItem from "./components/TSListItem";
+import Modal from "react-native-modal";
+
 function TrafficSafety(props) {
-  const [showSearchBar, setShowSearchBar] = useState(false);
+  const [showChecks, setShowChecks] = useState(false);
   const [showAddBuildingModal, setShowAddBuildingModal] = useState(false);
   const [showFilterModal, setShowFilterModal] = useState(false);
   const arrayData = [
@@ -95,12 +99,52 @@ function TrafficSafety(props) {
       }}
     >
       <Modal
-        animationType="fade"
-        visible={showSearchBar}
-        transparent
-        onRequestClose={() => setShowSearchBar(false)}
+        style={{
+          margin: 0,
+          justifyContent: "flex-end",
+        }}
+        backdropColor="transparent"
+        isVisible={showChecks}
+        onSwipeComplete={() => setShowChecks(false)}
+        swipeDirection="down"
+        onBackdropPress={() => setShowChecks(false)}
       >
-        <SearchBar onPressOut={() => setShowSearchBar(false)} />
+        <Row
+          bottom={0}
+          justifyContent="space-between"
+          alignItems="center"
+          h={"10%"}
+          px={"10%"}
+          style={{ backgroundColor: Colors.light.gray800 }}
+        >
+          <Pressable
+            onPress={() => setShowChecks(false)}
+            h={"50%"}
+            w={"30%"}
+            justifyContent={"center"}
+            alignItems="center"
+          >
+            <Text fontSize={16} fontWeight="bold" ml={2} color={"white"}>
+              CANCEL
+            </Text>
+          </Pressable>
+          <Pressable
+            onPress={() => setShowChecks(false)}
+            bg={Colors.light.green100}
+            h={"50%"}
+            w={"40%"}
+            borderRadius={5}
+            justifyContent={"center"}
+            alignItems="center"
+          >
+            <Row>
+              <FontAwesome name="check" size={24} color="white" />
+              <Text fontSize={16} fontWeight="bold" ml={2} color={"white"}>
+                Geprüft (4)
+              </Text>
+            </Row>
+          </Pressable>
+        </Row>
       </Modal>
       {/* Adding Building list Item */}
       <CustomModal
@@ -160,9 +204,38 @@ function TrafficSafety(props) {
           justifyContent="space-between"
           alignItems="center"
         >
-          {/* Notes Button */}
+          <Row
+            alignItems={"center"}
+            justifyContent="space-around"
+            px={2.5}
+            shadow={"0"}
+            w={"40%"}
+            h={"60%"}
+            bg={"white"}
+            borderRadius={4}
+          >
+            <Text fontSize={14} color={Colors.light.subText}>
+              Alle Phase
+            </Text>
+            <AntDesign
+              name="caretdown"
+              size={12}
+              color={Colors.light.subText}
+            />
+          </Row>
+          <StatusDropdown
+            title={"Jeder status"}
+            list={[
+              { name: "Gemeldet", color: "#2bdc4d" },
+              { name: "On progress", color: "#f3c472" },
+              { name: "Streitfall", color: "#7f7f7f" },
+              { name: "Abgelehnt", color: "#c04b31" },
+              { name: "Behoben", color: "#2b99dc" },
+            ]}
+            onSelect={(value) => console.log(value)}
+          />
 
-          <FilterButton onPress={() => setShowFilterModal()} />
+          <FilterButton onPress={() => setShowFilterModal(true)} />
         </Row>
         <FlatList
           data={arrayData}
@@ -175,6 +248,7 @@ function TrafficSafety(props) {
               grade={item.grade}
               value={item.value}
               hasImage={item.hasImage}
+              onCheck={() => setShowChecks(true)}
             />
           )}
         />

@@ -263,7 +263,7 @@ function BuildingInspection(props) {
               </Text>
             </Row>
           </TouchableHighlight>
-          <FilterButton onPress={() => setShowFilterModal()} />
+          <FilterButton onPress={() => setShowFilterModal(true)} />
         </Row>
         <FlatList
           data={arrayData}
