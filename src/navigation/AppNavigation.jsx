@@ -27,7 +27,7 @@ const AppNavigation = (props) => {
         />
         <Stack.Screen
           name="loginScreen"
-          component={LoginScreen}
+          component={TrafficSafety}
           options={{
             headerShown: false,
           }}

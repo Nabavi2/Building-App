@@ -52,25 +52,12 @@ function TrafficModal({ visible2 = false }) {
       <ScrollView contentContainerStyle={{ paddingBottom: 20 }}>
         <Text style={styles.text}>Prüfungsdaten</Text>
         <ExamDateCart />
-        <Text style={[styles.text, { marginBottom: 3, marginTop: 30 }]}>
+        <Text style={[styles.text, { marginBottom: 3, marginTop: 20 }]}>
           Prüfungsdaten
         </Text>
         <OverViewCart />
         <Row style={{ justifyContent: "flex-end" }}>
-          <TouchableOpacity
-            style={{
-              backgroundColor: Colors.light.primary,
-              width: 60,
-              height: 60,
-              borderRadius: 30,
-              position: "relative",
-              alignItems: "center",
-              justifyContent: "center",
-              marginRight: 20,
-              marginBottom: 30,
-              elevation: 1,
-            }}
-          >
+          <TouchableOpacity style={styles.cameraButton}>
             <MaterialCommunityIcons
               name="camera-plus"
               size={28}
@@ -79,6 +66,9 @@ function TrafficModal({ visible2 = false }) {
           </TouchableOpacity>
         </Row>
       </ScrollView>
+      <Row>
+        
+      </Row>
     </View>
   );
 }
@@ -100,10 +90,22 @@ const styles = StyleSheet.create({
   },
   text: {
     marginLeft: 22,
-    marginTop: 20,
+    marginTop: 10,
     marginBottom: 9,
     fontWeight: "700",
     color: Colors.light.gray900,
+  },
+  cameraButton: {
+    backgroundColor: Colors.light.primary,
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    position: "relative",
+    alignItems: "center",
+    justifyContent: "center",
+    marginRight: 20,
+    marginBottom: 30,
+    elevation: 1,
   },
 });
 export default TrafficModal;

@@ -11,22 +11,22 @@ function OverViewCart(props) {
   return (
     <View style={styles.container}>
       <Column style={{ paddingLeft: 10 }}>
-        <Row style={styles.row}>
+        <Row style={[styles.row, { marginTop: 10 }]}>
           <Column>
             <Text style={styles.text}>Vorgangsnr.</Text>
-            <Text style={styles.text}>728_TH61</Text>
+            <Text style={[styles.text, { fontSize: 12 }]}>728_TH61</Text>
           </Column>
         </Row>
         <Row style={styles.row}>
           <Column>
             <Text style={styles.text}>Pflicht</Text>
-            <Text style={styles.text}>Fluchttüren</Text>
+            <Text style={[styles.text, { fontSize: 12 }]}>Fluchttüren</Text>
           </Column>
         </Row>
         <Row style={styles.row}>
           <Column>
             <Text style={styles.text}>Prüfungsart</Text>
-            <Text style={styles.text}>Sichtprüfung</Text>
+            <Text style={[styles.text, { fontSize: 12 }]}>Sichtprüfung</Text>
           </Column>
         </Row>
       </Column>
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   container: {
     marginTop: 10,
     elevation: 0.6,
-    height: size.height * 0.27,
+    height: size.height * 0.24,
     width: size.width * 0.94,
     backgroundColor: Colors.light.white,
     paddingLeft: 10,
@@ -47,8 +47,7 @@ const styles = StyleSheet.create({
   },
   row: {
     justifyContent: "flex-start",
-    marginTop: 9,
-    marginBottom: 7,
+    marginBottom: size.height * 0.02,
   },
   text: {
     color: Colors.light.gray500,

@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-
 import { Avatar, Box, Column, Row, Text } from "native-base";
 import Swipeout from "react-native-swipeout";
-import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
+import { Feather, Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 
 import CustomBadge from "../../../components/CustomBadge";
 import CustomModal from "../../../components/CustomModal";
@@ -10,7 +9,7 @@ import ListTileContainer from "../../../components/ListTileContainer";
 import Colors from "../../../constants/Colors";
 import Layout from "../../../constants/Layout";
 import ListItemDetails from "./ListItemDetails";
-import Swipeout from "react-native-swipeout";
+import { Pressable } from "react-native";
 
 function TSListItem({ title, description, hasImage, onCheck }) {
   const { width } = Layout.window;

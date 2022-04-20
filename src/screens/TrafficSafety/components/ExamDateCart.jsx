@@ -32,7 +32,7 @@ function ExamDateCart(props) {
 const styles = StyleSheet.create({
   container: {
     elevation: 1,
-    height: size.height * 0.2,
+    height: size.height * 0.18,
     width: size.width * 0.94,
     backgroundColor: Colors.light.white,
     paddingLeft: 20,
