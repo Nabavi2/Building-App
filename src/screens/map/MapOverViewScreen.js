@@ -53,7 +53,7 @@ function MapOverViewScreen(props) {
     {
       id: "5",
       type: "ontime",
-      title: "Am Schawrzenberg 19, 21, 23",
+      title: "Am Schawrzenberg, 21, 23",
       subTitle: "VE. 130-300",
       borg: "Würzburg",
     },

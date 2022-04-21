@@ -39,7 +39,7 @@ function MapScreen(props) {
     {
       id: "4",
       title: "WIE 001-001",
-      subTitle: "Crataegus laevigata ‘P… Echter Rotdorn",
+      subTitle: "Crataegus laevigata ‘P… r Rotdorn",
     },
   ];
   const mapModalData = [
@@ -57,7 +57,7 @@ function MapScreen(props) {
     },
     {
       id: "3",
-      title: "Building street here",
+      title: "Building streethere",
       number: "216",
       subTitle: "Stadtteil",
     },
